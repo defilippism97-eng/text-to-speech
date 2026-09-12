@@ -4,7 +4,7 @@ import re
 import os
 from pydub import AudioSegment
 
-VOICE = "it-IT-DiegoNeural"
+VOICE = "it-IT-GiuseppeMultilingualNeural"
 SRC_DIR = "testo_pulito"
 TMP_DIR = "tmp_chunks"
 OUT_DIR = "audio_output"
