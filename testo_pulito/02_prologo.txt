@@ -1,0 +1,238 @@
+Prologo
+ 
+ [[PAUSA:500ms]]
+ L'inerzia silenziosa della democrazia
+
+ [[PAUSA:900ms]]
+
+ 
+ 
+ 
+ «Quando la democrazia si addormenta, l'algoritmo prende il suo posto».
+ 
+ 
+
+ [[PAUSA:1000ms]]
+
+ L'uomo ha smesso di guardare il cielo. [[PAUSA:300ms]]
+ Ha abbassato lo sguardo su uno schermo.
+
+ [[PAUSA:700ms]]
+
+ Ogni giorno chiediamo a una macchina chi siamo, dove andare, cosa pensare, chi amare. [[PAUSA:300ms]]
+ Senza accorgercene. [[PAUSA:400ms]]
+ Per abitudine, non per costrizione. [[PAUSA:250ms]]
+ Per convenienza, non per obbedienza. [[PAUSA:400ms]]
+ Con la serenità di chi si crede libero mentre diventa controllabile. [[PAUSA:400ms]]
+ È come se avessimo affidato al dispositivo che teniamo in tasca le domande fondamentali della
+ filosofia.
+
+ [[PAUSA:700ms]]
+
+ Abbiamo scambiato la comodità con la libertà, [[PAUSA:200ms]]
+ la velocità con il progresso, [[PAUSA:200ms]]
+ la connessione con la socializzazione. [[PAUSA:400ms]]
+ La notifica ha sostituito la riflessione. [[PAUSA:250ms]]
+ L'archivio ha preso il posto della memoria. [[PAUSA:350ms]]
+ Volevamo semplificare la vita. [[PAUSA:250ms]]
+ Abbiamo travisato la libertà. [[PAUSA:250ms]]
+ Abbiamo spostato lo sguardo.
+
+ [[PAUSA:700ms]]
+
+ Sarebbe rassicurante pensare che tutto questo sia avvenuto contro la nostra volontà. [[PAUSA:500ms]]
+ La verità è meno rassicurante.
+
+ [[PAUSA:800ms]]
+
+ Gli algoritmi non hanno conquistato il potere soltanto perché erano più intelligenti. [[PAUSA:300ms]]
+ Lo hanno conquistato perché hanno soddisfatto desideri profondamente umani: [[PAUSA:250ms]]
+ la tentazione di delegare complessità, la riduzione dell'incertezza, il bisogno di conferme
+ immediate.
+
+ [[PAUSA:700ms]]
+
+ Abbiamo accettato di essere profilati in cambio di servizi gratuiti. [[PAUSA:300ms]]
+ Lo abbiamo fatto un clic dopo l'altro, [[PAUSA:200ms]]
+ spuntando caselle che non leggevamo, [[PAUSA:200ms]]
+ concedendo autorizzazioni che non comprendevamo, [[PAUSA:200ms]]
+ convinti che il prezzo fosse nullo. [[PAUSA:400ms]]
+ Eppure un prezzo c'era: [[PAUSA:200ms]]
+ le nostre abitudini, le nostre preferenze, i nostri spostamenti, il nostro tempo, la nostra
+ attenzione.
+
+ [[PAUSA:800ms]]
+
+ Il problema non è solo ciò che gli algoritmi fanno di noi. [[PAUSA:300ms]]
+ È ciò che noi abbiamo chiesto agli algoritmi di diventare.
+
+ [[PAUSA:700ms]]
+
+ Ogni sistema tecnologico riflette una domanda umana precedente. [[PAUSA:300ms]]
+ E forse la vera crisi democratica del nostro tempo nasce dal fatto che abbiamo smesso di
+ educare il desiderio collettivo, [[PAUSA:200ms]]
+ lasciando che fosse il mercato a farlo al nostro posto.
+
+ [[PAUSA:800ms]]
+
+ Sotto la superficie liscia delle interfacce cresce un potere nuovo. [[PAUSA:300ms]]
+ 
+ Muto. [[PAUSA:300ms]]
+ Distribuito. [[PAUSA:400ms]]
+ Non si elegge, non si contesta, non si detronizza. [[PAUSA:400ms]]
+ Non ha volto: possiede tutto ciò che siamo.
+ 
+
+ [[PAUSA:800ms]]
+
+ Il nuovo potere non governa con leggi. [[PAUSA:250ms]]
+ Governa con logiche. [[PAUSA:350ms]]
+ Decide il prezzo che vediamo, l'ordine delle notizie che leggeremo, la pratica che passa
+ davanti alle altre.
+
+ [[PAUSA:700ms]]
+
+ L'algoritmo non dorme. [[PAUSA:250ms]]
+ Lavora mentre dormiamo, apprende mentre dimentichiamo, decide mentre crediamo di
+ scegliere. [[PAUSA:500ms]]
+
+ È una scena che si ripete milioni di volte ogni giorno. [[PAUSA:300ms]]
+ Una ragazza apre il telefono per controllare l'ora. [[PAUSA:300ms]]
+ Cinque minuti dopo sta leggendo un articolo che non aveva cercato, [[PAUSA:200ms]]
+ guardando un video che non aveva scelto, [[PAUSA:200ms]]
+ desiderando un oggetto che fino a pochi istanti prima ignorava.
+
+ [[PAUSA:700ms]]
+
+ Se qualcuno le chiedesse chi abbia preso quelle decisioni, risponderebbe: [[PAUSA:200ms]]
+ «Io». [[PAUSA:400ms]]
+ E avrebbe ragione solo in parte. [[PAUSA:300ms]]
+ Perché qualcuno, molto prima di lei, aveva già deciso quale sentiero sarebbe stato il più facile
+ da percorrere.
+
+ [[PAUSA:900ms]]
+
+ 
+ È la nuova infrastruttura del potere: onnipresente, silenziosa, efficiente. [[PAUSA:400ms]]
+ Il suo dominio non nasce dal male. [[PAUSA:300ms]]
+ Nasce dalla nostra indifferenza. [[PAUSA:500ms]]
+ Non vive nei palazzi: vive nelle infrastrutture. [[PAUSA:300ms]]
+ Non parla alle masse: parla alle nostre abitudini. [[PAUSA:300ms]]
+ Non gli servono censure: basta il frastuono di tutto a nascondere ciò che conta. [[PAUSA:300ms]]
+ Non gli servono catene: bastano le metriche del consenso. [[PAUSA:300ms]]
+ Non gli servono soldati: bastano i dati.
+ 
+
+ [[PAUSA:900ms]]
+
+ La democrazia, intanto, è ammutolita. [[PAUSA:300ms]]
+ Resta nei manuali, nei discorsi ufficiali. [[PAUSA:300ms]]
+ Ha smesso di parlarci.
+
+ [[PAUSA:800ms]]
+
+ Il potere tradizionale, che spesso si esprime attraverso la forza, non è più l'unica forma di
+ controllo. [[PAUSA:400ms]]
+ Ovunque, sta crescendo un nuovo tipo di potere che si esercita attraverso la forma: [[PAUSA:250ms]]
+ un like, un voto elettronico, una preferenza registrata, un algoritmo che decide chi vede cosa,
+ chi conta, chi esiste. [[PAUSA:500ms]]
+
+ Di fronte a questo tipo di potere, non abbiamo perso la libertà di scegliere, [[PAUSA:200ms]]
+ ma prima ancora, la possibilità di capire quando e perché stiamo scegliendo.
+
+ [[PAUSA:800ms]]
+
+ Le parole che erano il cuore della politica — popolo, rappresentanza, uguaglianza, sovranità —
+ [[PAUSA:300ms]]
+ si sono gradualmente svuotate. [[PAUSA:300ms]]
+ Si sono riempite di pixel, dati, metriche. [[PAUSA:350ms]]
+ Continuiamo a pronunciarle come se nulla fosse cambiato.
+
+ [[PAUSA:800ms]]
+
+ Attribuirlo a un complotto esterno sarebbe comodo. [[PAUSA:300ms]]
+ È anzitutto un nostro atteggiamento di inerzia.
+
+ [[PAUSA:700ms]]
+
+ A decidere non è più chi rappresenta il popolo: [[PAUSA:200ms]]
+ è chi raccoglie e interpreta i dati. [[PAUSA:400ms]]
+ La politica è rimasta indietro. [[PAUSA:250ms]]
+ Il potere ha imparato a calcolare. [[PAUSA:300ms]]
+ Il diritto avanza al passo dei codici di carta. [[PAUSA:250ms]]
+ La tecnologia corre alla velocità dei bit.
+
+ [[PAUSA:900ms]]
+
+ La democrazia doveva essere la voce di tutti. [[PAUSA:350ms]]
+ È diventata, troppo spesso, il rumore di ognuno. [[PAUSA:500ms]]
+
+ Un flusso continuo di opinioni, commenti e indignazioni che si rincorrono senza trasformarsi
+ in un autentico confronto. [[PAUSA:400ms]]
+ Le reti digitali hanno moltiplicato le possibilità di esprimersi, [[PAUSA:200ms]]
+ ma non hanno necessariamente accresciuto la capacità di ascoltare. [[PAUSA:400ms]]
+ Parlare non significa partecipare; [[PAUSA:250ms]]
+ essere visibili non equivale a incidere sulle decisioni collettive. [[PAUSA:400ms]]
+ Così il dibattito pubblico rischia di frammentarsi in una somma di monologhi, [[PAUSA:200ms]]
+ dove ogni voce cerca attenzione ma poche cercano comprensione.
+
+ [[PAUSA:900ms]]
+
+ Denunciamo la manipolazione dell'informazione, [[PAUSA:200ms]]
+ ma ogni volta che condividiamo impulsivamente un contenuto non verificato, [[PAUSA:200ms]]
+ ogni volta che premiamo con un clic ciò che suscita rabbia o paura, [[PAUSA:200ms]]
+ contribuiamo ad alimentare gli stessi meccanismi che critichiamo. [[PAUSA:500ms]]
+
+ Temiamo l'intelligenza artificiale come fosse una forza esterna, [[PAUSA:200ms]]
+ eppure le affidiamo quotidianamente una parte crescente delle nostre decisioni: [[PAUSA:250ms]]
+ quale percorso seguire, quale film guardare, quale notizia leggere, quale prodotto acquistare,
+ perfino quale persona incontrare. [[PAUSA:500ms]]
+
+ Senza accorgercene, deleghiamo ai sistemi digitali una porzione sempre più ampia della nostra
+ capacità di scegliere.
+
+ [[PAUSA:1000ms]]
+
+ 
+ Eppure non è troppo tardi per immaginare un cambiamento. [[PAUSA:400ms]]
+ Nessun sistema è inevitabile. [[PAUSA:350ms]]
+ Ogni tecnologia è il risultato di scelte umane, [[PAUSA:200ms]]
+ e ciò che è stato progettato può essere ripensato. [[PAUSA:400ms]]
+ Gli algoritmi possono essere resi trasparenti, [[PAUSA:200ms]]
+ le piattaforme possono essere sottoposte a regole condivise, [[PAUSA:200ms]]
+ le istituzioni possono evolversi insieme alla società. [[PAUSA:500ms]]
+
+ Anche la democrazia può rinascere, non rinnegando sé stessa, [[PAUSA:200ms]]
+ ma recuperando la propria vocazione originaria: [[PAUSA:250ms]]
+ essere uno spazio in cui il potere non si limita a rappresentare i cittadini, [[PAUSA:200ms]]
+ ma viene costruito, controllato e continuamente rinnovato [[PAUSA:200ms]]
+ attraverso la loro partecipazione consapevole.
+ 
+
+ [[PAUSA:900ms]]
+
+ 
+ La democrazia non è una forma di governo immutabile: è un progetto collettivo che ogni
+ generazione è chiamata a riscrivere.
+ 
+
+ [[PAUSA:900ms]]
+
+ Questo libro non è un saggio contro la tecnologia, [[PAUSA:200ms]]
+ e non nasce dalla nostalgia per un passato analogico. [[PAUSA:400ms]]
+ È un tentativo di restituire al governo un significato politico più profondo. [[PAUSA:300ms]]
+ Di riaprire le domande: [[PAUSA:200ms]]
+ chi decide, come decide, per chi.
+
+ [[PAUSA:900ms]]
+
+ Il futuro si progetta. [[PAUSA:600ms]]
+ Non sappiamo se la democrazia sopravvivrà all'algoritmo. [[PAUSA:500ms]]
+ Sappiamo che, se smettiamo di pensarla, la perderemo senza accorgercene.
+
+ [[PAUSA:1000ms]]
+
+ 
+ 
+ Questo è l'istante prima del codice. [[PAUSA:600ms]]
+ Il punto esatto in cui scegliamo se subirlo o riscriverlo.

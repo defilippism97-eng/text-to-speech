@@ -1,0 +1,725 @@
+Due virgola otto — La privatizzazione strisciante del potere politico
+
+ [[PAUSA:800ms]]
+
+ C'è un passaggio ancora più delicato: [[PAUSA:200ms]]
+ molte infrastrutture tecnologiche non appartengono agli Stati né ai cittadini, ma a
+ corporation private. [[PAUSA:500ms]]
+
+ Aziende di intelligenza artificiale e piattaforme social stabiliscono standard globali di
+ comportamento. [[PAUSA:400ms]]
+ A rendere il problema ancora più sfuggente è la geografia.
+
+ [[PAUSA:900ms]]
+
+ Lo Stato moderno è nato per governare uno spazio delimitato: [[PAUSA:200ms]]
+ un territorio, dei confini, una comunità di cittadini sottoposta a un determinato ordinamento
+ giuridico. [[PAUSA:500ms]]
+
+ I dati, invece, non riconoscono questa geografia. [[PAUSA:400ms]]
+ Possono essere raccolti a Milano, archiviati in Irlanda, elaborati negli Stati Uniti [[PAUSA:200ms]]
+ e tornare a produrre effetti sulle nostre scelte da un Paese che non abbiamo mai attraversato.
+ [[PAUSA:600ms]]
+
+ Una Costituzione tutela chi si trova entro i confini dello Stato; [[PAUSA:200ms]]
+ un sistema algoritmico, invece, può influenzarne il comportamento dall'esterno, [[PAUSA:200ms]]
+ senza presentarsi come un'autorità politica e senza essere realmente sottoposto al controllo
+ di alcuna giurisdizione. [[PAUSA:600ms]]
+
+ Così, istituzioni progettate per custodire confini territoriali si confrontano con un potere che
+ trae la propria forza proprio dalla capacità di attraversarli e renderli, in parte, irrilevanti. [[PAUSA:500ms]]
+
+ Le big tech definiscono regole di privacy, accesso ai dati, visibilità dei contenuti. [[PAUSA:300ms]]
+ I governi, spesso, inseguono.
+
+ [[PAUSA:900ms]]
+
+ Parti sempre più ampie della sovranità — informativa, culturale, sociale, economica — [[PAUSA:200ms]]
+ sono state privatizzate senza un vero dibattito democratico.
+
+ [[PAUSA:900ms]]
+
+ Limitiamoci a osservare la fragilità degli attuali centri di potere tecnologico. [[PAUSA:400ms]]
+ Nel 11-2023 il futuro di una delle
+ organizzazioni che sviluppano le intelligenze artificiali più avanzate al mondo, OpenAI, [[PAUSA:200ms]]
+ fu deciso e poi ribaltato in pochi giorni: [[PAUSA:300ms]]
+ l'amministratore delegato Sam Altman venne rimosso dal consiglio di amministrazione [[PAUSA:200ms]]
+ e reintegrato meno di una settimana dopo, [[PAUSA:200ms]]
+ in uno scontro tra dirigenti, investitori, dipendenti e membri del board.
+
+ [[PAUSA:900ms]]
+
+ Al di là dell'esito, l'episodio rese visibile una realtà spesso ignorata: [[PAUSA:300ms]]
+ tecnologie destinate a incidere su lavoro, informazione, istruzione, sicurezza ed economia
+ globale [[PAUSA:200ms]]
+ vengono sviluppate e governate dentro organizzazioni private, senza un mandato
+ democratico diretto. [[PAUSA:500ms]]
+
+ Il punto non è lo scontro societario in sé. [[PAUSA:400ms]]
+ 
+ È che decisioni capaci di influenzare la vita collettiva mondiale vengano prese in luoghi che
+ la democrazia non ha progettato, eletto né imparato a governare.
+ [[PAUSA:600ms]]
+
+ Il potere politico non è stato sottratto con un colpo di Stato; è stato ceduto lentamente in
+ cambio di comodità, innovazione e servizi «gratuiti».
+
+ [[PAUSA:1000ms]]
+
+ Il punto non riguarda solo l'intelligenza artificiale. [[PAUSA:400ms]]
+ Nel 7-2024, un aggiornamento difettoso di
+ CrowdStrike colpì circa 8,5 milioni di dispositivi
+ Windows: [[PAUSA:300ms]]
+ meno dell'1 per cento del totale, [[PAUSA:200ms]]
+ ma abbastanza da generare effetti globali perché quei sistemi erano inseriti in ospedali,
+ compagnie aeree, banche, servizi pubblici e imprese critiche.
+
+ [[PAUSA:1000ms]]
+
+ Questi episodi fotografano il presente. [[PAUSA:400ms]]
+ Alcuni scenari provano a immaginare dove possa condurre. [[PAUSA:500ms]]
+
+ Nel 2025 un gruppo di ricercatori ha
+ pubblicato AI 2027, uno scenario costruito su estrapolazioni, wargame e previsioni d'esperti:
+ [[PAUSA:300ms]]
+ non una profezia, ma uno stress test. [[PAUSA:500ms]]
+
+ La domanda che pone non è se la macchina arriverà nel
+ 2027, nel
+ 2030 o più tardi. [[PAUSA:400ms]]
+ È un'altra: [[PAUSA:200ms]]
+ se una tecnologia capace di accelerare ricerca, economia, guerra e persuasione dovesse
+ emergere in pochi anni, [[PAUSA:200ms]]
+ chi deciderebbe cosa farne? [[PAUSA:500ms]]
+
+ 
+ Un'azienda, un comitato, un presidente — [[PAUSA:200ms]]
+ o una comunità politica capace di controllare il codice prima che il codice controlli lei?
+ 
+
+ [[PAUSA:1200ms]]
+
+ 
+ Due virgola nove — La democrazia algoritmica spontanea (e pericolosa)
+
+ [[PAUSA:800ms]]
+
+ La democrazia algoritmica non appartiene soltanto al futuro. [[PAUSA:400ms]]
+ Le sue prime forme, ancora frammentarie e spesso invisibili, sono già tra noi. [[PAUSA:500ms]]
+
+ Ogni volta che un sistema automatico contribuisce a orientare il dibattito pubblico, [[PAUSA:200ms]]
+ a determinare priorità o a influenzare decisioni che riguardano la collettività, [[PAUSA:200ms]]
+ una parte del potere democratico si sposta, silenziosamente, verso il codice.
+
+ [[PAUSA:900ms]]
+
+ Il meccanismo è sotto gli occhi di tutti. [[PAUSA:400ms]]
+ Ogni clic, ogni like, ogni secondo di permanenza è una preferenza contata. [[PAUSA:500ms]]
+
+ L'aggregato di miliardi di preferenze decide che cosa diventa visibile, normale, desiderabile,
+ redditizio; [[PAUSA:200ms]]
+ e che cosa scompare.
+
+ [[PAUSA:800ms]]
+
+ La scala non è più marginale. [[PAUSA:400ms]]
+ A inizio 2025, secondo DataReportal, [[PAUSA:200ms]]
+ gli utenti Internet erano 5,56 miliardi [[PAUSA:200ms]]
+ e le identità social attive 5,24 miliardi: [[PAUSA:300ms]]
+ una massa di segnali comportamentali che nessuna istituzione democratica tradizionale ha
+ mai saputo osservare in tempo reale.
+
+ [[PAUSA:900ms]]
+
+ 
+ Esiti collettivi che emergono ogni giorno da milioni di voti che nessuno ha espresso come
+ voti: un plebiscito permanente che nessuno ha deliberato.
+ 
+
+ [[PAUSA:900ms]]
+
+ Questa «democrazia» è spontanea solo in apparenza. [[PAUSA:400ms]]
+ Non nasce da un patto sociale, ma da una raccolta di dati spesso opaca. [[PAUSA:400ms]]
+ Non risponde alla volontà popolare, ma alla logica del profitto e dell'attenzione.
+
+ [[PAUSA:800ms]]
+
+ 
+ L'algocrazia esiste già. La partita è già cominciata senza di noi. [[PAUSA:500ms]]
+ La domanda vera diventa allora: nelle mani di chi resterà?
+ 
+
+ [[PAUSA:1200ms]]
+
+ 
+ Due virgola dieci — Overload informativo e crisi dell'attenzione
+
+ [[PAUSA:800ms]]
+
+ L'eccesso di informazione genera rumore più che conoscenza. [[PAUSA:400ms]]
+ Lo aveva sperimentato Claudio, quella notte alle ventitré: [[PAUSA:200ms]]
+ dopo due ore aveva letto moltissimo e ricordava pochissimo. [[PAUSA:500ms]]
+
+ Non per debolezza, ma perché trattenere senza far capire è parte del funzionamento. [[PAUSA:500ms]]
+
+ L'informazione, da risorsa di libertà, può diventare pressione cognitiva: [[PAUSA:200ms]]
+ sovrastimolazione che riduce la capacità di comprendere, ricordare, scegliere. [[PAUSA:500ms]]
+
+ L'overload informativo non è la mancanza di informazioni, ma il loro eccesso.
+
+ [[PAUSA:900ms]]
+
+ 
+ È come entrare in una biblioteca in cui tutti i libri sono aperti nello stesso momento, [[PAUSA:200ms]]
+ le pagine volano, gli scaffali non hanno etichette [[PAUSA:200ms]]
+ e ogni volume reclama la nostra attenzione. [[PAUSA:500ms]]
+
+ In un ambiente simile il problema non è accedere alla conoscenza, ma riuscire a orientarsi.
+ 
+
+ [[PAUSA:900ms]]
+
+ Per questo una maggiore disponibilità di informazioni non produce automaticamente
+ cittadini più informati: [[PAUSA:200ms]]
+ senza criteri per selezionare, ordinare e interpretare ciò che leggiamo, l'abbondanza si
+ trasforma in disorientamento [[PAUSA:200ms]]
+ e la libertà di accesso rischia di diventare una forma di impotenza.
+
+ [[PAUSA:900ms]]
+
+ Il potere digitale non controlla solo i dati. [[PAUSA:300ms]]
+ Controlla la distribuzione dell'attenzione. [[PAUSA:500ms]]
+
+ Le piattaforme non cercano necessariamente di convincere: cercano di trattenere. [[PAUSA:400ms]]
+ L'overload non è un effetto collaterale; è il modello di business. [[PAUSA:400ms]]
+ Trattenere produce valore, e il frastuono che ne deriva diventa una censura senza censori: [[PAUSA:200ms]]
+ seppellire ciò che conta sotto tutto il resto.
+
+ [[PAUSA:900ms]]
+
+ Ogni notifica è un micro-prelievo di tempo mentale. [[PAUSA:400ms]]
+ Non sottrae soltanto pochi secondi alla nostra giornata: [[PAUSA:200ms]]
+ interrompe un processo di concentrazione, frammenta il pensiero, [[PAUSA:200ms]]
+ sposta la nostra presenza da ciò che stavamo facendo verso ciò che qualcun altro ha deciso di
+ mostrarci. [[PAUSA:500ms]]
+
+ L'attenzione, un tempo considerata una semplice capacità personale, è diventata una delle
+ risorse più contese del nostro tempo.
+
+ [[PAUSA:900ms]]
+
+ Le piattaforme digitali non competono soltanto per venderci prodotti o servizi: [[PAUSA:200ms]]
+ competono per ottenere una parte della nostra mente. [[PAUSA:500ms]]
+
+ Ogni clic, ogni visualizzazione, ogni interazione produce valore economico [[PAUSA:200ms]]
+ e alimenta sistemi progettati per trattenere lo sguardo il più a lungo possibile. [[PAUSA:500ms]]
+
+ In questo mercato invisibile, il bene più prezioso non è più soltanto ciò che possediamo, [[PAUSA:200ms]]
+ ma il tempo che concediamo.
+
+ [[PAUSA:1000ms]]
+
+ 
+ L'attenzione è diventata una moneta più scarsa dell'oro e più instabile della fiducia, [[PAUSA:200ms]]
+ perché non può essere accumulata: può soltanto essere catturata, spostata e consumata.
+ [[PAUSA:600ms]]
+
+ E quando una società perde la capacità di concentrare la propria attenzione, [[PAUSA:200ms]]
+ perde anche una parte della propria capacità di riflettere, deliberare e scegliere. [[PAUSA:500ms]]
+
+ Una democrazia, infatti, non vive soltanto di cittadini liberi di esprimersi, [[PAUSA:200ms]]
+ ma di cittadini capaci di fermarsi, comprendere e valutare.
+
+ [[PAUSA:900ms]]
+
+ Per questo la battaglia contemporanea non riguarda solo il controllo delle informazioni, [[PAUSA:200ms]]
+ ma il controllo del tempo necessario per interpretarle. [[PAUSA:500ms]]
+
+ Chi riesce a governare l'attenzione non decide necessariamente cosa penseremo, [[PAUSA:200ms]]
+ ma può decidere cosa riusciremo a vedere, cosa raggiungerà la nostra coscienza e cosa resterà
+ fuori dal nostro campo visivo.
+
+ [[PAUSA:900ms]]
+
+ L'overload informativo produce una società apparentemente iperconsapevole, ma spesso
+ impoverita nella capacità di capire. [[PAUSA:500ms]]
+
+ 
+ Tutti sanno tutto, pochi trattengono davvero qualcosa. [[PAUSA:400ms]]
+ La percezione sostituisce la comprensione, l'emozione prende il posto dell'analisi, la viralità
+ rimpiazza la verità. [[PAUSA:500ms]]
+ L'opinione pubblica diventa un flusso emotivo aggiornato e subito dimenticato.
+ 
+
+ [[PAUSA:900ms]]
+
+ Sul piano digitale, la democrazia rischia di perdere la propria infrastruttura più fragile:
+ l'attenzione condivisa. [[PAUSA:500ms]]
+
+ 
+ Senza attenzione non c'è deliberazione; senza deliberazione non c'è decisione; senza
+ decisione condivisa, la politica si dissolve in reazione.
+ [[PAUSA:600ms]]
+
+ La libertà richiede discernimento. E il discernimento non cresce nella disattenzione.
+
+ [[PAUSA:1200ms]]
+
+ 
+ Due virgola undici — Perché non serve soltanto regolare
+
+ [[PAUSA:800ms]]
+
+ La risposta dominante è stata: regolare. [[PAUSA:400ms]]
+ È una risposta necessaria, ma insufficiente. [[PAUSA:500ms]]
+
+ Le leggi faticano a stare al passo con l'evoluzione tecnologica; [[PAUSA:200ms]]
+ le istituzioni non sempre possiedono le competenze per controllare sistemi così complessi;
+ [[PAUSA:200ms]]
+ la scala globale del potere digitale indebolisce le giurisdizioni. [[PAUSA:500ms]]
+
+ Lo Stato impiega anni a scrivere una norma; [[PAUSA:200ms]]
+ una piattaforma può impiegare ore a rilasciare un aggiornamento che ne aggira lo spirito.
+
+ [[PAUSA:900ms]]
+
+ Lo mostrano fatti quotidiani. [[PAUSA:400ms]]
+ Il regolamento europeo sulla privacy richiede, a determinate condizioni, un consenso libero e
+ informato. [[PAUSA:400ms]]
+ Molte piattaforme hanno risposto con banner progettati in modo asimmetrico: [[PAUSA:200ms]]
+ accettare richiede un clic, rifiutare un percorso a ostacoli. [[PAUSA:400ms]]
+ La lettera della legge sembra rispettata; lo spirito viene svuotato miliardi di volte al giorno.
+
+ [[PAUSA:1000ms]]
+
+ C'è una ragione ancora più profonda per cui la regolazione fatica a tenere il passo, [[PAUSA:200ms]]
+ e riguarda la forma stessa delle istituzioni. [[PAUSA:500ms]]
+
+ Lo Stato moderno distribuisce il controllo in ambiti distinti: [[PAUSA:200ms]]
+ un'autorità vigila sulla privacy, un'altra sulla concorrenza, un'altra ancora sulla sicurezza o
+ sulla tutela dei consumatori. [[PAUSA:500ms]]
+
+ Questa specializzazione è una garanzia contro l'arbitrio, ma comporta anche una
+ frammentazione dello sguardo. [[PAUSA:500ms]]
+
+ Ogni istituzione osserva una parte del problema, mentre le grandi piattaforme operano su
+ tutte le parti contemporaneamente. [[PAUSA:500ms]]
+
+ Per un sistema algoritmico non esistono confini tra commercio, informazione, relazioni
+ sociali o intrattenimento: [[PAUSA:200ms]]
+ il modo in cui acquistiamo, ci informiamo, comunichiamo e reagiamo emotivamente
+ appartiene allo stesso flusso di dati. [[PAUSA:500ms]]
+
+ Così, mentre il controllo pubblico procede per compartimenti, il potere algoritmico agisce
+ come un unico ecosistema, [[PAUSA:200ms]]
+ capace di collegare fenomeni che le istituzioni continuano a trattare separatamente.
+
+ [[PAUSA:1000ms]]
+
+ Esiste poi un'asimmetria ancora più sottile, che riguarda il modo in cui il diritto concepisce il
+ soggetto da proteggere. [[PAUSA:500ms]]
+
+ Gran parte delle garanzie giuridiche nasce per tutelare l'individuo: [[PAUSA:200ms]]
+ il suo consenso, la sua privacy, i suoi dati personali, i suoi diritti. [[PAUSA:500ms]]
+
+ Ma i sistemi algoritmici raramente hanno bisogno di conoscere davvero una persona. [[PAUSA:400ms]]
+ Per influenzarne il comportamento è spesso sufficiente collocarla all'interno di una categoria
+ statistica: [[PAUSA:200ms]]
+ individui con abitudini simili, paure simili, desideri simili, vulnerabilità simili. [[PAUSA:500ms]]
+
+ L'obiettivo non è comprendere il singolo, ma prevedere il comportamento del gruppo e
+ modificare le probabilità con cui quel comportamento si manifesterà.
+
+ [[PAUSA:1000ms]]
+
+ È qui che nasce uno scarto decisivo. [[PAUSA:400ms]]
+ Il danno non si presenta più come una lesione chiaramente riconoscibile subita da una
+ persona, [[PAUSA:200ms]]
+ ma come un effetto distribuito su migliaia o milioni di individui. [[PAUSA:500ms]]
+
+ Nessuno può dimostrare con certezza di essere stato manipolato; [[PAUSA:200ms]]
+ eppure un'intera popolazione può essere stata orientata nella stessa direzione [[PAUSA:200ms]]
+ attraverso micro-influenze impercettibili prese, una per una, come irrilevanti. [[PAUSA:500ms]]
+
+ Il diritto cerca una vittima identificabile, un responsabile e un nesso causale. [[PAUSA:400ms]]
+ Il potere algoritmico, invece, opera modificando distribuzioni, probabilità e comportamenti
+ collettivi. [[PAUSA:500ms]]
+
+ Per questo una tutela costruita intorno all'individuo rischia di arrivare sempre in ritardo di
+ fronte a un potere che agisce, fin dall'inizio, sulle popolazioni statistiche più che sulle
+ persone.
+
+ [[PAUSA:1000ms]]
+
+ 
+ Il limite più profondo è architettonico. La regola arriva sopra infrastrutture che
+ appartengono ad altri.
+ [[PAUSA:500ms]]
+
+ Finché progetto, dati e codice restano nelle mani del proprietario della piattaforma, [[PAUSA:200ms]]
+ quel proprietario conserva un potere enorme nel definire le regole effettive del gioco.
+
+ [[PAUSA:900ms]]
+
+ Altri percorsi teorici e pratici — dalla democrazia aperta alla progettazione istituzionale del
+ codice — [[PAUSA:200ms]]
+ hanno già mostrato che il problema supera il piano giuridico. [[PAUSA:500ms]]
+
+ Qui interessa trarne una conseguenza operativa: [[PAUSA:200ms]]
+ se il codice organizza comportamenti collettivi, la democrazia non può limitarsi a inseguirlo
+ dall'esterno.
+
+ [[PAUSA:1000ms]]
+
+ 
+ Serve quindi qualcosa di più profondo della sola regolazione: [[PAUSA:200ms]]
+ ripensare la sovranità nell'era algoritmica. [[PAUSA:500ms]]
+
+ Non basta regolare piattaforme private; bisogna costruire infrastrutture pubbliche e
+ verificabili. [[PAUSA:400ms]]
+ Non basta chiedere alle intelligenze artificiali di essere «etiche»; bisogna progettarle dentro
+ un mandato costituzionale. [[PAUSA:400ms]]
+ Non basta chiedere accountability alle aziende; bisogna riportare il controllo dei dati e del
+ codice dentro un perimetro democratico.
+ 
+
+ [[PAUSA:1000ms]]
+
+ Questa trasformazione richiede una nuova idea di governo della tecnologia. [[PAUSA:400ms]]
+ Bisogna ridefinire le regole attraverso cui una società democratica controlla gli strumenti che
+ contribuiscono a organizzarla. [[PAUSA:500ms]]
+
+ Dati, algoritmi e infrastrutture digitali sono diventati luoghi nei quali si distribuisce il potere.
+
+ [[PAUSA:900ms]]
+
+ Per questo il primo passo è riconoscere che ciò che riguarda la conoscenza, la previsione e
+ l'orientamento dei comportamenti [[PAUSA:200ms]]
+ non può essere lasciato esclusivamente alla logica privata del mercato. [[PAUSA:500ms]]
+
+ Servono sistemi costruiti secondo principi pubblici: [[PAUSA:200ms]]
+ trasparenza, verificabilità, responsabilità e possibilità di controllo da parte dei cittadini.
+
+ [[PAUSA:1000ms]]
+
+ Una democrazia nell'era algoritmica dovrebbe garantire a ogni persona il diritto di sapere [[PAUSA:200ms]]
+ quando una decisione che la riguarda è influenzata da un sistema automatico, [[PAUSA:200ms]]
+ quali dati vengono utilizzati, quali criteri vengono adottati [[PAUSA:200ms]]
+ e quali strumenti esistono per contestare un risultato. [[PAUSA:500ms]]
+
+ La comprensione degli algoritmi non può essere riservata a pochi specialisti: [[PAUSA:200ms]]
+ deve diventare una nuova forma di tutela democratica.
+
+ [[PAUSA:900ms]]
+
+ Allo stesso tempo, servono istituzioni capaci di esercitare una funzione di garanzia sul potere
+ digitale, [[PAUSA:200ms]]
+ così come le costituzioni moderne hanno fatto nei confronti del potere politico ed economico.
+ [[PAUSA:500ms]]
+
+ Autorità indipendenti, sistemi di controllo, verifiche pubbliche e procedure di valutazione
+ dovrebbero impedire [[PAUSA:200ms]]
+ che decisioni capaci di incidere sui diritti fondamentali vengano affidate a meccanismi
+ invisibili e incontestabili.
+
+ [[PAUSA:1000ms]]
+
+ Anche il rapporto con i dati dovrà essere ripensato. [[PAUSA:400ms]]
+ Se le informazioni prodotte dalle persone sono diventate una delle risorse più preziose
+ dell'economia contemporanea, [[PAUSA:200ms]]
+ la questione non può essere soltanto chi le possiede, ma chi ha il diritto di governarle e
+ secondo quali finalità. [[PAUSA:500ms]]
+
+ La trasformazione digitale non dovrebbe ridurre il cittadino a una fonte di dati, ma
+ riconoscerlo come soggetto titolare di diritti anche nello spazio digitale.
+
+ [[PAUSA:1000ms]]
+
+ La sfida, quindi, non è fermare l'innovazione, ma impedire che il progresso tecnologico
+ proceda separato dalla responsabilità democratica. [[PAUSA:500ms]]
+
+ Gli algoritmi non sono soltanto strumenti tecnici: incorporano scelte, priorità e visioni del
+ mondo. [[PAUSA:400ms]]
+ 
+ Per questo la domanda fondamentale non è soltanto cosa le macchine siano capaci di fare,
+ ma chi abbia il diritto di stabilire ciò che è giusto affidare loro.
+ 
+
+ [[PAUSA:1200ms]]
+
+ 
+ Due virgola dodici — L'algoritmo governerà comunque
+
+ [[PAUSA:800ms]]
+
+ C'è una critica che accompagna ogni proposta di cambiamento, ed è una critica legittima:
+ [[PAUSA:200ms]]
+ perché rischiare? [[PAUSA:400ms]]
+ Perché modificare istituzioni che, pur con tutti i loro limiti, hanno garantito decenni di
+ stabilità, libertà e convivenza civile? [[PAUSA:500ms]]
+
+ La prudenza è parte essenziale della democrazia, perché ogni trasformazione può produrre
+ conseguenze impreviste [[PAUSA:200ms]]
+ e ogni innovazione deve confrontarsi con equilibri costruiti nel tempo. [[PAUSA:500ms]]
+
+ Ma anche l'immobilismo ha un costo. [[PAUSA:400ms]]
+ Le istituzioni non vengono messe in discussione soltanto quando falliscono: [[PAUSA:200ms]]
+ spesso entrano in crisi quando smettono di comprendere il mondo che dovrebbero governare.
+ [[PAUSA:500ms]]
+
+ 
+ Il vero rischio, quindi, non è soltanto cambiare troppo, ma restare fermi mentre la realtà
+ cambia intorno a noi.
+ 
+
+ [[PAUSA:900ms]]
+
+ 
+ La risposta è scomoda: anche l'inazione è una scelta politica. [[PAUSA:400ms]]
+ E il mondo che emerge dall'inerzia non è neutrale. [[PAUSA:300ms]]
+ Sta già prendendo forma.
+ 
+
+ [[PAUSA:900ms]]
+
+ Ciascuna generazione eredita una tecnologia che ne ridisegna l'ordine. [[PAUSA:400ms]]
+ Il vapore ha ridisegnato l'economia. [[PAUSA:300ms]]
+ L'elettricità, le città. [[PAUSA:300ms]]
+ Internet, l'informazione. [[PAUSA:400ms]]
+ L'intelligenza artificiale sta ridisegnando il potere. [[PAUSA:400ms]]
+ Non come rischio futuro: come realtà presente.
+
+ [[PAUSA:900ms]]
+
+ Le principali società tecnologiche hanno capitalizzazioni paragonabili al PIL di molti Stati.
+ [[PAUSA:400ms]]
+ I loro investimenti in ricerca superano i bilanci di interi ministeri. [[PAUSA:400ms]]
+ I loro sistemi vengono usati ogni giorno da centinaia di milioni di persone per scrivere,
+ studiare, lavorare, informarsi, decidere.
+
+ [[PAUSA:900ms]]
+
+ Lo Stato ha tradizionalmente controllato o regolato le grandi infrastrutture collettive: [[PAUSA:200ms]]
+ moneta, giustizia, difesa, istruzione, reti di comunicazione. [[PAUSA:400ms]]
+ Oggi una parte crescente delle infrastrutture che organizzano la vita quotidiana appartiene a
+ soggetti privati globali. [[PAUSA:500ms]]
+
+ Nessun Parlamento può modificare da solo l'algoritmo di una piattaforma usata da miliardi di
+ persone; [[PAUSA:200ms]]
+ nessun governo può imporre senza attriti le proprie regole a sistemi che attraversano
+ centinaia di giurisdizioni. [[PAUSA:500ms]]
+
+ Il potere tecnologico si accumula più in fretta di quanto le istituzioni riescano a adattarsi.
+
+ [[PAUSA:1000ms]]
+
+ Questa trasformazione avanza anche perché resta nascosta dietro un'asimmetria
+ informativa. [[PAUSA:500ms]]
+
+ Il cittadino comune, e spesso anche il legislatore, non possiede gli strumenti per capire ciò
+ che accade sotto l'interfaccia. [[PAUSA:500ms]]
+
+ La complessità algoritmica agisce come anestetico sociale: [[PAUSA:200ms]]
+ non percepiamo la cessione di sovranità perché arriva sotto forme rassicuranti — [[PAUSA:200ms]]
+ personalizzazione, comodità, efficienza. [[PAUSA:500ms]]
+
+ Chi estrae i dati conosce abitudini, fragilità e reazioni emotive con precisione crescente; [[PAUSA:200ms]]
+ noi ignoriamo i criteri che guidano le macchine che orientano le nostre scelte.
+
+ [[PAUSA:1000ms]]
+
+ Nel Novecento la sovranità era associata soprattutto al territorio. [[PAUSA:400ms]]
+ Nel ventunesimo secolo dipende sempre di più dalla capacità di controllare le infrastrutture
+ digitali. [[PAUSA:500ms]]
+
+ Chi possiede le infrastrutture può definire molte regole prima ancora che la politica
+ intervenga.
+
+ [[PAUSA:1000ms]]
+
+ L'evoluzione dell'intelligenza artificiale rende questo processo più rapido. [[PAUSA:400ms]]
+ I modelli linguistici stanno sostituendo attività cognitive considerate, fino a pochi anni fa,
+ esclusivamente umane. [[PAUSA:500ms]]
+
+ La robotica collega quell'intelligenza al mondo fisico: [[PAUSA:200ms]]
+ sistemi autonomi entrano nelle fabbriche, nei magazzini, nei trasporti, nella sanità, nella
+ ricerca. [[PAUSA:500ms]]
+
+ Una quota crescente della produzione economica potrebbe essere generata da macchine che
+ non votano, non consumano, non scioperano e non chiedono rappresentanza.
+
+ [[PAUSA:1000ms]]
+
+ Queste tecnologie non sono negative in sé. [[PAUSA:400ms]]
+ La domanda è un'altra: chi ne governerà gli effetti? [[PAUSA:500ms]]
+
+ Se la produttività cresce mentre il lavoro umano diminuisce, chi distribuirà il valore
+ prodotto? [[PAUSA:500ms]]
+
+ Diverse stime indicano che l'intelligenza artificiale potrebbe aggiungere migliaia di miliardi
+ di dollari all'economia globale nei prossimi anni; [[PAUSA:300ms]]
+ nessuna legge economica garantisce però che questa ricchezza venga distribuita in modo
+ equilibrato. [[PAUSA:500ms]]
+
+ Senza istituzioni capaci di intervenire, il valore tende a concentrarsi in chi possiede
+ infrastrutture, dati e capacità di calcolo.
+
+ [[PAUSA:1000ms]]
+
+ Se flotte di robot sostituiranno milioni di lavoratori nella logistica, nei trasporti,
+ nell'agricoltura e nella manifattura, [[PAUSA:200ms]]
+ chi negozierà il nuovo patto sociale? [[PAUSA:500ms]]
+
+ Se l'intelligenza artificiale arriverà a progettare farmaci, software, strategie industriali e
+ sistemi militari meglio della maggior parte degli esseri umani, [[PAUSA:200ms]]
+ quale ruolo resterà alle istituzioni democratiche?
+
+ [[PAUSA:1000ms]]
+
+ Da sempre il potere economico ha avuto bisogno del lavoro umano. [[PAUSA:400ms]]
+ Mai come ora può immaginare di farne a meno. [[PAUSA:500ms]]
+
+ 
+ La questione non è se tutti perderanno il lavoro. È più sottile: quanti esseri umani saranno
+ ancora considerati indispensabili? E chi deciderà il valore di chi non lo sarà?
+ 
+
+ [[PAUSA:1000ms]]
+
+ Intanto si concentra anche la capacità di influenzare il comportamento collettivo. [[PAUSA:500ms]]
+ Gli algoritmi che decidono ciò che vediamo, leggiamo, compriamo e crediamo sono progettati
+ da un numero ristretto di organizzazioni. [[PAUSA:500ms]]
+
+ Giorno dopo giorno, una parte del dibattito pubblico viene mediata da regole che nessun
+ Parlamento ha votato. [[PAUSA:500ms]]
+
+ Il codice acquisisce funzioni che un tempo appartenevano alle istituzioni. [[PAUSA:300ms]]
+ E accelera.
+
+ [[PAUSA:1000ms]]
+
+ La domanda diventa inevitabile: [[PAUSA:250ms]]
+ che cosa accadrà quando le infrastrutture che governano lavoro, informazione, salute,
+ mobilità, energia e finanza [[PAUSA:200ms]]
+ saranno progettate da soggetti che nessun cittadino può eleggere né sostituire?
+
+ [[PAUSA:900ms]]
+
+ Forse nulla di spettacolare. [[PAUSA:400ms]]
+ Forse il mondo continuerà a funzionare. [[PAUSA:500ms]]
+ Ma funzionare non significa essere governati democraticamente.
+
+ [[PAUSA:900ms]]
+
+ L'inerzia non conserva il presente. Consegna il futuro a chi lo sta già costruendo.
+
+ [[PAUSA:1000ms]]
+
+ Da qui la domanda del libro non è soltanto se l'Algodemocrazia sia la risposta giusta. [[PAUSA:400ms]]
+ La domanda viene prima: [[PAUSA:200ms]]
+ se la democrazia rinuncia a progettare il proprio futuro digitale, chi lo farà al suo posto?
+
+ [[PAUSA:900ms]]
+
+ 
+ 
+ La storia non lascia vuoti di potere. Se la democrazia non scriverà le regole dell'era
+ algoritmica, qualcun altro le scriverà.
+ 
+ 
+
+ [[PAUSA:1200ms]]
+
+ 
+ Due virgola tredici — Dal Leviatano tecnologico alla Repubblica algoritmica
+
+ [[PAUSA:800ms]]
+
+ Il Leviatano tecnologico non può essere semplicemente abbattuto. [[PAUSA:400ms]]
+ È già parte del nostro mondo. [[PAUSA:500ms]]
+
+ Può però essere addomesticato, costituzionalizzato, democratizzato. [[PAUSA:500ms]]
+ L'intelligenza artificiale non dovrebbe sostituire la volontà popolare: [[PAUSA:200ms]]
+ dovrebbe aiutarla a diventare più continua, più verificabile, più efficace.
+
+ [[PAUSA:900ms]]
+
+ 
+ L'algoritmo non deve diventare il nuovo sovrano. Deve restare lo strumento attraverso cui il
+ popolo esercita la propria sovranità.
+ 
+
+ [[PAUSA:1000ms]]
+
+ Questo è il cuore dell'Algodemocrazia: [[PAUSA:200ms]]
+ trasformare un potere tecnologico invisibile e spesso incontrollabile in potere pubblico,
+ partecipato, vincolato a valori condivisi. [[PAUSA:500ms]]
+
+ Non rifiutare l'era algoritmica. [[PAUSA:300ms]]
+ Costruirne una versione costituzionale.
+
+ [[PAUSA:900ms]]
+
+ La domanda pratica è difficile: [[PAUSA:200ms]]
+ come si imbriglia un ecosistema che decide in millisecondi con leggi che richiedono anni per
+ essere scritte e applicate? [[PAUSA:500ms]]
+
+ In questa asimmetria, la regolamentazione tradizionale non basta. [[PAUSA:400ms]]
+ Per limitare il potere del calcolo, l'architettura democratica deve imparare a parlare la lingua
+ della macchina che vuole governare.
+
+ [[PAUSA:1000ms]]
+
+ 
+ Forse, una notte come quella delle ventitré, Claudio smetterà di essere soltanto il bersaglio
+ di un algoritmo che lo conosce meglio di chiunque, [[PAUSA:300ms]]
+ per diventare uno dei cittadini che decidono come quell'algoritmo deve funzionare. [[PAUSA:500ms]]
+ Non più previsto: partecipe.
+ 
+
+ [[PAUSA:1000ms]]
+
+ Resta però un dubbio fondamentale: [[PAUSA:250ms]]
+ si può davvero controllare l'algoritmo attraverso altri algoritmi? [[PAUSA:500ms]]
+
+ Possiamo affidare alla stessa logica che ha creato il problema il compito di risolverlo? [[PAUSA:500ms]]
+
+ È possibile usare strumenti di previsione, automazione e calcolo per governare sistemi che
+ proprio su quelle capacità hanno costruito il loro potere? [[PAUSA:500ms]]
+
+ Il rischio è quello di sostituire un'opacità con un'altra, [[PAUSA:200ms]]
+ creando un livello superiore di controllo tecnico senza affrontare la questione centrale: [[PAUSA:200ms]]
+ chi controlla chi controlla?
+
+ [[PAUSA:1000ms]]
+
+ Se la risposta fosse soltanto tecnologica, il problema non sarebbe risolto, ma spostato. [[PAUSA:500ms]]
+
+ Un sistema automatico incaricato di sorvegliare altri sistemi automatici potrebbe diventare a
+ sua volta un nuovo centro di potere, [[PAUSA:200ms]]
+ altrettanto difficile da comprendere e contestare. [[PAUSA:500ms]]
+
+ La questione, quindi, non riguarda soltanto la capacità delle macchine di correggere i propri
+ errori, [[PAUSA:200ms]]
+ ma la necessità di mantenere una responsabilità umana, politica e democratica sulle decisioni
+ che incidono sulla società.
+
+ [[PAUSA:1000ms]]
+
+ L'obiettivo non può essere eliminare l'algoritmo con un altro algoritmo, [[PAUSA:200ms]]
+ né sostituire il giudizio umano con una catena infinita di sistemi tecnici. [[PAUSA:500ms]]
+
+ La sfida è costruire un rapporto diverso tra tecnologia e potere: [[PAUSA:200ms]]
+ fare in modo che gli strumenti più avanzati rimangano strumenti, e non diventino autorità
+ autonome. [[PAUSA:500ms]]
+
+ Se questa obiezione non avesse risposta, il percorso di questo libro dovrebbe fermarsi qui.
+
+ [[PAUSA:1200ms]]
+
+ 
+ 
+ Ma è proprio dentro questa frattura — tra la promessa della tecnologia e il rischio di una
+ nuova forma di dominio — [[PAUSA:500ms]]
+ che inizia la domanda più importante: [[PAUSA:600ms]]
+ come può la democrazia governare ciò che è stato progettato per governare noi?

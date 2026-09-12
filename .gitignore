@@ -1,0 +1,4 @@
+# Output audio generati (troppo grandi per il repo)
+audio_output/
+tmp_chunks/
+*.mp3
