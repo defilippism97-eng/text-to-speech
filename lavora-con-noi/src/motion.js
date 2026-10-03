@@ -29,6 +29,18 @@
     setTimeout(function () { fig.classList.add("is-open"); }, 700);
   }
 
+  // video: parte quando la foto si è scoperta; senza video (o con movimento ridotto) resta la foto
+  function heroVideo() {
+    var v = $(".hero-video");
+    if (!v) return;
+    var src = v.getAttribute("data-src");
+    if (REDUCED || !src) return;
+    v.src = src;
+    v.addEventListener("playing", function () { v.classList.add("is-playing"); });
+    v.addEventListener("error", function () { v.remove(); });
+    setTimeout(function () { var p = v.play(); if (p && p.catch) p.catch(function () { /* autoplay bloccato: resta la foto */ }); }, 1500);
+  }
+
   // titolo: parole che salgono in sequenza
   function splitWords(el, cls) {
     if (!el) return;
@@ -174,6 +186,7 @@
 
   // ------------------------------------------------------------ avvio
   heroIntro();
+  heroVideo();
   if (!REDUCED) {
     splitWords($("#hero-title"), "hw");
     $("#hero-title").classList.add("is-split");

@@ -638,3 +638,8 @@ details.req p { white-space: pre-line; font-size: var(--fs-sm); color: var(--ink
   .timeline::after { width: auto; right: 0; height: 100%; }
   .fp { transform: none; }
 }
+
+/* video della hero (Higgsfield): sopra la foto, che resta come anteprima e per il movimento ridotto */
+.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; animation: none; transition: opacity .8s ease; translate: 0 calc(var(--sy, 0) * -0.06px); }
+.hero-media .hero-video.is-playing { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero-media .hero-video { display: none; } }
