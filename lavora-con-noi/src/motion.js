@@ -33,7 +33,8 @@
   function heroVideo() {
     var v = $(".hero-video");
     if (!v) return;
-    var src = v.getAttribute("data-src");
+    var mp4 = v.getAttribute("data-src"), webm = v.getAttribute("data-src-webm");
+    var src = mp4 && v.canPlayType('video/mp4; codecs="avc1.64001F"') ? mp4 : (webm && v.canPlayType('video/webm; codecs="vp9"') ? webm : mp4);
     if (REDUCED || !src) return;
     v.src = src;
     v.addEventListener("playing", function () { v.classList.add("is-playing"); });

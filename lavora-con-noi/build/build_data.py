@@ -382,6 +382,11 @@ def bundle(base, catalogo):
         html = html.replace("../assets/hero-tasselli.mp4", "data:video/mp4;base64," + base64.b64encode(video.read_bytes()).decode())
     else:
         html = html.replace(' data-src="../assets/hero-tasselli.mp4"', "")
+    webm = ROOT / "assets/hero-tasselli.webm"
+    if webm.exists():
+        html = html.replace("../assets/hero-tasselli.webm", "data:video/webm;base64," + base64.b64encode(webm.read_bytes()).decode())
+    else:
+        html = html.replace(' data-src-webm="../assets/hero-tasselli.webm"', "")
     hero = ROOT / "assets/hero-tasselli.jpg"
     if hero.exists():
         html = html.replace("../assets/hero-tasselli.jpg", "data:image/jpeg;base64," + base64.b64encode(hero.read_bytes()).decode())
