@@ -645,7 +645,7 @@
     document.body.style.overflow = "hidden";
     $("[data-close]", inner).focus();
     bindSheet(s, v);
-    if (location.hash !== "#servizio/" + s.id) history.pushState(null, "", "#servizio/" + s.id);
+    if (location.hash !== "#servizio-" + s.id) setHash("#servizio-" + s.id);
     track("apri_servizio", { servizio: s.id });
   }
   function closeService(fromPop) {
@@ -653,7 +653,7 @@
     if (sheet.hidden) return;
     sheet.hidden = true; $("#sheet-backdrop").hidden = true;
     document.body.style.overflow = "";
-    if (!fromPop && location.hash.indexOf("#servizio/") === 0) history.pushState(null, "", "#risultati");
+    if (!fromPop && location.hash.indexOf("#servizio-") === 0) setHash("#risultati");
     if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
   }
 
@@ -898,6 +898,10 @@
     $$("a", mn).forEach(function (a) { a.addEventListener("click", closeMenu); });
     function closeMenu() { tg.setAttribute("aria-expanded", "false"); mn.hidden = true; }
   }
+  function setHash(h) {
+    // deep link condivisibile: solo lettere, cifre e trattini (es. #servizio-csrd-...-bo)
+    try { history.pushState(null, "", h); } catch (err) { /* frame senza history: si ignora */ }
+  }
   function trapFocus(e, root) {
     var f = $$('button, [href], input, select, textarea, summary, [tabindex]:not([tabindex="-1"])', root).filter(function (n) { return !n.disabled && n.offsetParent !== null; });
     if (!f.length) return;
@@ -907,7 +911,7 @@
   }
   function routeFromHash() {
     var h = location.hash;
-    if (h.indexOf("#servizio/") === 0) {
+    if (h.indexOf("#servizio-") === 0) {
       if (state.step !== 5) { state.step = 5; renderProgress(); renderResults(); }
       openService(h.slice(10));
     } else closeService(true);
@@ -915,6 +919,7 @@
 
   // ---------------------------------------------------------------- avvio
   document.documentElement.classList.remove("no-js");
+  document.documentElement.lang = "it";
   hydrateIcons();
   heroNet();
   stats();
@@ -926,7 +931,7 @@
   observe();
   parallax();
   globalActions();
-  if (location.hash.indexOf("#servizio/") === 0) routeFromHash();
+  if (location.hash.indexOf("#servizio-") === 0) routeFromHash();
 
   // esposto per test e per la documentazione
   window.SD_LCN = { state: state, valuta: valuta, requisiti: requisiti, serviziFiltrati: serviziFiltrati, goTo: goTo, openService: openService };

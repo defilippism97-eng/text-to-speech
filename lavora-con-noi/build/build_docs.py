@@ -141,7 +141,7 @@ WF = {
 <div class="w-role near"><i class="w-av"></i><div class="w-col"><i class="w-badge near"></i><i class="w-t"></i><i class="w-p"></i></div></div>
 <div class="w-match near"><span>B · Cosa manca · Percorsi · Ruolo ponte</span></div>
 <div class="w-match refer"><span>C · Conosci qualcuno? Segnala</span></div>
-""", ["Pannello laterale (desktop) / a tutto schermo (mobile) con URL #servizio/id condivisibile", "Racconto: contesto, persone, impatto, ambiente, crescita", "Card ruolo espandibile: sintesi, competenze, percorso, requisiti ufficiali", "Blocco esito A/B/C con CTA dedicate"]),
+""", ["Pannello laterale (desktop) / a tutto schermo (mobile) con URL #servizio-id condivisibile", "Racconto: contesto, persone, impatto, ambiente, crescita", "Card ruolo espandibile: sintesi, competenze, percorso, requisiti ufficiali", "Blocco esito A/B/C con CTA dedicate"]),
 }
 
 

@@ -380,6 +380,11 @@ def bundle(base, catalogo):
         html = html.replace(f"../assets/fonts/{font.name}", f"data:font/woff2;base64,{b64}")
     (ROOT / "dist").mkdir(exist_ok=True)
     (ROOT / "dist/lavora-con-noi.html").write_text(html, encoding="utf-8")
+    # Variante per la pubblicazione come Artifact: lo skeleton (doctype, html, head, body, meta) lo aggiunge la piattaforma.
+    art = html
+    for pat in (r"<!doctype html>\s*", r"<html[^>]*>\s*", r"</html>\s*", r"<head>\s*", r"</head>\s*", r"<body>\s*", r"</body>\s*", r'<meta charset="utf-8">\s*', r'<meta name="viewport"[^>]*>\s*'):
+        art = re.sub(pat, "", art, flags=re.I)
+    (ROOT / "dist/lavora-con-noi.artifact.html").write_text(art, encoding="utf-8")
     # dati.js per lo sviluppo locale di src/index.html
     (ROOT / "src/dati.js").write_text(f"window.SD_DATI = {dati};\n", encoding="utf-8")
     print("Prototipo: dist/lavora-con-noi.html")
