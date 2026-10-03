@@ -537,3 +537,104 @@ details.req p { white-space: pre-line; font-size: var(--fs-sm); color: var(--ink
   .hero-media { order: -1; aspect-ratio: 16 / 11; border-radius: var(--r-lg); }
   .proto-banner .long { display: none; }
 }
+
+/* ==========================================================================
+   Livello di movimento (src/motion.js) · filo conduttore: il tassello
+   ========================================================================== */
+:root { --hero-img: none; /* impostata da motion.js dalla foto della hero: un solo file */ --muted-word: #7A869C; }
+
+/* barra di avanzamento lettura */
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: linear-gradient(90deg, var(--brand-500), var(--brand-300) 60%, var(--sun-400)); transform-origin: left; transform: scaleX(0); pointer-events: none; }
+
+/* 1 · hero: tasselli che si aprono, luce che scorre, profondità con lo scroll */
+.hero-media img { translate: 0 calc(var(--sy, 0) * -0.06px); }
+.hero-pieces { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; transition: transform 220ms var(--ease-spring); }
+.hero-media.is-click .hero-pieces { transform: scale(.97); }
+.hero-media.is-open .hero-pieces { transform: scale(1); }
+.hp { transform-box: fill-box; transform-origin: center; transition: transform 1.15s cubic-bezier(.7,0,.2,1), opacity .9s ease; }
+.hero-media.is-open .hp { opacity: 0; }
+.hero-media.is-open .hp-0 { transform: translate(-130%, -120%) rotate(-28deg); transition-delay: .00s; }
+.hero-media.is-open .hp-1 { transform: translate(130%, -120%) rotate(24deg); transition-delay: .10s; }
+.hero-media.is-open .hp-2 { transform: translate(-130%, 120%) rotate(20deg); transition-delay: .20s; }
+.hero-media.is-open .hp-3 { transform: translate(130%, 120%) rotate(-22deg); transition-delay: .30s; }
+.hero-light { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 30%, rgba(255, 232, 196, .42) 48%, rgba(255, 246, 228, .18) 56%, transparent 72%); background-size: 260% 100%; mix-blend-mode: soft-light; animation: sunlight 11s ease-in-out 1.6s infinite alternate both; }
+@keyframes sunlight { from { background-position: 100% 0; } to { background-position: 0 0; } }
+.hero-badge { z-index: 2; animation-delay: 1.4s; }
+#hero-title.is-split .hw { display: inline-block; animation: wordUp .9s var(--ease-out) both; animation-delay: calc(var(--w) * 70ms + 120ms); }
+@keyframes wordUp { from { opacity: 0; transform: translateY(.45em) rotate(2deg); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* 2 · manifesto: le parole si accendono leggendo (testo grande: contrasto ≥ 3:1 anche spento) */
+.manifesto-title.is-scrolly .mw { color: var(--muted-word); transition: color .35s ease; }
+.manifesto-title.is-scrolly .mw.on { color: var(--ink); }
+.manifesto-title.is-scrolly .hl .mw.on { color: var(--brand-500); }
+
+/* 3 · ticker settori e professioni */
+.ticker { margin-top: var(--s7); display: grid; gap: var(--s2); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.tk-row { overflow: hidden; }
+.tk-track { display: flex; align-items: center; gap: var(--s5); width: max-content; animation: tk 48s linear infinite; }
+.tk-row.r .tk-track { animation-direction: reverse; animation-duration: 60s; }
+.ticker:hover .tk-track { animation-play-state: paused; }
+.tk-row span { font-size: clamp(2rem, 1.2rem + 3.6vw, 4.25rem); font-weight: 800; line-height: 1.1; white-space: nowrap; letter-spacing: -0.02em; }
+.tk-row.l span { color: transparent; -webkit-text-stroke: 1.5px var(--brand-300); }
+.tk-row.r span { color: var(--brand-300); opacity: .55; font-size: clamp(1.5rem, 1rem + 2.4vw, 3rem); }
+.tk-row i { width: 14px; height: 14px; flex: none; background: var(--sun-400); border-radius: 3px; transform: rotate(45deg); }
+@keyframes tk { to { transform: translateX(-50%); } }
+
+/* 4 · orientamento: tasselli che fluttuano */
+.orient { position: relative; overflow: hidden; }
+.orient > .container { position: relative; z-index: 1; }
+.ambient { position: absolute; inset: 0; color: #ffffff; pointer-events: none; }
+.amb { position: absolute; opacity: .1; transform: rotate(var(--rot)); animation: drift var(--dur) ease-in-out var(--del) infinite alternate; }
+@keyframes drift { from { transform: translate(0, 0) rotate(var(--rot)); } to { transform: translate(34px, -46px) rotate(calc(var(--rot) + 50deg)); } }
+
+/* 5 · crescita: linea che avanza con lo scroll */
+.timeline { --p: 0; }
+.timeline::before, .timeline::after { content: ""; position: absolute; z-index: 0; border-radius: 2px; }
+.timeline::before { background: var(--brand-100); }
+.timeline::after { background: linear-gradient(90deg, var(--brand-500), var(--brand-300)); }
+.tl-step { z-index: 1; }
+.tl-step .n { transition: transform .5s var(--ease-spring), box-shadow .5s ease, background-color .3s; }
+.tl-step.is-on .n { transform: scale(1.14); box-shadow: 0 0 0 6px #fff, 0 0 0 12px rgba(0, 108, 180, .18); }
+.tl-step h3 { transition: color .4s ease; }
+.tl-step.is-on h3 { color: var(--brand-800); }
+@media (max-width: 899px) {
+  .timeline::before, .timeline::after { left: calc(var(--s5) + 21px); top: 0; width: 3px; height: 100%; }
+  .timeline::after { height: calc(var(--p) * 100%); background: linear-gradient(180deg, var(--brand-500), var(--brand-300)); }
+}
+@media (min-width: 900px) {
+  .timeline::before, .timeline::after { left: calc(var(--s5) + 22px); top: 1px; height: 3px; right: 0; }
+  .timeline::after { right: auto; width: calc(var(--p) * (100% - var(--s5) - 22px)); }
+}
+
+/* 6 · card con luce e inclinazione */
+.train-card, .value-card { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); background-image: radial-gradient(circle at var(--mx, 50%) var(--my, -20%), rgba(108, 162, 210, .18), transparent 46%); transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med); }
+.train-card:hover, .value-card:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); }
+.train-card:hover .value-icon, .value-card:hover .value-icon { animation: nudge .6s var(--ease-spring); }
+@keyframes nudge { 30% { transform: rotate(-10deg) scale(1.08); } 60% { transform: rotate(6deg); } }
+
+/* 7 · storie: dettagli delle mani della foto */
+.story-card.has-photo { background: linear-gradient(180deg, rgba(14, 26, 61, .05) 25%, rgba(14, 26, 61, .9)), linear-gradient(150deg, var(--tone), rgba(35, 55, 122, .35)), var(--hero-img) var(--crop, 50% 50%) / 330% auto no-repeat; background-blend-mode: normal, soft-light, normal; transition: transform var(--t-med) var(--ease-out), background-size 1.2s var(--ease-out); }
+.story-card.has-photo svg.pieces { opacity: .12; }
+.story-card.has-photo .play::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); animation: ring 2.4s ease-out infinite; }
+@keyframes ring { from { transform: scale(.9); opacity: .9; } to { transform: scale(1.5); opacity: 0; } }
+
+/* 8 · CTA finale: il tassello si ricompone */
+.final-cta { position: relative; overflow: hidden; }
+.final-puzzle { width: 168px; height: 168px; justify-self: start; overflow: visible; }
+@media (min-width: 900px) { .final-grid { grid-template-columns: auto 1fr auto; gap: var(--s7); } .final-puzzle { width: 210px; height: 210px; } }
+.fp { transform-box: fill-box; transform-origin: center; transition: transform 1.2s var(--ease-spring); }
+.fp-0 { transform: translate(-34%, -30%) rotate(-24deg); }
+.fp-1 { transform: translate(36%, -22%) rotate(18deg); }
+.fp-2 { transform: translate(-28%, 34%) rotate(14deg); }
+.fp-3 { transform: translate(40%, 38%) rotate(-30deg); }
+.final-cta.is-in .fp { transform: none; }
+.final-cta.is-in .fp-1 { transition-delay: .12s; } .final-cta.is-in .fp-2 { transition-delay: .24s; } .final-cta.is-in .fp-3 { transition-delay: .42s; }
+.final-cta.is-in .final-puzzle { animation: breathe 6s ease-in-out 1.8s infinite; }
+@keyframes breathe { 50% { transform: scale(1.04) rotate(2deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pieces, .hero-light, .ambient { display: none; }
+  .tk-track { animation: none !important; }
+  .timeline::after { width: auto; right: 0; height: 100%; }
+  .fp { transform: none; }
+}

@@ -374,6 +374,8 @@ def bundle(base, catalogo):
     html = html.replace('<link rel="stylesheet" href="styles.css">', f"<style>\n{css}\n</style>")
     html = html.replace('<script src="dati.js"></script>', f"<script>window.SD_DATI = {dati};</script>")
     html = html.replace('<script src="app.js"></script>', f"<script>\n{js}\n</script>")
+    motion = (ROOT / "src/motion.js").read_text(encoding="utf-8")
+    html = html.replace('<script src="motion.js"></script>', f"<script>\n{motion}\n</script>")
     html = html.replace("../assets/logo-societa-dolce.png", f"data:image/png;base64,{logo}")
     hero = ROOT / "assets/hero-tasselli.jpg"
     if hero.exists():

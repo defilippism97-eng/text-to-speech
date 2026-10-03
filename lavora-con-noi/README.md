@@ -15,7 +15,7 @@ Progetto UX/UI e prototipo navigabile di una pagina «Lavora con noi» pensata c
 content/catalogo.json        contenuti editoriali + regole: titoli, ruoli, eccezioni regionali, percorsi
 data/base-informativa.json   generato dalla matrice Excel (servizi × territori × ruoli)
 data/qualita-dati.json       campi mancanti / da verificare nella matrice
-src/                         sorgenti del prototipo (index.html, styles.css, app.js; dati.js è generato)
+src/                         sorgenti del prototipo (index.html, styles.css, app.js, motion.js; dati.js è generato)
 assets/                      logo e font Barlow self-hosted (SIL OFL)
 build/                       script di build e test
 ```

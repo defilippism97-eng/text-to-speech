@@ -541,6 +541,107 @@ details.req p { white-space: pre-line; font-size: var(--fs-sm); color: var(--ink
   .proto-banner .long { display: none; }
 }
 
+/* ==========================================================================
+   Livello di movimento (src/motion.js) · filo conduttore: il tassello
+   ========================================================================== */
+:root { --hero-img: none; /* impostata da motion.js dalla foto della hero: un solo file */ --muted-word: #7A869C; }
+
+/* barra di avanzamento lettura */
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: linear-gradient(90deg, var(--brand-500), var(--brand-300) 60%, var(--sun-400)); transform-origin: left; transform: scaleX(0); pointer-events: none; }
+
+/* 1 · hero: tasselli che si aprono, luce che scorre, profondità con lo scroll */
+.hero-media img { translate: 0 calc(var(--sy, 0) * -0.06px); }
+.hero-pieces { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; transition: transform 220ms var(--ease-spring); }
+.hero-media.is-click .hero-pieces { transform: scale(.97); }
+.hero-media.is-open .hero-pieces { transform: scale(1); }
+.hp { transform-box: fill-box; transform-origin: center; transition: transform 1.15s cubic-bezier(.7,0,.2,1), opacity .9s ease; }
+.hero-media.is-open .hp { opacity: 0; }
+.hero-media.is-open .hp-0 { transform: translate(-130%, -120%) rotate(-28deg); transition-delay: .00s; }
+.hero-media.is-open .hp-1 { transform: translate(130%, -120%) rotate(24deg); transition-delay: .10s; }
+.hero-media.is-open .hp-2 { transform: translate(-130%, 120%) rotate(20deg); transition-delay: .20s; }
+.hero-media.is-open .hp-3 { transform: translate(130%, 120%) rotate(-22deg); transition-delay: .30s; }
+.hero-light { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 30%, rgba(255, 232, 196, .42) 48%, rgba(255, 246, 228, .18) 56%, transparent 72%); background-size: 260% 100%; mix-blend-mode: soft-light; animation: sunlight 11s ease-in-out 1.6s infinite alternate both; }
+@keyframes sunlight { from { background-position: 100% 0; } to { background-position: 0 0; } }
+.hero-badge { z-index: 2; animation-delay: 1.4s; }
+#hero-title.is-split .hw { display: inline-block; animation: wordUp .9s var(--ease-out) both; animation-delay: calc(var(--w) * 70ms + 120ms); }
+@keyframes wordUp { from { opacity: 0; transform: translateY(.45em) rotate(2deg); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* 2 · manifesto: le parole si accendono leggendo (testo grande: contrasto ≥ 3:1 anche spento) */
+.manifesto-title.is-scrolly .mw { color: var(--muted-word); transition: color .35s ease; }
+.manifesto-title.is-scrolly .mw.on { color: var(--ink); }
+.manifesto-title.is-scrolly .hl .mw.on { color: var(--brand-500); }
+
+/* 3 · ticker settori e professioni */
+.ticker { margin-top: var(--s7); display: grid; gap: var(--s2); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.tk-row { overflow: hidden; }
+.tk-track { display: flex; align-items: center; gap: var(--s5); width: max-content; animation: tk 48s linear infinite; }
+.tk-row.r .tk-track { animation-direction: reverse; animation-duration: 60s; }
+.ticker:hover .tk-track { animation-play-state: paused; }
+.tk-row span { font-size: clamp(2rem, 1.2rem + 3.6vw, 4.25rem); font-weight: 800; line-height: 1.1; white-space: nowrap; letter-spacing: -0.02em; }
+.tk-row.l span { color: transparent; -webkit-text-stroke: 1.5px var(--brand-300); }
+.tk-row.r span { color: var(--brand-300); opacity: .55; font-size: clamp(1.5rem, 1rem + 2.4vw, 3rem); }
+.tk-row i { width: 14px; height: 14px; flex: none; background: var(--sun-400); border-radius: 3px; transform: rotate(45deg); }
+@keyframes tk { to { transform: translateX(-50%); } }
+
+/* 4 · orientamento: tasselli che fluttuano */
+.orient { position: relative; overflow: hidden; }
+.orient > .container { position: relative; z-index: 1; }
+.ambient { position: absolute; inset: 0; color: #ffffff; pointer-events: none; }
+.amb { position: absolute; opacity: .1; transform: rotate(var(--rot)); animation: drift var(--dur) ease-in-out var(--del) infinite alternate; }
+@keyframes drift { from { transform: translate(0, 0) rotate(var(--rot)); } to { transform: translate(34px, -46px) rotate(calc(var(--rot) + 50deg)); } }
+
+/* 5 · crescita: linea che avanza con lo scroll */
+.timeline { --p: 0; }
+.timeline::before, .timeline::after { content: ""; position: absolute; z-index: 0; border-radius: 2px; }
+.timeline::before { background: var(--brand-100); }
+.timeline::after { background: linear-gradient(90deg, var(--brand-500), var(--brand-300)); }
+.tl-step { z-index: 1; }
+.tl-step .n { transition: transform .5s var(--ease-spring), box-shadow .5s ease, background-color .3s; }
+.tl-step.is-on .n { transform: scale(1.14); box-shadow: 0 0 0 6px #fff, 0 0 0 12px rgba(0, 108, 180, .18); }
+.tl-step h3 { transition: color .4s ease; }
+.tl-step.is-on h3 { color: var(--brand-800); }
+@media (max-width: 899px) {
+  .timeline::before, .timeline::after { left: calc(var(--s5) + 21px); top: 0; width: 3px; height: 100%; }
+  .timeline::after { height: calc(var(--p) * 100%); background: linear-gradient(180deg, var(--brand-500), var(--brand-300)); }
+}
+@media (min-width: 900px) {
+  .timeline::before, .timeline::after { left: calc(var(--s5) + 22px); top: 1px; height: 3px; right: 0; }
+  .timeline::after { right: auto; width: calc(var(--p) * (100% - var(--s5) - 22px)); }
+}
+
+/* 6 · card con luce e inclinazione */
+.train-card, .value-card { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); background-image: radial-gradient(circle at var(--mx, 50%) var(--my, -20%), rgba(108, 162, 210, .18), transparent 46%); transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med); }
+.train-card:hover, .value-card:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); }
+.train-card:hover .value-icon, .value-card:hover .value-icon { animation: nudge .6s var(--ease-spring); }
+@keyframes nudge { 30% { transform: rotate(-10deg) scale(1.08); } 60% { transform: rotate(6deg); } }
+
+/* 7 · storie: dettagli delle mani della foto */
+.story-card.has-photo { background: linear-gradient(180deg, rgba(14, 26, 61, .05) 25%, rgba(14, 26, 61, .9)), linear-gradient(150deg, var(--tone), rgba(35, 55, 122, .35)), var(--hero-img) var(--crop, 50% 50%) / 330% auto no-repeat; background-blend-mode: normal, soft-light, normal; transition: transform var(--t-med) var(--ease-out), background-size 1.2s var(--ease-out); }
+.story-card.has-photo svg.pieces { opacity: .12; }
+.story-card.has-photo .play::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); animation: ring 2.4s ease-out infinite; }
+@keyframes ring { from { transform: scale(.9); opacity: .9; } to { transform: scale(1.5); opacity: 0; } }
+
+/* 8 · CTA finale: il tassello si ricompone */
+.final-cta { position: relative; overflow: hidden; }
+.final-puzzle { width: 168px; height: 168px; justify-self: start; overflow: visible; }
+@media (min-width: 900px) { .final-grid { grid-template-columns: auto 1fr auto; gap: var(--s7); } .final-puzzle { width: 210px; height: 210px; } }
+.fp { transform-box: fill-box; transform-origin: center; transition: transform 1.2s var(--ease-spring); }
+.fp-0 { transform: translate(-34%, -30%) rotate(-24deg); }
+.fp-1 { transform: translate(36%, -22%) rotate(18deg); }
+.fp-2 { transform: translate(-28%, 34%) rotate(14deg); }
+.fp-3 { transform: translate(40%, 38%) rotate(-30deg); }
+.final-cta.is-in .fp { transform: none; }
+.final-cta.is-in .fp-1 { transition-delay: .12s; } .final-cta.is-in .fp-2 { transition-delay: .24s; } .final-cta.is-in .fp-3 { transition-delay: .42s; }
+.final-cta.is-in .final-puzzle { animation: breathe 6s ease-in-out 1.8s infinite; }
+@keyframes breathe { 50% { transform: scale(1.04) rotate(2deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pieces, .hero-light, .ambient { display: none; }
+  .tk-track { animation: none !important; }
+  .timeline::after { width: auto; right: 0; height: 100%; }
+  .fp { transform: none; }
+}
+
 </style>
 <a class="skip-link" href="#orientati">Vai al percorso di orientamento</a>
 <p class="proto-banner" role="note"><b>Prototipo di progetto</b> · Non è il sito ufficiale di Società Dolce. I moduli non inviano dati<span class="long">; testi e immagini sono in parte segnaposto</span>.</p>
@@ -1654,6 +1755,197 @@ details.req p { white-space: pre-line; font-size: var(--fs-sm); color: var(--ink
 
   // esposto per test e per la documentazione
   window.SD_LCN = { state: state, valuta: valuta, requisiti: requisiti, serviziFiltrati: serviziFiltrati, goTo: goTo, openService: openService };
+})();
+
+</script>
+<script>
+/* Società Dolce – "Lavora con noi" · livello di movimento
+   Un solo filo narrativo in tutta la pagina: il tassello. Si incastra nella hero,
+   ritorna come motivo nelle sezioni e si ricompone nella CTA finale.
+   Con prefers-reduced-motion la pagina resta completa e ferma. */
+(function () {
+  "use strict";
+  var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var PIECE = "M0 0H38a12 12 0 1 0 24 0H100V38a12 12 0 1 1 0 24V100H0V62a12 12 0 1 0 0-24Z";
+  var BLUES = ["#006CB4", "#6CA2D2", "#BACCE4", "#36549C"];
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function piece(fill, extra) { return '<path d="' + PIECE + '" fill="' + fill + '"' + (extra || "") + "/>"; }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  // ------------------------------------------------------------ 1. Hero: i tasselli si aprono sulla foto
+  function heroIntro() {
+    var fig = $(".hero-media");
+    if (!fig) return;
+    var quad = [[0, 0, 0], [100, 0, 90], [0, 100, 270], [100, 100, 180]];
+    var svg = '<svg class="hero-pieces" viewBox="-14 -14 228 228" preserveAspectRatio="none" aria-hidden="true">';
+    quad.forEach(function (q, i) {
+      svg += '<g class="hp hp-' + i + '"><g transform="translate(' + (q[0] + 50) + " " + (q[1] + 50) + ") rotate(" + q[2] + ') translate(-50 -50)">' + piece(BLUES[i]) + "</g></g>";
+    });
+    svg += "</svg>";
+    fig.insertAdjacentHTML("beforeend", svg + '<span class="hero-light" aria-hidden="true"></span>');
+    if (REDUCED) { fig.classList.add("is-open"); return; }
+    // "click" dell'incastro, poi apertura
+    setTimeout(function () { fig.classList.add("is-click"); }, 250);
+    setTimeout(function () { fig.classList.add("is-open"); }, 700);
+  }
+
+  // titolo: parole che salgono in sequenza
+  function splitWords(el, cls) {
+    if (!el) return;
+    var i = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (w) {
+            if (!w) return;
+            if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
+            var s = document.createElement("span");
+            s.className = cls; s.style.setProperty("--w", i++); s.textContent = w;
+            frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1 && !n.hasAttribute("data-icon")) walk(n);
+      });
+    })(el);
+    return i;
+  }
+
+  // ------------------------------------------------------------ 2. Manifesto: le parole si accendono con lo scroll
+  var manifestoWords = [];
+  function manifestoSetup() {
+    var t = $(".manifesto-title");
+    if (!t) return;
+    splitWords(t, "mw");
+    manifestoWords = $$(".mw", t);
+    t.classList.add("is-scrolly");
+  }
+  function manifestoUpdate(vh) {
+    if (!manifestoWords.length) return;
+    var t = manifestoWords[0].parentNode.closest(".manifesto-title");
+    var r = t.getBoundingClientRect();
+    var p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
+    var n = Math.round(p * manifestoWords.length);
+    manifestoWords.forEach(function (w, i) { w.classList.toggle("on", i < n); });
+  }
+
+  // ------------------------------------------------------------ 3. Ticker: settori e professioni in movimento
+  function ticker() {
+    var host = $(".numbers .container");
+    var D = window.SD_DATI;
+    if (!host || !D) return;
+    var settori = D.catalogo.settori.map(function (s) { return s.label; });
+    var prof = D.catalogo.ruoli.filter(function (r) { return r.peso >= 7; }).map(function (r) { return r.nome.split(" – ")[0].split(" / ")[0]; });
+    function row(words, dir) {
+      var item = words.map(function (w) { return "<span>" + w + "</span><i aria-hidden=\"true\"></i>"; }).join("");
+      return '<div class="tk-row ' + dir + '"><div class="tk-track">' + item + item + "</div></div>";
+    }
+    host.insertAdjacentHTML("beforeend", '<div class="ticker" aria-hidden="true">' + row(settori, "l") + row(prof, "r") + "</div>");
+  }
+
+  // ------------------------------------------------------------ 4. Orientamento: tasselli che fluttuano nel blu
+  function ambientPieces() {
+    var sec = $(".orient");
+    if (!sec) return;
+    var html = '<div class="ambient" aria-hidden="true">';
+    var spots = [[4, 10, 70, 18, 0], [88, 6, 110, 26, -6], [70, 38, 56, 22, -3], [12, 55, 90, 30, -9], [92, 62, 64, 20, -12], [40, 4, 46, 24, -15], [55, 84, 80, 28, -4], [2, 88, 52, 19, -8]];
+    spots.forEach(function (s, i) {
+      html += '<svg class="amb" style="left:' + s[0] + "%;top:" + s[1] + "%;width:" + s[2] + "px;--dur:" + s[3] + "s;--del:" + s[4] + "s;--rot:" + (i * 37) + 'deg" viewBox="-14 -14 128 128">' + piece("currentColor") + "</svg>";
+    });
+    sec.insertAdjacentHTML("afterbegin", html + "</div>");
+  }
+
+  // ------------------------------------------------------------ 5. Crescita: la linea avanza con lo scroll
+  function growthUpdate(vh) {
+    var tl = $("#growth-panel .timeline");
+    if (!tl) return;
+    var r = tl.getBoundingClientRect();
+    var p = clamp((vh * 0.8 - r.top) / (r.height + vh * 0.3), 0, 1);
+    tl.style.setProperty("--p", p.toFixed(3));
+    var steps = $$(".tl-step", tl);
+    steps.forEach(function (s, i) { s.classList.toggle("is-on", p >= (i + 0.2) / steps.length); });
+  }
+
+  // ------------------------------------------------------------ 6. Formazione: card con luce che segue il puntatore
+  function spotlight() {
+    if (REDUCED || !window.matchMedia("(hover: hover)").matches) return;
+    $$(".train-card, .value-card").forEach(function (c) {
+      c.addEventListener("pointermove", function (e) {
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+        c.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+        c.style.setProperty("--rx", ((0.5 - y) * 6).toFixed(2) + "deg");
+        c.style.setProperty("--ry", ((x - 0.5) * 8).toFixed(2) + "deg");
+      });
+      c.addEventListener("pointerleave", function () { c.style.setProperty("--rx", "0deg"); c.style.setProperty("--ry", "0deg"); });
+    });
+  }
+
+  // ------------------------------------------------------------ 7. Storie: ogni mano della foto è una storia
+  function storyCrops() {
+    var img = $(".hero-media img");
+    if (img) document.documentElement.style.setProperty("--hero-img", 'url("' + (img.currentSrc || img.src) + '")');
+    var crops = ["42% 18%", "78% 30%", "48% 92%", "86% 78%", "60% 50%"];
+    $$(".story-card").forEach(function (c, i) { c.style.setProperty("--crop", crops[i % crops.length]); c.classList.add("has-photo"); });
+  }
+
+  // ------------------------------------------------------------ 8. CTA finale: il tuo tassello si incastra
+  function finalPuzzle() {
+    var grid = $(".final-grid");
+    if (!grid) return;
+    var quad = [[0, 0, 0, "#6CA2D2"], [100, 0, 90, "#BACCE4"], [0, 100, 270, "#ffffff"], [100, 100, 180, "#F5A54A"]];
+    var svg = '<svg class="final-puzzle" viewBox="-20 -20 240 240" aria-hidden="true">';
+    quad.forEach(function (q, i) {
+      svg += '<g class="fp fp-' + i + '"><g transform="translate(' + (q[0] + 50) + " " + (q[1] + 50) + ") rotate(" + q[2] + ') translate(-50 -50)">' + piece(q[3]) + "</g></g>";
+    });
+    grid.insertAdjacentHTML("afterbegin", svg + "</svg>");
+    var sec = grid.closest(".final-cta");
+    if (REDUCED || !("IntersectionObserver" in window)) { sec.classList.add("is-in"); return; }
+    new IntersectionObserver(function (en, io) {
+      en.forEach(function (e) { if (e.isIntersecting) { sec.classList.add("is-in"); io.disconnect(); } });
+    }, { threshold: 0.45 }).observe(sec);
+  }
+
+  // ------------------------------------------------------------ barra di avanzamento + scroll legato
+  function scrollLoop() {
+    var bar = document.createElement("span");
+    bar.className = "scroll-progress"; bar.setAttribute("aria-hidden", "true");
+    var header = $(".site-header");
+    if (header) header.appendChild(bar);
+    var media = $(".hero-media");
+    var ticking = false;
+    function frame() {
+      var vh = window.innerHeight, y = window.scrollY, max = document.documentElement.scrollHeight - vh;
+      bar.style.transform = "scaleX(" + (max > 0 ? y / max : 0).toFixed(4) + ")";
+      if (!REDUCED) {
+        if (media) media.style.setProperty("--sy", Math.min(y, vh).toFixed(0));
+        manifestoUpdate(vh);
+        growthUpdate(vh);
+      }
+      ticking = false;
+    }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+    window.addEventListener("resize", frame);
+    // la timeline viene ridisegnata al cambio tab
+    var gp = $("#growth-panel");
+    if (gp && "MutationObserver" in window) new MutationObserver(function () { requestAnimationFrame(frame); }).observe(gp, { childList: true });
+    frame();
+  }
+
+  // ------------------------------------------------------------ avvio
+  heroIntro();
+  if (!REDUCED) {
+    splitWords($("#hero-title"), "hw");
+    $("#hero-title").classList.add("is-split");
+    manifestoSetup();
+  }
+  ticker();
+  ambientPieces();
+  spotlight();
+  storyCrops();
+  finalPuzzle();
+  scrollLoop();
 })();
 
 </script>
