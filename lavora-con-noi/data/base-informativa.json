@@ -1,0 +1,2145 @@
+{
+ "versione": "cc192eed-Matrice_titoli-_regione-servizi__03082026-2.xlsx",
+ "province": {
+  "BG": {
+   "nome": "Bergamo",
+   "regione": "Lombardia",
+   "lon": 9.67,
+   "lat": 45.7
+  },
+  "BO": {
+   "nome": "Bologna",
+   "regione": "Emilia-Romagna",
+   "lon": 11.34,
+   "lat": 44.49
+  },
+  "BS": {
+   "nome": "Brescia",
+   "regione": "Lombardia",
+   "lon": 10.21,
+   "lat": 45.54
+  },
+  "CO": {
+   "nome": "Como",
+   "regione": "Lombardia",
+   "lon": 9.09,
+   "lat": 45.81
+  },
+  "CR": {
+   "nome": "Cremona",
+   "regione": "Lombardia",
+   "lon": 10.02,
+   "lat": 45.13
+  },
+  "FE": {
+   "nome": "Ferrara",
+   "regione": "Emilia-Romagna",
+   "lon": 11.62,
+   "lat": 44.84
+  },
+  "MI": {
+   "nome": "Milano",
+   "regione": "Lombardia",
+   "lon": 9.19,
+   "lat": 45.46
+  },
+  "MN": {
+   "nome": "Mantova",
+   "regione": "Lombardia",
+   "lon": 10.79,
+   "lat": 45.16
+  },
+  "MO": {
+   "nome": "Modena",
+   "regione": "Emilia-Romagna",
+   "lon": 10.93,
+   "lat": 44.55
+  },
+  "PR": {
+   "nome": "Parma",
+   "regione": "Emilia-Romagna",
+   "lon": 10.33,
+   "lat": 44.8
+  },
+  "RN": {
+   "nome": "Rimini",
+   "regione": "Emilia-Romagna",
+   "lon": 12.57,
+   "lat": 44.06
+  },
+  "RO": {
+   "nome": "Rovigo",
+   "regione": "Veneto",
+   "lon": 11.79,
+   "lat": 45.07
+  },
+  "VA": {
+   "nome": "Varese",
+   "regione": "Lombardia",
+   "lon": 8.83,
+   "lat": 45.82
+  },
+  "VI": {
+   "nome": "Vicenza",
+   "regione": "Veneto",
+   "lon": 11.55,
+   "lat": 45.55
+  }
+ },
+ "servizi": [
+  {
+   "id": "nidi-e-servizi-0-6-bo-mo",
+   "nome": "Nidi e servizi 0-6",
+   "nomeOriginale": "Servizi infanzia 0-6",
+   "settore": "infanzia",
+   "sottosettore": null,
+   "province": [
+    "BO",
+    "MO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna, Casalecchio di Reno, Zola Predosa, Monte San Pietro, Valsamoggia, Vignola",
+   "descrizione": "Nidi, micronidi e sezioni primavera dove bambine e bambini da 0 a 3 anni crescono tra gioco, cura e relazioni, in un'équipe con coordinamento pedagogico.",
+   "descrizioneProvvisoria": true,
+   "ruoli": [
+    {
+     "id": "educatore_nido",
+     "requisitiMatrice": [
+      "L-19 INDIRIZZO INFANZIA\nLM-85 Bis+ 60 CFU"
+     ],
+     "turni": [
+      "7.30 - 18.30 su turni lu/ve; sa/do per feste di compleanno"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Diploma di scuola secondaria di primo grado (Licenza Media) o assolvimento dell'obbligo scolastico."
+     ],
+     "turni": [
+      "7.30 - 18.30 su turni lu/ve; sa/do per feste di compleanno"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "scuole-dell-infanzia-3-6-bo",
+   "nome": "Scuole dell'infanzia 3-6",
+   "nomeOriginale": "Servizi infanzia 3-6",
+   "settore": "infanzia",
+   "sottosettore": null,
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Scuole dell'infanzia paritarie in cui progettare esperienze di apprendimento, autonomia e socialità per bambine e bambini dai 3 ai 6 anni.",
+   "descrizioneProvvisoria": true,
+   "ruoli": [
+    {
+     "id": "insegnante",
+     "requisitiMatrice": [
+      "scienze della formazione primaria +diploma dirigente di comunità preso entro il 2001",
+      "Laurea in Scienze della formazione primaria LM-85 bis;\nDiploma Magistrale o Diploma di Liceo Socio-Psico-Pedagogico o Diploma sperimentale a indirizzo linguistico conseguito entro l'anno scolastico 2001-2002"
+     ],
+     "turni": [
+      "7.30 - 18.30 su turni lu/ve; sa/do per feste di compleanno"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Diploma di scuola secondaria di primo grado (Licenza Media) o assolvimento dell'obbligo scolastico."
+     ],
+     "turni": [
+      "7.30 - 18.30 su turni lu/ve; sa/do per feste di compleanno"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "inclusione-scolastica-6-18-bs-mn-cr-bg-va-mi",
+   "nome": "Inclusione scolastica 6-18",
+   "nomeOriginale": "Servizi scolastici 6-18",
+   "settore": "scuola",
+   "sottosettore": null,
+   "province": [
+    "BS",
+    "MN",
+    "CR",
+    "BG",
+    "VA",
+    "MI"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Brescia, Mantova, Cremona, Bergamo, Varese, Milano e province",
+   "descrizione": "Educatori e educatrici nelle scuole di ogni ordine e grado per l'inclusione di alunne e alunni con disabilità, accanto a docenti e famiglie.",
+   "descrizioneProvvisoria": true,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Ed. Professionale: L-19 indirizzo ed prof o LM-85bis+ o Educatore socio-pedagogico 60CFU\nEd SENZA titolo :dipende dal capitolato/accreditamento>Diploma di scuola secondaria superiore a indirizzo socio-psico-pedagogico / scienze umane / servizi socio-sanitari (con almeno 2-3 anni di esperienza), laureandi L-19 con CFU minimi o lauree affini (Psicologia L-24, Servizio Sociale L-39, Sociologia)."
+     ],
+     "turni": [
+      "7.30 - 18.30"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "in base a capitolati/accreditamenti Diploma di scuola secondaria superiore a indirizzo socio-psico-pedagogico / scienze umane / servizi socio-sanitari (con almeno 2-3 anni di esperienza), laureandi L-19 con CFU minimi o lauree affini (Psicologia L-24, Servizio Sociale L-39, Sociologia)."
+     ],
+     "turni": [
+      "7.30 - 18.30"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "inclusione-scolastica-e-servizi-integrativi-3-18-mo",
+   "nome": "Inclusione scolastica e servizi integrativi 3-18",
+   "nomeOriginale": "Servizi scolastici 3-18",
+   "settore": "scuola",
+   "sottosettore": null,
+   "province": [
+    "MO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Unione Terre di Castelli, Pavullo nel Frignano, Polinago (MO)",
+   "descrizione": "Servizi di inclusione scolastica a favore di alunni e alunne con disabilità nelle scuole di ogni ordine e grado; Servizi integrativi di pre e post scuola; Servizi di inclusione a favore di bambini e bambine con disabilità e Servizi integrativi di prolungamento nei nidi di ASP di UTC (0-3); Servizio di assistenza al trasporto scolastico (solo per Comune di Pavullo)",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Ed Professionale: L-19 indirizzo ed prof o LM-85bis+ o Educatore socio-pedagogico 60CFU"
+     ],
+     "turni": [
+      "7.30 - 18.30"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "A seconda dei capitolati di appalto i requisiti divergono:\nDiploma scuola secondaria e secondo grado + di ambito attinente esocio educaivo( scoienze umane, socio psico pedagogico..)\nDiploma scuola secondaria e secondo grado+ esperienza specifica( definita a capitolato)"
+     ],
+     "turni": [
+      "7.30 - 18.30"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "rsa-residenza-sanitaria-assistenziale-mi-bg-bs-cr-mn-va",
+   "nome": "RSA – Residenza sanitaria assistenziale",
+   "nomeOriginale": "RSA",
+   "settore": "anziani",
+   "sottosettore": "Residenziale",
+   "province": [
+    "MI",
+    "BG",
+    "BS",
+    "CR",
+    "MN",
+    "VA"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Lombardia – sedi da definire",
+   "descrizione": "Residenze per persone anziane non autosufficienti, aperte 24 ore su 24, dove sanitario, assistenziale ed educativo lavorano insieme alla qualità della vita.",
+   "descrizioneProvvisoria": true,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "Qualifica Regionale."
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "adb",
+     "requisitiMatrice": [
+      "no qualifica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "Qualifica specifica regionale"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Ed Professionale: L-19 indirizzo ed prof o LM-85bis+ o Educatore socio-pedagogico 60CFU"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "animatore",
+     "requisitiMatrice": [
+      "Diploma di indirizzo umanistico + 60cfu(legge iori)+ titoli equipollenti"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "fisioterapista",
+     "requisitiMatrice": [
+      "Laurea in Fisioterapia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "massoterapista",
+     "requisitiMatrice": [
+      "Laurea in masso in base all'anno di conseguitmento + crediti è equipollente a fisioterapia, istritto all'ordine"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "logopedista",
+     "requisitiMatrice": [
+      "Laurea in logopedia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea Scienze e Tecniche Psicologiche L-24 + magistrale ed iscrizione all'ordine degli psicologi"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "L-37 + iscrizione all'albo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "cdi-centro-diurno-integrato-mi-bg-bs-cr-mn-va",
+   "nome": "CDI – Centro diurno integrato",
+   "nomeOriginale": "CDI - Centro diurno Integreto",
+   "settore": "anziani",
+   "sottosettore": "Diurno",
+   "province": [
+    "MI",
+    "BG",
+    "BS",
+    "CR",
+    "MN",
+    "VA"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Lombardia – sedi da definire",
+   "descrizione": "Centri diurni integrati per persone anziane: assistenza, riabilitazione e animazione durante il giorno, per sostenere la vita a casa propria.",
+   "descrizioneProvvisoria": true,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "Qualifica Regionale."
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "adb",
+     "requisitiMatrice": [
+      "no qualifica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "Qualifica specifica regionale"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Ed Professionale: L-19 indirizzo ed prof o LM-85bis+ o Educatore socio-pedagogico 60CFU"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "animatore",
+     "requisitiMatrice": [
+      "Diploma di indirizzo umanistico + 60cfu(legge iori)+ titoli equipollenti"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "fisioterapista",
+     "requisitiMatrice": [
+      "Laurea in Fisioterapia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "massoterapista",
+     "requisitiMatrice": [
+      "Laurea in masso in base all'anno di conseguitmento + crediti è equipollente a fisioterapia, istritto all'ordine"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "logopedista",
+     "requisitiMatrice": [
+      "Laurea in logopedia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea Scienze e Tecniche Psicologiche L-24 + magistrale ed iscrizione all'ordine degli psicologi"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "L-37 + iscrizione all'albo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "cra-rsa-strutture-residenziali-per-anziani-vi",
+   "nome": "CRA / RSA – Strutture residenziali per anziani",
+   "nomeOriginale": "RSA / CRA",
+   "settore": "anziani",
+   "sottosettore": "Residenziale",
+   "province": [
+    "VI"
+   ],
+   "regioni": [
+    "Veneto"
+   ],
+   "localita": "Vicenza",
+   "descrizione": "Servizi residenziali attivo h24 e 365 giorni all'anno, dedicato alla cura e all'assistenza di persone non autosufficienti o parzialmente autosufficienti che hanno compiuto 65 anni di età",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; Qualifica Regionale ASA"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; Qualifica Regionale ASA"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "cra-rsa-strutture-residenziali-per-anziani-bo",
+   "nome": "CRA / RSA – Strutture residenziali per anziani",
+   "nomeOriginale": "RSA / CRA",
+   "settore": "anziani",
+   "sottosettore": "Residenziale",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna e provincia",
+   "descrizione": "Servizi residenziali attivo h24 e 365 giorni all'anno, dedicato alla cura e all'assistenza di persone non autosufficienti o parzialmente autosufficienti che hanno compiuto 65 anni di età",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "animatore",
+     "requisitiMatrice": [
+      "rtificato di qualifica per “Animatore per attività di gruppo” rilasciato dalla Regione Emilia Romagna ai sensi della Legge quadro n. 845/1978\n\ncertificato di qualifica per “Animatore sociale” rilasciato dalla Regione Emilia Romagna ai sensi della L.R. 12/2003\n\ncertificati di qualifica di animatore rilasciati da altre regioni italiane, ai sensi della Legge quadro n. 845/1978 o delle leggi regionali vigenti in materia di formazione professionale, attestanti competenze relative all’animazione sociale rivolta agli anziani; in tali casi, è richiesto anche un biennio di svolgimento di funzioni specifiche nel campo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "centri-diurni-per-anziani-bo",
+   "nome": "Centri diurni per anziani",
+   "nomeOriginale": "Centri diurni",
+   "settore": "anziani",
+   "sottosettore": "Diurno",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna e provincia",
+   "descrizione": "Servizio semi-residenziale (aperto 5 o 6 gg a settimana, fascia oraria diurna) dove vengono proposte attività di animazione e socializzazione per persone anziani, oltre alla cura ed assistenza nonché alla gestione del pranzo",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "animatore",
+     "requisitiMatrice": [
+      "ertificato di qualifica per “Animatore per attività di gruppo” rilasciato dalla Regione Emilia Romagna ai sensi della Legge quadro n. 845/1978\n\ncertificato di qualifica per “Animatore sociale” rilasciato dalla Regione Emilia Romagna ai sensi della L.R. 12/2003\ncertificati di qualifica di animatore rilasciati da altre regioni italiane, ai sensi della Legge quadro n. 845/1978 o delle leggi regionali vigenti in materia di formazione professionale, attestanti competenze relative all’animazione sociale rivolta agli anziani; in tali casi, è richiesto anche un biennio di svolgimento di funzioni specifiche nel campo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "sad-assistenza-domiciliare-bo",
+   "nome": "SAD – Assistenza domiciliare",
+   "nomeOriginale": "SAD",
+   "settore": "domiciliarita",
+   "sottosettore": "Assistenza domiciliare",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna e provincia",
+   "descrizione": "Servizio di cura e assistenza al domicilio di persone con bisogni socio-sanitari. Attività svolta in fascia oraria 07:00 - 21:00 365 gg all'anno",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "adb",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "trasporto-e-accompagnamento-bo",
+   "nome": "Trasporto e accompagnamento",
+   "nomeOriginale": "Supporta trasversalmente altri settori (anziani domiciliare/ disabilità)",
+   "settore": "domiciliarita",
+   "sottosettore": "Trasporti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna e provincia",
+   "descrizione": "Servizio di accompagnamento di persone a ridotta mobilità dal domicilio alla destinazione designata (centro diurno,",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "autista",
+     "requisitiMatrice": [
+      "Nessun titolo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "csrd-centro-socio-riabilitativo-diurno-bo",
+   "nome": "CSRD – Centro socio-riabilitativo diurno",
+   "nomeOriginale": "CSRD - Centro socio riabilitativo diurno",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Servizi diurni attivo per 7 ore diurne (indicativamente 9.00 - 16.00) e 230 giorni all'anno, dedicato alla cura e all'assistenza di persone con moderate o gravi disabilità fisiche e cognitive, nonchè a persone neurodivergenti, si occupa di costruire percorsi laboratoriali fatti di diverse attività ludiche, ricreative, formative, adattive. Punti di forza: moltissime attività diverse che compongono la programmazione dei centri sia interne che esterne al servizio, lavoro in team, gestione di casi complessi in maniera integrata e multidisciplinare anche con i servizi di presa in carico, creazione di PEAI individualizzati e dedicati, formazioni specifiche sulla gestione dell'utenza neurodivergente con metodologia ABA (Applied Behavior Analysis)",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19+ Educatore socio culturale"
+     ],
+     "turni": [
+      "5 su 7 / 8:00-16:00"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "titoli equipollenti:Psicologia e sociologia"
+     ],
+     "turni": [
+      "7/7 H24 tendenzialmente la figura educativa copre solo le ore diurne (08:00 - 21:00), la figura OSS copre su turni le 24H comprese le notti."
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "csrr-centro-socio-riabilitativo-residenziale-bo",
+   "nome": "CSRR – Centro socio-riabilitativo residenziale",
+   "nomeOriginale": "CSRR - Centro socio riabilitativo residenziale",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna, Budrio",
+   "descrizione": "Servizi residenziale attivo H24 e 365 giorni all'anno, dedicato alla cura e all'assistenza di persone con moderate o gravi disabilità fisiche e cognitive, nonchè a persone neurodivergenti, si occupa di costruire percorsi laboratoriali fatti di diverse attività ludiche, ricreative, formative, adattive oltre che a tutti gli aspetti di accoglienza tipici di un centro residenziale (alzate, igieni, pasti, messa a letto, sorveglianza notturna, soggiorni, etc)",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Nessun titolo- Diploma discuola superiore o secondo grado"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "spazio-rondine-bo",
+   "nome": "Spazio Rondine",
+   "nomeOriginale": "Spazio Rondine",
+   "settore": "salute_mentale",
+   "sottosettore": null,
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Centro polifunzionale laboratoriale in cui opera personale che si occupa di seguire progetti individuali di persone in carico a servizi della salute mentale (DSM - DP), i progeti prevedono sia accessi al domicilio degli utenti che attività strutturate sul territorio. Il rapporto di lavoro è 1:1 e segue una progettazione condivisa e co-costruita con i servizi di riferimento. Il servizio è attivo principalmente dal lunedi al venrerdi in orario diurno ma non è escluso che vi siano attività o interventi anche il sabato o domenica su richiesta della committenza.  Punti di forza: grande libertà progettuale, creazione di nuovi percorsi laboratoriali senza grandi vincoli contrattuali con la commitenza, multidisciplinarità di competenze, orari flessibili)",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [
+      "6 su 7 / 8:00-16:00 (abbiamo detto tendenzialmente perchè come spiegto in sede di incontro alcuni budget sono anche il sabato e la domenica e i contratti vengono stipulati per questo motivo 6/7)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "cdd-centro-diurno-disabili-ro",
+   "nome": "CDD – Centro diurno disabili",
+   "nomeOriginale": "CDD - Centro diurno disabili",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "RO"
+   ],
+   "regioni": [
+    "Veneto"
+   ],
+   "localita": "Rovigo",
+   "descrizione": "Servizi diurni attivo per 7 ore diurne (indicativamente 8,30 - 16,30) e 227 giorni all'anno, dedicato alla cura e all'assistenza di persone con moderate o gravi disabilità fisiche e cognitive, nonchè a persone neurodivergenti, si occupa di costruire percorsi laboratoriali fatti di diverse attività ludiche, ricreative, formative, adattive.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nADB riqualificato ad OSS"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "cdd-centro-diurno-disabili-bg-co-cr-mi-mn-va",
+   "nome": "CDD – Centro diurno disabili",
+   "nomeOriginale": "CDD - Centro diurno disabili",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "BG",
+    "CO",
+    "CR",
+    "MI",
+    "MN",
+    "VA"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "CR (Cremona- Soresina- Crema)- MN (San Giorgio Bigarello) - MI (Lainate-Trezzano sul Naviglio- Passirana di Rho- Sesto San Giovanni) - VA (Busto Arsizio-Samarate) - BG (Sovere) - CO (Cermenate - Capago Intimiano)",
+   "descrizione": "struttura socio-sanitaria diurna funzionante per almeno 35 ore settimanali, per 47 settimane all’anno e che accoglie persone con disabilità con elevato bisogno di sostegno in età compresa tra i 18 e i 64 anni (i minori infatti possono essere accolti in queste strutture solo eccezionalmente e a determinate condizioni). Nel centro sono erogate prestazioni sociosanitarie, educative, riabilitative e socioriabilitative, in base a specifici progetti individualizzati focalizzati sui bisogni e sulle necessità di sostegno della singola persona.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nADB riqualificato ad OSS"
+     ],
+     "turni": [
+      "5 su 7 (lunedì-venerdì) / fascia oraria massima di apertura 8:00-16:30 / 1 giorno settimana riunione di equipe oltre orario di apertura all'utenza"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nADB riqualificato ad OSS"
+     ],
+     "turni": [
+      "5 su 7 (lunedì-venerdì) / fascia oraria massima di apertura 8:00-16:30 / 1 giorno settimana riunione di equipe oltre orario di apertura all'utenza"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale - DIPLOMA REGIONALE EQUIPOLLENTE - EDUCATORE AL TERZO ANNO IN FORMAZIONE"
+     ],
+     "turni": [
+      "5 su 7 (lunedì-venerdì) / fascia oraria massima di apertura 8:00-16:30 / 1 giorno settimana riunione di equipe oltre orario di apertura all'utenza"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "fisioterapista",
+     "requisitiMatrice": [
+      "Laurea in Fisioterapia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "logopedista",
+     "requisitiMatrice": [
+      "Laurea in Logopedia"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "fisiatra",
+     "requisitiMatrice": [
+      "Laurea in Medicina Fisica e Riabilitativa"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "psichiatra",
+     "requisitiMatrice": [
+      "Laurea in Medicina CON SPECIALIZZAZIONE"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea in Psicologia"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "cdd-centro-diurno-disabili-cr-mi",
+   "nome": "CDD – Centro diurno disabili",
+   "nomeOriginale": "CDD - Centro diurno disabili",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "CR",
+    "MI"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Cremona, Sesto San Giovanni, Canegrate",
+   "descrizione": "struttura socio-sanitaria diurna funzionante per almeno 35 ore settimanali, per 47 settimane all’anno e che accoglie persone con disabilità con elevato bisogno di sostegno in età compresa tra i 18 e i 64 anni (i minori infatti possono essere accolti in queste strutture solo eccezionalmente e a determinate condizioni). Nel centro sono erogate prestazioni sociosanitarie, educative, riabilitative e socioriabilitative, in base a specifici progetti individualizzati focalizzati sui bisogni e sulle necessità di sostegno della singola persona.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Nessun titolo"
+     ],
+     "turni": [
+      "lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "rsd-residenza-sanitaria-disabili-mn",
+   "nome": "RSD – Residenza sanitaria disabili",
+   "nomeOriginale": "RSD - Residenza sanitaria assistenziale disabili",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "MN"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "San Giorgio Bigarello (MN)",
+   "descrizione": "struttura socio-sanitaria residenziale che accoglie persone, di norma di età compresa tra i 18 e i 65 anni, con disabilità con elevato bisogno di sostegno, che necessitano di prestazioni a elevato grado di integrazione sanitaria di natura medica, infermieristica, educativa, riabilitativa e tutelare.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nASA ASA riqualificato OSS"
+     ],
+     "turni": [
+      "7 su 7 / 24h (per ora solo turni mattino e poeriggio)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nASA ASA riqualificato OSS"
+     ],
+     "turni": [
+      "7 su 7 / 24h (per ora solo turni mattino e poeriggio)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [
+      "5 (o 6)/7 - orario diurno"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [
+      "7 su 7 / 24h"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "fisioterapista",
+     "requisitiMatrice": [
+      "Laurea in Fisioterapia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "logopedista",
+     "requisitiMatrice": [
+      "Laurea in Logopedia"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "fisiatra",
+     "requisitiMatrice": [
+      "Laurea in Medicina Fisica e Riabilitativa"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "psichiatra",
+     "requisitiMatrice": [
+      "Laurea in Medicina CON SPECIALIZZAZIONE"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea in Psicologia"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "css-comunita-socio-sanitarie-cr-mi",
+   "nome": "CSS – Comunità socio-sanitarie",
+   "nomeOriginale": "CSS - Comunità socio sanitarie",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "CR",
+    "MI"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Cremona, Sesto San Giovanni, Canegrate",
+   "descrizione": "Strutture socio-sanitarie residenziali che accolgono persone con disabilità con elevato bisogno di sostegno. Si tratta di piccole comunità, che ospitano al massimo 10 utenti, diventano dimora abituale della persona offrendo al contempo interventi di tipo assistenziale, educativo, ricreativo e terapeutico personalizzati.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "7 su 7 / 24h"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "7 su 7 / 24h"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [
+      "turno diurno - in alcune CSS anche sabato o domenica"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "fisioterapista",
+     "requisitiMatrice": [
+      "Laurea in Fisioterapia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "logopedista",
+     "requisitiMatrice": [
+      "Laurea in Logopedia"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "fisiatra",
+     "requisitiMatrice": [
+      "Laurea in Medicina Fisica e Riabilitativa"
+     ],
+     "turni": [],
+     "consulenza": true
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea in Psicologia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Nessun titolo"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "sfa-servizio-di-formazione-all-autonomia-mi-bg-cr-mn",
+   "nome": "SFA – Servizio di formazione all'autonomia",
+   "nomeOriginale": "SFA- Servizio di formazione all'autonomia",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "MI",
+    "BG",
+    "CR",
+    "MN"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Lombardia – sedi da definire",
+   "descrizione": "servizio sociale territoriale rivolto a persone disabili che, per le loro caratteristiche, non necessitano di servizi ad alta protezione, ma di interventi a supporto e sviluppo di abilità utili a creare consapevolezza, autodeterminazione, autostima e maggiori autonomie spendibili per il proprio futuro nell’ambito del contesto familiare, sociale, professionale. Accoglie persone di età compresa tra i 16 e i 35 anni o di età superiore ai 35 anni con traumi o patologie invalidanti che, una volta dimessi dal Sistema Sanitario o Socio Sanitario necessitano di un percorso di acquisizione di abilità sociali.\nNon sono ammesse persone con prevalenza di patologie psichiatriche o in situazione di dipendenza da sostanze.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "diurno - lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "diurno - lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [
+      "diurno - lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "cse-centro-socio-educativo-bg",
+   "nome": "CSE – Centro socio-educativo",
+   "nomeOriginale": "CSE- Centro socioeducativo",
+   "settore": "disabilita",
+   "sottosettore": null,
+   "province": [
+    "BG"
+   ],
+   "regioni": [
+    "Lombardia"
+   ],
+   "localita": "Sovere (BG)",
+   "descrizione": "unità di offerta sociale diurna; accoglie persone con disabilità con bisogno di sostegno medio-lieve, di età compresa tra i 18 e i 64 anni. Offre attività socio-educative e socio-animative",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "oss",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "diurno - lun-ven -fascia oraria  8:30-16:30"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "asa",
+     "requisitiMatrice": [
+      "OSS:Qualifica regionale OSS; \nAS:A riqualificato ad ASA"
+     ],
+     "turni": [
+      "diurno - lun-ven -fascia oraria  8:30-16:30"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore Professionale SANITARIO (L/SNT2)+ Educatore L-19 o L-19 percoroso in Educatore socio culturale"
+     ],
+     "turni": [
+      "diurno - lun-ven -fascia oraria  8:30-16:30"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "infermiere",
+     "requisitiMatrice": [
+      "INFERMIERE: Laurea L/SNT1 Infermieristica"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "ausiliario",
+     "requisitiMatrice": [
+      "Nessun titolo"
+     ],
+     "turni": [
+      "diurno - lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "psicologo",
+     "requisitiMatrice": [
+      "Laurea in Psicologia"
+     ],
+     "turni": [],
+     "consulenza": false
+    },
+    {
+     "id": "arteterapeuta",
+     "requisitiMatrice": [
+      "Corso specifico"
+     ],
+     "turni": [],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "sed-servizio-educativo-domiciliare-bo",
+   "nome": "SED – Servizio educativo domiciliare",
+   "nomeOriginale": "Sed",
+   "settore": "fragilita",
+   "sottosettore": "Minori",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Il servizio educativo domiciliare (SED) è un intervento socio-educativo rivolto a minori seguiti dai Servizi Sociali e alle loro famiglie, svolto da un educatore professionale direttamente presso l'abitazione o nei contesti di vita quotidiana del minore. Viene attivato all'interno di un progetto individualizzato concordato con l'assistente sociale referente, con l'obiettivo di sostenere le competenze genitoriali, favorire il benessere relazionale e scolastico del minore e prevenire situazioni di disagio o allontanamento dal nucleo familiare. Si tratta di un intervento non residenziale, che punta a mantenere il minore nel proprio ambiente, rafforzando le risorse della famiglia piuttosto che sostituirle.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "educatore professionale o titoli equipollenti (assistente sociale, psicologo); altri titoli previsti dalla DGR 1904 Emilia Romagna con sanatoria 120h di corso"
+     ],
+     "turni": [
+      "prevalentemente pomeridiani dopo la scuola ed il sabato tutto il giorno"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "comunita-educative-per-minori-bo",
+   "nome": "Comunità educative per minori",
+   "nomeOriginale": "Comunità minori",
+   "settore": "fragilita",
+   "sottosettore": "Minori",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Città metropolitana di Bologna",
+   "descrizione": "Le comunità educative residenziali sono strutture che accolgono minori allontanati dal proprio nucleo familiare a seguito di provvedimento dell'autorità giudiziaria o amministrativa, quando la permanenza in famiglia risulta pregiudizievole per la loro tutela e crescita. Il minore è seguito da un'équipe di educatori professionali, la cui composizione e i cui rapporti numerici sono definiti dalla direttiva stessa, che garantisce cura quotidiana, continuità scolastica e sostegno educativo nell'ambito di un Progetto Quadro condiviso tra Servizi sociali e Azienda USL. L'obiettivo è offrire al minore un contesto stabile e protettivo, lavorando, ove possibile, al rientro in famiglia o all'individuazione di un progetto di vita alternativo.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "educatore professionale o titoli equipollenti (assistente sociale, psicologo); altri titoli previsti dalla DGR 1904 Emilia Romagna con sanatoria 120h di corso"
+     ],
+     "turni": [
+      "7 su 7/ 24h"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "servizi-extrascolastici-bo",
+   "nome": "Servizi extrascolastici",
+   "nomeOriginale": "Centro educativo diurno ---->Servizi Extrascolastici (ex centri socio educativi)  termine corretto",
+   "settore": "fragilita",
+   "sottosettore": "Minori",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "I servizi extrascolastici  rivolti a ragazzi e ragazze dalla fascia della scuola primaria fino ai 18 anni. Offrono attività laboratoriali che favoriscano il successo scolastico e un contesto educativo nel quale sperimentare l'accoglienza, l'ascolto e la partecipazione, favorendo l'incontro e la socializzazione tra ragazzi e ragazze attraverso attività per una gestione consapevole del tempo libero e che ne incoraggino il protagonismo. Il servizio è gestito da educatori professionali in stretto raccordo con le istituzioni scolastiche e con il Comune, con particolare attenzione alle famiglie con figli a rischio di dispersione scolastica.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "educatore professionale (o con altri titoli ed anni di esperienza nel settore)"
+     ],
+     "turni": [
+      "giorni ed orari previsti come aperture programmate durante la settimana"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": ""
+  },
+  {
+   "id": "accoglienza-sai-adulti-e-nuclei-familiari-bo",
+   "nome": "Accoglienza SAI – Adulti e nuclei familiari",
+   "nomeOriginale": "Residenziale SAI (sistema asilo e integrazione - accoglienza migranti) - Adulti e nuclei -Progetto SAI ordinari e vulnerabili",
+   "settore": "fragilita",
+   "sottosettore": "Migranti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Accoglienza di persone migranti all'interno del progetto SAI Nazionale dedicato all'integrazione di cittadini stranieri - richiedenti o titolari di protezione internazionale. Il servizio offre percorsi di autonomia mirati all'inclusione sociale e lavorativa dei beneficiari attraverso l'apprendimento della lingua, la formazione e, per i profili vulnerabili l'accoglienza si intensifica con una forte personalizzazione e un supporto specialistico, sanitario e psicologico.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "solo diurno lunedi venerdi sabati a rotazione (reperibilità a rotazione su weekend)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico- anche studenti"
+     ],
+     "turni": [
+      "solo diurno lunedi venerdi sabati a rotazione (reperibilità a rotazione su weekend)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Diurno"
+  },
+  {
+   "id": "accoglienza-sai-minori-stranieri-non-accompagnati-bo",
+   "nome": "Accoglienza SAI – Minori stranieri non accompagnati",
+   "nomeOriginale": "Residenziale SAI (sistema asilo e integrazione - accoglienza migranti) - Minori - Progetto MSNA",
+   "settore": "fragilita",
+   "sottosettore": "Migranti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Accoglienza di persone migranti all'interno del progetto SAI Nazionale dedicato all'integrazione di cittadini stranieri - richiedenti o titolari di protezione internazionale. Il servizio offre percorsi di autonomia mirati all'inclusione sociale e lavorativa dei beneficiari attraverso l'apprendimento della lingua, la formazione e, per i profili vulnerabili l'accoglienza si intensifica con una forte personalizzazione e un supporto specialistico, sanitario e psicologico.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "figure educative - diurni 7 su 7 (reperibilità a rotazione su weekend)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico- anche studenti"
+     ],
+     "turni": [
+      "figure educative - diurni 7 su 7 (reperibilità a rotazione su weekend)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "operatori socio assistenziali turni serali-notturni 7 su 7 (con reperibilità in struttura)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "fami-rethink-bo",
+   "nome": "FAMI Rethink",
+   "nomeOriginale": "FAMI Rethink",
+   "settore": "fragilita",
+   "sottosettore": "Migranti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "E' un progetto triennale per potenziare l'inclusione dei Minori Stranieri Non Accompagnati (MSNA) più vulnerabili. Il progetto unisce istituzioni e terzo settore per offrire supporto psico-sociale strutturato e prevenire situazioni di emarginazione e devianza. Attraverso laboratori pratici, attività culturali e spazi aggregativi (come lo Spazio MET), punta a trasformare i ragazzi in cittadini attivi, aiutandoli a inserirsi stabilmente nel tessuto urbano bolognese.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico- anche studenti"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "sportello-protezione-internazionale-bo",
+   "nome": "Sportello protezione internazionale",
+   "nomeOriginale": "Sportello accesso protezione internazionale",
+   "settore": "fragilita",
+   "sottosettore": "Migranti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "E' il canale di accesso al sistema metropolitano di accoglienza per richiedenti asilo, rifugiati e minori stranieri non accompagnati. Il suo personale effettua i primi colloqui di ascolto e orientamento legale/territoriale, risponde a bisogni urgenti e indirizza le persone vulnerabili verso i servizi competenti per la presa in carico e l'inclusione",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico- anche studenti"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "accoglienza-adulti-senza-dimora-h24-bo",
+   "nome": "Accoglienza adulti senza dimora h24",
+   "nomeOriginale": "Accoglienza adulti senza dimora - h24",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Accoglienza in struttura residenziale aperta h24/365gg per persone adulte senza dimora in condizioni di grave marginalità. Una struttura (MTC) è dedicata al genere femminile. Si offre innanzitutto accoglienza materiale (posto letto, pasti, docce e lavanderia). Contemporaneamente si lavora con l'ospite su un percorso di autonomia, supportandolo nel disbrigo di pratiche burocratiche (come i documenti e la residenza), nell'orientamento al lavoro e nella ricerca della casa. Il modello bolognese punta molto sulla responsabilizzazione, coinvolgendo attivamente le persone nella gestione della struttura e in attività per il territorio per favorire il loro reinserimento sociale. I percorsi di accoglienza sono di media durata",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "figure educative - diurni 7 su 7"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico- anche studenti"
+     ],
+     "turni": [
+      "figure educative - diurni 7 su 7"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "operatori socio assistenziali turni serali-notturni 7 su 7 (con reperibilità in struttura)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "pronta-accoglienza-adulti-senza-dimora-h14-bo-pr",
+   "nome": "Pronta accoglienza adulti senza dimora h14",
+   "nomeOriginale": "Pronta Accoglienza adulti senza dimora - h14",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "BO",
+    "PR"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna, Parma",
+   "descrizione": "Accoglienza in struttura semi-residenziale aperta h14/365 (sera e notte) per persone adulte senza dimora in condizioni di grave marginalità. Alcune strutture sono miste, altre riservate solo al genere maschile. Si offre prevalentemente sollievo dalla vita di strada attraverso accoglienza materiale (posto letto, pasti, docce e lavanderia) e orientamento verso i sevrizi del territorio. I percorsi di accoglienza sono di breve durata ed il turnover dei beneficiari è elevato. Alcune strutture aprono per brevi periodi in concomitanza della stagionalità (freddo o caldo intensi) o condizioni climatiche particolarmente avverse",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico\nAS: L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "figure educative e AS - turni prevalentemente serali lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico\nAS: L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "figure educative e AS - turni prevalentemente serali lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "figure educative e AS - turni prevalentemente serali lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "operatori socio assistenziali turni serali-notturni 7 su 7 (con reperibilità in struttura)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "unita-di-strada-sulla-soglia-pr",
+   "nome": "Unità di strada \"Sulla Soglia\"",
+   "nomeOriginale": "Unità di strada - Sulla Soglia",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "PR"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Parma",
+   "descrizione": "L'Unità di Strada del progetto \"Sulla Soglia\" di Parma interviene direttamente nei luoghi in cui vivono le persone senza dimora per monitorare le situazioni di grave emarginazione e offrire un primo supporto relazionale e materiale (generi di prima necessità, coperte). Attraverso la costruzione di un rapporto di fiducia, gli operatori tolgono le persone dall'invisibilità e fungono da ponte verso i servizi del territorio, orientandole e accompagnandole verso le mense, le docce e i centri di accoglienza notturna cittadini.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "7 su 7 / orario variabile  su turni (no notti)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "prins-sulla-soglia-pr",
+   "nome": "PRiNS \"Sulla Soglia\"",
+   "nomeOriginale": "PriNS - Sulla Soglia",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "PR"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Parma",
+   "descrizione": "l PRINS di \"Sulla Soglia\" gestisce in orario d'ufficio le urgenze sociali prevalentemente relativamente a persone adulte senza dimora a Parma. Il servizio lavora in costante sinergia con l'Unità di Strada, che monitora il territorio e segnala al PRINS i casi più critici da attenzionare per programmare inserimenti protetti in struttura o risposte materiali immediate.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico\nAS: L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico\nAS: L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "unita-di-strada-oltre-la-strada-bo-pr",
+   "nome": "Unità di strada \"Oltre la Strada\"",
+   "nomeOriginale": "Unità di strada - Sex worker",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "BO",
+    "PR"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna, Parma",
+   "descrizione": "Nell'ambito del Progetto \"Oltre la Strada\", è il servizio specificamente dedicato al contrasto dello sfruttamento e al supporto delle persone vittime di tratta. Un'equipe specializzata effettua uscite diurne e notturne per entrare in contatto con chi si prostituisce in strada o nei luoghi chiusi (indoor). L'obiettivo è monitorare il fenomeno, distribuire materiali sanitari e informativi di prevenzione e offrire percorsi di fuoriuscita e tutela sociale alle persone vulnerabili",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "lun-ven / orario variabile su turni (no notti)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "lun-ven / orario variabile su turni (no notti)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "team-antitratta-minori-bo",
+   "nome": "Team antitratta minori",
+   "nomeOriginale": "Team antitratta minori",
+   "settore": "fragilita",
+   "sottosettore": "Minori",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Nell'ambito del Progetto \"Oltre la Strada\", è un'equipe specialistica che interviene sui Minori Stranieri Non Accompagnati (MSNA) a rischio di sfruttamento o già inseriti in circuiti criminali, sessuali o lavorativi. Gli operatori non lavorano in strada, ma operano su segnalazione all'interno delle comunità di accoglienza per far emergere lo status di vittima, sostenere i ragazzi nei percorsi di affrancamento dalle reti criminali e offrire consulenza metodologica ai servizi territoriali.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "progetto-europeo-interact-bo",
+   "nome": "Progetto europeo Interact",
+   "nomeOriginale": "Progetto europeo Interact",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "E' un progetto europeo mirato a contrastare il fenomeno delle donne senza dimora a Bologna e in altre città europee, che introduce un modello d'intervento multidisciplinare e intersezionale per rispondere a vulnerabilità complesse e spesso sovrapposte, quali la violenza di genere, i problemi di salute mentale e l'abuso di sostanze.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "pronta-accoglienza-famiglie-san-sisto-bo",
+   "nome": "Pronta accoglienza famiglie \"San Sisto\"",
+   "nomeOriginale": "Pronta accoglienza nuclei familiari \"San Sisto\"",
+   "settore": "fragilita",
+   "sottosettore": "Nuclei familiari",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "La Pronta Accoglienza San Sisto  è un centro collettivo temporaneo che accoglie nuclei familiari con figli minori in condizioni di grave vulnerabilità e privi di alloggio (es. a causa di sfratti). L'equipe lavora per sostenere le competenze genitoriali e supportare le famiglie nello sviluppo di un percorso verso l'autonomia abitativa e sociale.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "- figure educative - diurni 7 su 7\n- operatori socio assistenziali turni serali-notturni 7 su 7"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "- figure educative - diurni 7 su 7\n- operatori socio assistenziali turni serali-notturni 7 su 7"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "- figure educative - diurni 7 su 7\n- operatori socio assistenziali turni serali-notturni 7 su 7"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "transizione-abitativa-bo",
+   "nome": "Transizione abitativa",
+   "nomeOriginale": "Transizione abitativa in alloggi diffusi complessi condominiali",
+   "settore": "fragilita",
+   "sottosettore": "Nuclei familiari",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Il servizio di Transizione Abitativa offre un alloggio temporaneo (fino a 18-24 mesi, anche in condivisione) a nuclei familiari o singoli in grave difficoltà economica e abitativa. La casa viene utilizzata come strumento per un percorso di riscatto: attraverso un patto di attivazione e l'accompagnamento di un'equipe di supporto educativo, gli ospiti lavorano sulla gestione del budget, sulla ricerca del lavoro e sull'inclusione sociale, con l'obiettivo di raggiungere la piena autonomia e un inserimento stabile nel mercato della casa.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "abitare-comunita-rom-sinti-e-caminanti-bo",
+   "nome": "Abitare – Comunità Rom, Sinti e Caminanti",
+   "nomeOriginale": "Abitare Comunità Sinta e progetto RSC (Rom, Sinti e Camminanti)",
+   "settore": "fragilita",
+   "sottosettore": "Nuclei familiari",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Il servizio promuove l'inclusione socio-abitativa delle famiglie Rom, Sinti e Caminanti. Attraverso interventi educativi dedicati, gli operatori supportano i nuclei residenti nelle aree di sosta e nelle microaree metropolitane verso soluzioni abitative ordinarie. Parallelamente, sfruttando i finanziamenti nazionali ed europei (RSC), l'equipe lavora a stretto contatto con le scuole per contrastare la dispersione scolastica dei minori e favorire l'accesso delle famiglie ai servizi sanitari e al lavoro.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "laboratori-di-comunita-bo",
+   "nome": "Laboratori di comunità",
+   "nomeOriginale": "Laboratori di Comunità",
+   "settore": "fragilita",
+   "sottosettore": "Adulti",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna",
+   "descrizione": "Sono spazi diurni a bassa soglia che offrono sollievo dalla strada e percorsi occupazionali a persone in grave emarginazione. Attraverso la gestione del Laboratorio E20, di R8 a Villetta e del laboratorio Belletrame, l'equipe di supporto educativo non si limita all'accoglienza, ma crea veri e propri ponti con il territorio: le attività pratiche e artigianali diventano occasioni di scambio e partecipazione aperta, stimolando il coinvolgimento attivo della comunità \"con dimora\" e della cittadinanza. Questo incontro e la condivisione degli spazi permettono di abbattere i pregiudizi, restituire dignità alle persone e favorire una reale inclusione sociale.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-sab (durante il periodo invernale anche la domenica)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-sab (durante il periodo invernale anche la domenica)"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_sociale",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-sab (durante il periodo invernale anche la domenica)"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "territori-per-il-reinserimento-carcere-bo",
+   "nome": "Territori per il Reinserimento (carcere)",
+   "nomeOriginale": "Mediazione interculturale e interventi educativi in contesto carcerario",
+   "settore": "fragilita",
+   "sottosettore": "Carcere",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna (Casa circondariale)",
+   "descrizione": "Il progetto \"Territori per il Reinserimento \" realizza percorsi di inclusione per persone in esecuzione penale, coinvolgendo i servizi esterni, ma operando anche all'interno del carcere. Qui, i mediatori interculturali e gli operatori svolgono un ruolo chiave di aggancio e orientamento precoce, abbattendo le barriere linguistiche e preparando i detenuti stranieri già durante la reclusione per facilitare il loro successivo inserimento stabile nel tessuto sociale",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "mediatore",
+     "requisitiMatrice": [
+      "Qualifica regionale (ER: DGR739/2013); altre regioni non codificate"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "orari ufficio lun-ven"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  },
+  {
+   "id": "pris-pronto-intervento-sociale-bo-fe-pr-rn",
+   "nome": "PRIS – Pronto intervento sociale",
+   "nomeOriginale": "Pronto intervento sociale (PRIS)",
+   "settore": "fragilita",
+   "sottosettore": "Emergenze sociali",
+   "province": [
+    "BO",
+    "FE",
+    "PR",
+    "RN"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Bologna, Ferrara, Parma (anche Rimini e Riccione)",
+   "descrizione": "Il PRIS (Pronto Intervento Sociale) opera come una centrale di risposta immediata (H24 per tutti i target in emergenza extralavorativa, o in orario d'ufficio per specifici profili di grave emarginazione) attivando interventi protetti, collocamenti in strutture di accoglienza e aiuti materiali per mettere in sicurezza e tutelare le persone in condizioni di estrema vulnerabilità.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "educatore",
+     "requisitiMatrice": [
+      "Educatore socio-pedag. L-19 eq( titolo+ esperienza) soc o psico"
+     ],
+     "turni": [
+      "turni h24"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "operatore_educativo",
+     "requisitiMatrice": [
+      "Nessun titolo specifico"
+     ],
+     "turni": [
+      "turni h24"
+     ],
+     "consulenza": false
+    },
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "turni h24"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Su turni, anche notturni"
+  },
+  {
+   "id": "sportelli-sociali-bo",
+   "nome": "Sportelli sociali",
+   "nomeOriginale": "Sportelli scociali",
+   "settore": "fragilita",
+   "sottosettore": "Sportelli sociali",
+   "province": [
+    "BO"
+   ],
+   "regioni": [
+    "Emilia-Romagna"
+   ],
+   "localita": "Distretto Reno, Lavino e Samoggia (BO)",
+   "descrizione": "Lo sportello sociale è il canale di accesso ai servizi sociali e socio-sanitari territoriali. Si tratta di un servizio finalizzato ad accogliere, ascoltare e orientare tutti i cittadini che si trovano in un momento di difficoltà economica, familiare, relazionale o di salute. Il lavoro si svolge in orario d'ufficio prevalentemente dal lunedì al venerdì, con alcuni sabati a rotazione.",
+   "descrizioneProvvisoria": false,
+   "ruoli": [
+    {
+     "id": "assistente_sociale",
+     "requisitiMatrice": [
+      "L-39 (sez.B) o LM-87 (sez.A) + esame di Stato; titoli pre-riforma con abilitazione DPR 328/2001 validi se iscritti"
+     ],
+     "turni": [
+      "orari ufficio lun-sab"
+     ],
+     "consulenza": false
+    }
+   ],
+   "orario": "Orario d'ufficio"
+  }
+ ],
+ "statistiche": {
+  "servizi": 42,
+  "tipologieServizio": 39,
+  "professioni": 21,
+  "province": 14,
+  "regioni": 3,
+  "settori": 7
+ }
+}

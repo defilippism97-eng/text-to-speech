@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavora con noi – Società Dolce (prototipo)</title>
+<meta name="description" content="Scopri chi puoi diventare in Società Dolce: un percorso di orientamento che parte da te, dai tuoi studi e dal territorio in cui vuoi lavorare.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#orientati">Vai al percorso di orientamento</a>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Società Dolce – torna all'inizio">
+      <img src="../assets/logo-societa-dolce.png" alt="Società Dolce" width="73" height="60">
+    </a>
+    <nav class="main-nav" aria-label="Sezioni della pagina">
+      <ul>
+        <li><a href="#perche">Perché noi</a></li>
+        <li><a href="#orientati">Orientamento</a></li>
+        <li><a href="#crescita">Crescita</a></li>
+        <li><a href="#formazione">Formazione</a></li>
+        <li><a href="#storie">Storie</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta" href="#offerte" data-action="offerte">Posizioni aperte <span data-icon="arrow-right"></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri il menu"><span data-icon="menu"></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu" hidden>
+    <a href="#perche">Perché noi</a>
+    <a href="#orientati">Orientamento</a>
+    <a href="#crescita">Crescita</a>
+    <a href="#formazione">Formazione</a>
+    <a href="#storie">Storie</a>
+    <a class="btn btn-primary" href="#offerte" data-action="offerte">Posizioni aperte</a>
+  </nav>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob blob-1" data-parallax="0.12"></span>
+      <span class="blob blob-2" data-parallax="-0.08"></span>
+    </div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker"><span data-icon="star4"></span> Lavora con noi</p>
+        <h1 id="hero-title">Scopri chi puoi diventare in <span class="hl">Società&nbsp;Dolce</span>.</h1>
+        <p class="hero-lead">Non stiamo cercando solo professionisti. Stiamo cercando <strong>persone che vogliono lasciare il segno</strong>.</p>
+        <p class="hero-sub">Da oltre 30 anni nei servizi educativi, sociali e sanitari. Raccontaci chi sei: ti mostriamo dove il tuo lavoro può fare la differenza.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#orientati" data-action="start">Inizia il percorso <span class="btn-meta">2 minuti</span> <span data-icon="arrow-right"></span></a>
+          <a class="btn btn-ghost btn-lg" href="#offerte" data-action="offerte">Vai alle posizioni aperte</a>
+        </div>
+        <ul class="hero-proof" data-stats-inline></ul>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg id="hero-net" viewBox="0 0 520 520" role="presentation"></svg>
+        <span class="float-chip chip-1">cura</span>
+        <span class="float-chip chip-2">comunità</span>
+        <span class="float-chip chip-3">inclusione</span>
+        <span class="float-chip chip-4">crescita</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="section manifesto" id="perche" aria-labelledby="perche-title">
+    <div class="container">
+      <p class="eyebrow reveal">Perché lavorare con noi</p>
+      <h2 id="perche-title" class="manifesto-title reveal">Non ti mostriamo solo le posizioni aperte.<br><span class="hl">Ti aiutiamo a capire quale impatto puoi generare.</span></h2>
+      <div class="value-grid">
+        <article class="value-card reveal">
+          <span class="value-icon" data-icon="users"></span>
+          <h3>Le persone al centro</h3>
+          <p>Siamo una cooperativa sociale: ogni scelta parte dalle persone di cui ci prendiamo cura e da chi lavora con noi.</p>
+        </article>
+        <article class="value-card reveal">
+          <span class="value-icon" data-icon="trend"></span>
+          <h3>Conta chi puoi diventare</h3>
+          <p>Non guardiamo solo a ciò che sai oggi. Se ti manca un requisito, ti mostriamo la strada per arrivarci.</p>
+        </article>
+        <article class="value-card reveal">
+          <span class="value-icon" data-icon="heart"></span>
+          <h3>Ogni lavoro cambia una vita</h3>
+          <p>Dall'ausiliario alla coordinatrice, ogni professione contribuisce concretamente alla vita di qualcun altro.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMERI -->
+  <section class="numbers" aria-labelledby="numeri-title">
+    <div class="container">
+      <h2 id="numeri-title" class="visually-hidden">Società Dolce in numeri</h2>
+      <ul class="numbers-grid" data-stats></ul>
+      <p class="numbers-note">Numeri calcolati dalla base informativa dei servizi. Persone assistite e lavoratori: dato da inserire a cura della cooperativa.</p>
+    </div>
+  </section>
+
+  <!-- ORIENTAMENTO -->
+  <section class="section orient" id="orientati" aria-labelledby="orient-title">
+    <div class="container">
+      <div class="orient-head">
+        <p class="eyebrow eyebrow-light">Orientamento</p>
+        <h2 id="orient-title">Scopri la tua professione nel sociale</h2>
+        <p class="orient-lead">Quattro domande per capire dove puoi fare la differenza. Poi ti mostriamo i servizi, le persone che incontrerai e, solo alla fine, le posizioni aperte.</p>
+      </div>
+      <div class="wizard" id="wizard">
+        <ol class="progress" aria-label="Avanzamento del percorso"></ol>
+        <div class="wizard-stage" id="wizard-stage" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISULTATI (popolato dal wizard) -->
+  <section class="section results" id="risultati" aria-labelledby="risultati-title" hidden>
+    <div class="container" id="results-root"></div>
+  </section>
+
+  <!-- CRESCITA -->
+  <section class="section growth" id="crescita" aria-labelledby="crescita-title">
+    <div class="container">
+      <p class="eyebrow reveal">Percorsi di crescita</p>
+      <h2 id="crescita-title" class="reveal">Il primo ruolo è solo l'inizio</h2>
+      <p class="section-lead reveal">In una cooperativa con tanti servizi diversi, puoi crescere in verticale e cambiare contesto senza cambiare casa.</p>
+      <div class="tabs reveal" role="tablist" aria-label="Aree professionali" id="growth-tabs"></div>
+      <div class="growth-panel" id="growth-panel" role="tabpanel" tabindex="0"></div>
+    </div>
+  </section>
+
+  <!-- FORMAZIONE -->
+  <section class="section training" id="formazione" aria-labelledby="formazione-title">
+    <div class="container">
+      <p class="eyebrow reveal">Formazione</p>
+      <h2 id="formazione-title" class="reveal">Impari ogni giorno, mai da solo/a</h2>
+      <div class="training-grid" id="training-grid"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIANZE -->
+  <section class="section stories" id="storie" aria-labelledby="storie-title">
+    <div class="container">
+      <p class="eyebrow reveal">Storie</p>
+      <h2 id="storie-title" class="reveal">«Quando sono arrivata in Società Dolce…»</h2>
+      <p class="section-lead reveal">Brevi video verticali (30-60 secondi) girati nei servizi. Nel prototipo: segnaposto da sostituire con le testimonianze reali.</p>
+      <div class="stories-track" id="stories-track" tabindex="0" aria-label="Video testimonianze, scorri orizzontalmente"></div>
+    </div>
+  </section>
+
+  <!-- CTA FINALE -->
+  <section class="section final-cta" aria-labelledby="cta-title">
+    <div class="container final-grid">
+      <div>
+        <h2 id="cta-title">Non hai trovato il tuo posto?</h2>
+        <p>Mandaci una candidatura spontanea: la leggiamo davvero. Oppure segnala una persona che secondo te starebbe bene con noi.</p>
+      </div>
+      <div class="final-actions">
+        <button class="btn btn-light btn-lg" type="button" data-action="spontanea">Candidatura spontanea <span data-icon="arrow-right"></span></button>
+        <button class="btn btn-outline-light btn-lg" type="button" data-action="segnala"><span data-icon="send"></span> Segnala qualcuno</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="../assets/logo-societa-dolce.png" alt="Società Dolce" width="61" height="50">
+    <p>Prototipo navigabile – pagina "Lavora con noi". Contenuti dei servizi tratti dalla base informativa interna; testi e immagini segnaposto da validare.</p>
+    <a href="#top" class="link">Torna su ↑</a>
+  </div>
+</footer>
+
+<dialog class="modal" id="modal" aria-labelledby="modal-title">
+  <div class="modal-inner" id="modal-inner"></div>
+</dialog>
+
+<div class="sheet-backdrop" id="sheet-backdrop" hidden></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheet-inner" id="sheet-inner"></div>
+</aside>
+
+<script src="dati.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

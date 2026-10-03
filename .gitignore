@@ -2,3 +2,5 @@
 audio_output/
 tmp_chunks/
 *.mp3
+__pycache__/
+*.pyc

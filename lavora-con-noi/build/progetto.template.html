@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavora con noi – Progetto UX/UI</title>
+<style>
+{{FONTS}}
+:root{--ink:#1E1E1E;--ink2:#3D4555;--muted:#5B6475;--line:#D6DEEB;--b900:#13234F;--b700:#36549C;--b600:#0F5AAB;--b500:#006CB4;--b300:#6CA2D2;--b200:#BACCE4;--b100:#E4ECF7;--b50:#F3F7FC;--warm:#FFF8F1;--sun:#F5A54A;--ok:#1F6B4A;--ok1:#E2F3EA;--near:#8A4B00;--near1:#FFF0DC;--ref:#4B3F8F;--ref1:#ECE9F8;--bg:#FBFCFE;--wf:#C9D2E0;--wf2:#E6EBF3}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font:17px/1.6 "Barlow",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--b600)}code{font:500 .85em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--b50);padding:1px 5px;border-radius:4px}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em}h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem);margin:0 0 .6em}h3{font-size:1.25rem;margin:1.6em 0 .5em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}@media(min-width:700px){.wrap{padding:0 32px}}
+.muted{color:var(--muted)}
+header.top{position:sticky;top:0;z-index:5;background:rgba(251,252,254,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;gap:16px;align-items:center;height:60px;overflow-x:auto;white-space:nowrap}
+header.top b{color:var(--b900)}header.top nav{display:flex;gap:14px;font-size:.9rem}header.top nav a{text-decoration:none;color:var(--ink2)}header.top nav a:hover{color:var(--b600)}
+.cover{background:linear-gradient(135deg,var(--b900),var(--b700));color:#fff;padding:72px 0 56px}
+.cover h1{font-size:clamp(2.2rem,1.4rem + 3.4vw,4rem);font-weight:800;margin:0 0 .3em;max-width:18ch}
+.cover p{color:var(--b100);font-size:1.15rem;max-width:62ch}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;list-style:none;padding:0}@media(min-width:800px){.kpis{grid-template-columns:repeat(6,1fr)}}
+.kpis li{border-left:2px solid var(--b300);padding-left:12px}.kpis b{display:block;font-size:2rem;font-weight:800;line-height:1}.kpis span{font-size:.85rem;color:var(--b200)}
+section.doc{padding:64px 0;border-bottom:1px solid var(--line)}section.doc:nth-of-type(even){background:#fff}
+.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:.8rem;color:var(--b600);margin:0 0 6px}
+.lead{font-size:1.15rem;color:var(--ink2);max-width:72ch}
+.grid2{display:grid;gap:20px}@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}}
+.grid3{display:grid;gap:16px}@media(min-width:800px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px}.card h4{margin:0 0 6px;font-size:1.05rem}.card p{margin:0;color:var(--ink2);font-size:.95rem}
+.quote{font-size:1.5rem;font-weight:700;color:var(--b900);border-left:4px solid var(--b500);padding:4px 0 4px 18px;max-width:40ch}
+table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--b50);font-weight:700;color:var(--b900)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.flow-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px}
+.flow{min-width:980px;width:100%;height:auto;font-family:"Barlow",sans-serif}.fl-note{font-size:11px;fill:#36549C;font-style:italic}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:.85rem}.legend span{padding:3px 10px;border-radius:99px;border:1.5px solid}
+.tree{list-style:none;padding:0;margin:0;display:grid;gap:10px}.tree>li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px}.tree ul{margin:6px 0 0;padding-left:18px;font-size:.92rem}
+.ia{display:grid;gap:16px}@media(min-width:900px){.ia{grid-template-columns:1.1fr 1fr}}
+ol.sitemap{counter-reset:s;list-style:none;padding:0;margin:0}ol.sitemap>li{position:relative;padding:10px 14px 10px 52px;margin-bottom:8px;background:#fff;border:1px solid var(--line);border-radius:12px}
+ol.sitemap>li::before{counter-increment:s;content:counter(s);position:absolute;left:12px;top:10px;width:28px;height:28px;border-radius:50%;background:var(--b600);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+ol.sitemap small{display:block;color:var(--muted)}
+/* wireframe: stesso markup, layout via container query */
+.wf-list{display:grid;gap:28px}
+.wf-list.desktop{grid-template-columns:1fr}@media(min-width:1000px){.wf-list.desktop{grid-template-columns:1fr 1fr}}
+.wf-list.mobile{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.wf-fig{margin:0}.wf-fig figcaption{font-size:.9rem;color:var(--ink2);margin-top:10px}.wf-fig figcaption ol{margin:6px 0 0;padding-left:20px}
+.wf-frame{container-type:inline-size;background:#fff;border:2px solid var(--wf);border-radius:14px;overflow:hidden}
+.wf-frame.desktop::before{content:"";display:block;height:20px;background:var(--wf2);border-bottom:1px solid var(--wf);background-image:radial-gradient(circle at 12px 10px,#c66 4px,transparent 5px),radial-gradient(circle at 26px 10px,#cb6 4px,transparent 5px),radial-gradient(circle at 40px 10px,#6b6 4px,transparent 5px)}
+.wf-frame.mobile{max-width:280px;margin:0 auto;border-radius:28px;border-width:6px;border-color:#2b3242}
+.wf{padding:14px;display:grid;gap:10px;font-size:11px;color:#6b7690}
+.wf i,.wf b{display:block;background:var(--wf2);border-radius:6px}
+.wf .w-row{display:flex;gap:8px;align-items:center}.wf .w-row.wrap{flex-wrap:wrap}.wf .w-col{display:grid;gap:8px;align-content:start;flex:1}
+.w-head{display:flex;gap:10px;align-items:center}.w-logo{width:42px;height:24px}.w-nav{display:none;gap:8px;margin-left:auto}.w-nav i{width:44px;height:8px}.w-burger{width:24px;height:24px;margin-left:auto;border-radius:50%!important}.w-head .w-btn.sm{display:none}
+.w-btn{height:24px;width:96px;border-radius:99px!important;border:1.5px solid var(--wf)}.w-btn.p{background:var(--b300)!important;border-color:var(--b300)}.w-btn.sm{width:70px;height:20px}
+.w-hero{display:grid;gap:12px}.w-kicker{width:70px;height:7px}.w-h1{height:18px;width:90%}.w-h1.s{width:60%}.w-h2{height:14px;width:70%}.w-h2.l{background:rgba(255,255,255,.6)!important}.w-h3{height:12px;width:55%}.w-p{height:7px;width:85%}.w-p.s{width:60%}.w-p.l{background:rgba(255,255,255,.45)!important}.w-small{height:6px;width:60px}.w-t{height:9px;width:70%}
+.w-stat{width:44px;height:14px}.w-visual{min-height:110px;border:1.5px dashed var(--b300);border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--b600);background:var(--b50)}
+.w-sec{display:grid;gap:10px}.w-grid3{display:grid;gap:8px}.w-card{height:60px}.w-band{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:#2b3a66;padding:12px;border-radius:8px}.w-num{height:20px;background:rgba(255,255,255,.3)!important}
+.w-wiz{display:grid;gap:9px;border:1.5px solid var(--wf);border-radius:12px;padding:12px}.w-prog{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.w-prog i{height:4px}.w-prog i.on{background:var(--b300)}.w-prog i.cur{background:var(--b600)}
+.w-search{border:1.5px solid var(--b300);border-radius:8px;padding:8px 10px;color:var(--muted)}.w-list{border:1px solid var(--wf);border-radius:8px;padding:6px;display:grid;gap:5px}.w-list i{height:9px}.w-list i.hl{background:var(--b100)}
+.w-chip{width:64px;height:18px;border-radius:99px!important;border:1.5px solid var(--wf)}.w-chip.on{background:var(--b300)!important;border-color:var(--b300)}
+.w-navbar{display:flex;gap:6px;justify-content:space-between;align-items:center;border-top:1px solid var(--wf2);padding-top:8px}.w-navbar .w-btn{width:auto;flex:0 1 96px;min-width:40px}.wf,.wf *{min-width:0}.w-skip{margin-left:auto;margin-right:8px;text-decoration:underline}
+.w-grid4{display:grid;grid-template-columns:1fr 1fr;gap:8px}.w-scard{border:1.5px solid var(--wf);border-radius:10px;padding:0 0 8px;display:grid;gap:6px;overflow:hidden}.w-scard.on{border-color:var(--b600)}.w-scard .w-img,.w-svc .w-img{height:34px;border-radius:0;background:linear-gradient(135deg,var(--b200),var(--b300))}.w-scard .w-t,.w-scard .w-p{margin:0 8px}
+.w-geo{display:grid;gap:10px}.w-map{position:relative;height:120px;background:var(--b50)!important;border-radius:10px}.w-map b{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid var(--b500);background:#fff}.w-map b.on{background:var(--b600)}.w-map span{position:absolute;left:8px;bottom:6px}.w-opt{height:26px;border:1.5px solid var(--wf);background:#fff!important}
+.w-svc{border:1.5px solid var(--wf);border-radius:10px;overflow:hidden;display:grid;gap:7px;padding-bottom:10px}.w-svc>*:not(.w-img){margin:0 10px}.w-svc .w-img{position:relative;height:50px}.w-svc em{position:absolute;right:6px;top:6px;font-style:normal;background:#fff;padding:1px 6px;border-radius:99px;font-size:10px}.w-svc em.ok{color:var(--ok)}.w-svc em.near{color:var(--near)}
+.w-dot{width:46px;height:12px;border-radius:99px!important}.w-dot.ok{background:var(--ok1)!important}.w-dot.near{background:var(--near1)!important}
+.w-dhero{background:linear-gradient(135deg,var(--b500),var(--b900));padding:16px 12px;border-radius:10px;display:grid;gap:8px}
+.w-grid2{display:grid;gap:8px}.w-story{height:36px;border:1px solid var(--wf);background:#fff!important}
+.w-role{display:flex;gap:8px;border:1.5px solid var(--wf);border-left:4px solid var(--wf);border-radius:10px;padding:8px}.w-role.ok{border-left-color:#2E9A6A}.w-role.near{border-left-color:#E08A1E}.w-av{width:26px;height:26px;flex:none}.w-badge{width:80px;height:9px}.w-badge.ok{background:var(--ok1)!important}.w-badge.near{background:var(--near1)!important}
+.w-match{border-radius:8px;padding:8px 10px;font-weight:600}.w-match.ok{background:var(--ok1);color:var(--ok)}.w-match.near{background:var(--near1);color:var(--near)}.w-match.refer{background:var(--ref1);color:var(--ref)}
+@container (min-width:520px){
+  .w-nav{display:flex}.w-burger{display:none}.w-head .w-btn.sm{display:block}
+  .w-hero{grid-template-columns:1.1fr .9fr;align-items:center}.w-visual{min-height:150px}
+  .w-grid3{grid-template-columns:repeat(3,1fr)}.w-band{grid-template-columns:repeat(6,1fr)}
+  .w-grid4{grid-template-columns:repeat(4,1fr)}.w-geo{grid-template-columns:1.3fr 1fr}.w-map{height:150px}
+  .w-grid2{grid-template-columns:1fr 1fr}.w-grid2 .wide{grid-column:1/-1}
+}
+/* UI */
+.gallery{display:grid;gap:18px}@media(min-width:900px){.gallery{grid-template-columns:1fr 1fr}}
+.gallery.m{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.shot{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.shot img{width:100%;display:block}.shot figcaption{padding:8px 12px;font-size:.85rem;color:var(--muted)}
+.shot.m img{aspect-ratio:390/844;object-fit:cover;object-position:top}
+.shot-missing{padding:30px;color:var(--muted)}
+/* design system */
+.swatches{list-style:none;padding:0;margin:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.swatches li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+.swatches .sw{grid-row:span 3;width:44px;height:44px;border-radius:10px;border:1px solid rgba(0,0,0,.08)}.swatches small{color:var(--muted);font-size:.8rem}.swatches b{font-size:.85rem}
+.type-scale>div{display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line);padding:8px 0}.type-scale code{flex:none;width:170px}
+.comp{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0 16px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:99px;font-weight:600;border:2px solid transparent;font:600 1rem "Barlow",sans-serif}
+.btn.p{background:var(--b600);color:#fff}.btn.g{border-color:var(--b200);color:#23377A;background:#fff}.btn.ok{background:var(--ok);color:#fff}
+.pill{min-height:44px;padding:8px 16px;border-radius:99px;border:2px solid var(--b200);background:#fff;font:500 .95rem "Barlow"}.pill.on{border-color:var(--b600);background:var(--b50)}
+.st{display:inline-flex;gap:6px;padding:4px 10px;border-radius:99px;font-weight:700;font-size:.8rem}.st.ok{background:var(--ok1);color:var(--ok)}.st.near{background:var(--near1);color:var(--near)}.st.far{background:#EEF1F6;color:var(--ink2)}.st.ref{background:var(--ref1);color:var(--ref)}
+.motion{display:grid;gap:10px}@media(min-width:800px){.motion{grid-template-columns:repeat(2,1fr)}}
+.spec-grid{display:grid;gap:16px}@media(min-width:900px){.spec-grid{grid-template-columns:1fr 1fr}}
+pre{background:#0E1A3D;color:#E4ECF7;border-radius:12px;padding:16px;overflow-x:auto;font-size:.82rem;line-height:1.5}
+.callout{background:var(--warm);border-left:4px solid var(--sun);padding:14px 18px;border-radius:8px;margin:16px 0}
+footer{padding:40px 0;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><b>Lavora con noi · progetto</b><nav aria-label="Indice">
+<a href="#concept">Concept</a><a href="#flow">UX flow</a><a href="#ia">IA</a><a href="#wf-d">Wireframe desktop</a><a href="#wf-m">Wireframe mobile</a><a href="#ui">UI</a><a href="#ds">Design system</a><a href="#match">Matching</a><a href="#tech">Specifiche</a><a href="#dati">Qualità dati</a></nav></div></header>
+
+<div class="cover"><div class="wrap">
+<p class="eyebrow" style="color:#BACCE4">Società Dolce · Nuova pagina «Lavora con noi»</p>
+<h1>Dall'annuncio di lavoro all'orientamento professionale</h1>
+<p>Progetto completo: UX flow, architettura dell'informazione, wireframe desktop e mobile, UI, design system, logica di matching e specifiche per lo sviluppo. Il prototipo navigabile (<code>dist/lavora-con-noi.html</code>) usa i dati reali della matrice <code>{{VERSIONE}}</code>.</p>
+<ul class="kpis"><li><b>{{N_SERVIZI}}</b><span>schede servizio generate</span></li><li><b>{{N_TIPI}}</b><span>tipologie di servizio</span></li><li><b>{{N_PROF}}</b><span>professioni</span></li><li><b>{{N_PROV}}</b><span>province · {{N_REG}} regioni</span></li><li><b>{{N_TITOLI}}</b><span>titoli riconosciuti</span></li><li><b>{{N_ECC}}</b><span>regole regionali</span></li></ul>
+</div></div>
+
+<section class="doc" id="concept"><div class="wrap">
+<p class="eyebrow">1 · Concept</p>
+<h2>Si parte dalla persona, non dagli annunci</h2>
+<p class="quote">«Non ti mostriamo solo le posizioni aperte. Ti aiutiamo a capire quale impatto potresti generare lavorando con noi.»</p>
+<p class="lead">La pagina è una piattaforma di orientamento: quattro domande rapide e poi i servizi raccontati come esperienze professionali. Le professioni vengono dopo e gli annunci per ultimi. Quando manca un requisito, il «non puoi candidarti» diventa «ecco come puoi arrivarci».</p>
+<h3>Le domande del candidato e dove trovano risposta</h3>
+<div class="tbl"><table><thead><tr><th>Domanda implicita</th><th>Risposta nella pagina</th></tr></thead><tbody>
+<tr><td>Che tipo di organizzazione è Società Dolce?</td><td>Hero, manifesto «Perché noi», numeri animati</td></tr>
+<tr><td>Perché dovrei lavorare qui? Quale impatto posso avere?</td><td>Valori; card settore con «impatto in una frase»; scheda servizio: «L'impatto che generi»</td></tr>
+<tr><td>In quali settori posso lavorare? Quali professioni esistono?</td><td>Passo 3 (7 ambiti) → passo 5 (servizi) → 5.1 (professionalità per servizio)</td></tr>
+<tr><td>Quali percorsi di crescita sono possibili?</td><td>Sezione «Crescita» (5 aree) + mini-percorso in ogni ruolo</td></tr>
+<tr><td>Quali requisiti mi mancano? Come li acquisisco?</td><td>Matching 5.2 → esito B: cosa manca, percorsi formativi, ruolo ponte</td></tr>
+<tr><td>Quali opportunità ci sono vicino a casa mia?</td><td>Passo 4 (mappa) → filtro dei servizi per provincia, con fallback sulla regione</td></tr>
+</tbody></table></div>
+<h3>Principi di design</h3>
+<div class="grid3">
+<div class="card"><h4>Mobile first, 2 minuti</h4><p>4 domande, una per schermata, sempre saltabili. Avanzamento visibile, risposte salvate nel browser e modificabili dal riepilogo.</p></div>
+<div class="card"><h4>Racconto prima dei requisiti</h4><p>Ogni servizio presenta contesto, persone, impatto, ambiente e crescita. I requisiti ufficiali sono disponibili ma ripiegati.</p></div>
+<div class="card"><h4>Nessun vicolo cieco</h4><p>Ogni esito ha un'azione: candidarsi, formarsi (con ruolo ponte), chiedere orientamento o segnalare qualcuno.</p></div>
+<div class="card"><h4>Identità Società Dolce</h4><p>Blu del logo e del sito, tipografia Barlow, motivo del <b>tassello di puzzle</b> come elemento grafico ricorrente: dall'individuo alla comunità.</p></div>
+<div class="card"><h4>Caldo, non sanitario</h4><p>Accento caldo (sole) e fondo carta nei risultati; foto reali di persone; tono in seconda persona e linguaggio inclusivo (es. «educatore/educatrice»).</p></div>
+<div class="card"><h4>Movimento con misura</h4><p>Micro-animazioni brevi, parallax leggero, ingressi a cascata. Con «riduci movimento» attivo si vede lo stato finale statico.</p></div>
+</div>
+</div></section>
+
+<section class="doc" id="flow"><div class="wrap">
+<p class="eyebrow">2 · UX flow</p>
+<h2>Il percorso, dagli ingressi alla candidatura</h2>
+<div class="flow-wrap">{{FLOW}}</div>
+<div class="legend"><span style="border-color:#0F5AAB">Domande al candidato (input)</span><span style="border-color:#F5A54A;background:#FFF8F1">Output dalla base informativa</span><span style="border-color:#2E9A6A;background:#E2F3EA">A · candidatura</span><span style="border-color:#E08A1E;background:#FFF0DC">B · percorso di crescita</span><span style="border-color:#4B3F8F;background:#ECE9F8">C · segnalazione</span></div>
+<h3>Regole di flusso</h3>
+<ul>
+<li><b>Ingresso diretto agli annunci</b> sempre disponibile (header e hero), per chi sa già cosa cerca.</li>
+<li><b>Passo 1</b> avanza da solo dopo la scelta (380 ms); i passi 2-4 hanno «Continua» e «Salta questa domanda».</li>
+<li><b>Deep link</b>: <code>#orientati</code>, <code>#risultati</code>, <code>#servizio/&lt;id&gt;</code>, utili per campagne mirate (es. QR nei servizi o pagina «diventa OSS»).</li>
+<li><b>Persistenza</b>: le risposte restano in <code>localStorage</code> (solo sul dispositivo). Chi torna riparte dai propri risultati.</li>
+<li><b>Fallback geografico</b>: se nella provincia non ci sono servizi dell'ambito, si mostrano quelli della stessa regione, poi tutti, sempre con un messaggio esplicito.</li>
+</ul>
+</div></section>
+
+<section class="doc" id="ia"><div class="wrap">
+<p class="eyebrow">3 · Information architecture</p>
+<h2>Struttura della pagina e modello dei contenuti</h2>
+<div class="ia">
+<div><h3 style="margin-top:0">Sezioni (one page con ancore)</h3>
+<ol class="sitemap">
+<li><b>Hero</b><small>Headline, payoff, CTA «Inizia il percorso» / «Posizioni aperte», 3 numeri</small></li>
+<li><b>Perché noi</b> <code>#perche</code><small>Manifesto + 3 valori</small></li>
+<li><b>Numeri</b><small>Anni, tipologie di servizio, professioni, settori, province, regioni (+ persone assistite e lavoratori: dato da fornire)</small></li>
+<li><b>Orientamento</b> <code>#orientati</code><small>Passi 1-4 · Chi sei / Formazione / Ambito / Territorio</small></li>
+<li><b>Risultati</b> <code>#risultati</code><small>Passo 5 · servizi → 5.1 professionalità → 5.2 matching (pannello <code>#servizio/id</code>)</small></li>
+<li><b>Crescita</b> <code>#crescita</code><small>Percorsi per area: educativa, assistenziale, sanitaria, sociale, servizi generali</small></li>
+<li><b>Formazione</b> <code>#formazione</code><small>Formazione continua, affiancamento, sviluppo competenze, mobilità interna</small></li>
+<li><b>Storie</b> <code>#storie</code><small>Video verticali «Quando sono arrivato/a in Società Dolce…»</small></li>
+<li><b>CTA finale</b><small>Candidatura spontanea · Segnala qualcuno</small></li>
+</ol></div>
+<div><h3 style="margin-top:0">Albero dei contenuti (dalla matrice)</h3>
+<p class="muted" style="margin-top:0">Settore → Servizio (× territorio) → Ruolo → Requisiti per regione.</p>
+<ul class="tree">{{IA}}</ul></div>
+</div>
+<h3>Modello dati</h3>
+<div class="spec-grid">
+<pre>// data/base-informativa.json (generato dalla matrice)
+Servizio {
+  id, nome, nomeOriginale,
+  settore: "infanzia" | "scuola" | "disabilita" | "anziani"
+         | "domiciliarita" | "fragilita" | "salute_mentale",
+  sottosettore, province: ["BO", …], regioni: [...],
+  localita, descrizione, descrizioneProvvisoria: bool,
+  orario: "Diurno" | "Su turni, anche notturni" | …,
+  ruoli: [{ id, requisitiMatrice: [testo], turni, consulenza }]
+}</pre>
+<pre>// content/catalogo.json (editoriale, versionato)
+Titolo   { id, label, gruppo, sinonimi[] }
+implicazioni: { titolo: [titoli contenuti] }
+Ruolo    { id, nome, area, peso, sintesi, competenze[],
+           accettati: [titolo], vicini: [{ da[], manca,
+           percorsi[], ponte? }], nota? }
+Eccezione{ ruolo, settori?, sottosettori?, regioni?,
+           accettati?, vicini?, nota?, fonte }
+Settore, PercorsoCrescita, PercorsoFormativo, Profilo</pre>
+</div>
+</div></section>
+
+<section class="doc" id="wf-d"><div class="wrap">
+<p class="eyebrow">4 · Wireframe desktop</p>
+<h2>Wireframe desktop (≥ 1024 px)</h2>
+<p class="lead">Bassa fedeltà. Stesso markup dei wireframe mobile: cambia solo il layout, come nel prodotto finale (componenti responsive, non due versioni).</p>
+<div class="wf-list desktop">{{WF_DESKTOP}}</div>
+</div></section>
+
+<section class="doc" id="wf-m"><div class="wrap">
+<p class="eyebrow">5 · Wireframe mobile</p>
+<h2>Wireframe mobile (360-430 px)</h2>
+<p class="lead">Una colonna e azioni a tutta larghezza (min. 48 px), con la navigazione dei passi sempre in fondo al pannello. Il dettaglio del servizio si apre a tutto schermo; la mappa diventa una panoramica e la selezione principale passa alle pillole.</p>
+<div class="wf-list mobile">{{WF_MOBILE}}</div>
+</div></section>
+
+<section class="doc" id="ui"><div class="wrap">
+<p class="eyebrow">6 · UI design</p>
+<h2>Interfaccia ad alta fedeltà</h2>
+<p class="lead">Catture del prototipo navigabile con i dati reali (percorso d'esempio: «Cerco la mia prima esperienza» · studente L-19 + diploma socio-sanitario · Disabilità e Fragilità · Bologna + Lombardia). Le illustrazioni a tasselli sono segnaposto per le foto reali.</p>
+<h3>Desktop · 1440 px</h3><div class="gallery">{{GALLERY_D}}</div>
+<h3>Mobile · 390 px</h3><div class="gallery m">{{GALLERY_M}}</div>
+<div class="callout"><b>Direzione fotografica.</b> Persone reali nei servizi reali, luce naturale, inquadrature ad altezza occhi, mani e relazioni più che pose. Niente camici o corsie ospedaliere in primo piano. Trattamento duotono blu leggero (overlay <code>--brand-700</code> al 35%) per uniformare scatti diversi. Liberatorie per utenti e minori: preferire spalle, mani e campi lunghi.</div>
+</div></section>
+
+<section class="doc" id="ds"><div class="wrap">
+<p class="eyebrow">7 · Design system</p>
+<h2>Token, componenti, movimento</h2>
+<h3>Colore</h3>
+<p class="muted">Derivati dal logo (<code>#006CB4</code>, <code>#6CA2D2</code>, <code>#BACCE4</code>) e dal sito attuale (CTA <code>#0F5AAB</code>, sezione <code>#36549C</code>). Testo su bianco ≥ 4.5:1; l'accento caldo non si usa mai per il testo.</p>
+<ul class="swatches">{{TOKENS}}</ul>
+<h3>Tipografia · Barlow (self-hosted, SIL OFL)</h3>
+<div class="type-scale">
+<div><code>--fs-3xl · 38→72 / 800</code><span style="font-size:2.6rem;font-weight:800;line-height:1">Scopri chi puoi diventare</span></div>
+<div><code>--fs-2xl · 30→48 / 700</code><span style="font-size:2rem;font-weight:700">Ecco i servizi per te</span></div>
+<div><code>--fs-xl · 24→32 / 800</code><span style="font-size:1.6rem;font-weight:800">Chi sei oggi?</span></div>
+<div><code>--fs-lg · 20 / 700</code><span style="font-size:1.25rem;font-weight:700">Educatore / Educatrice</span></div>
+<div><code>--fs-md · 17 / 400</code><span>Corpo del testo, interlinea 1.55</span></div>
+<div><code>--fs-sm · 15 / 500</code><span style="font-size:.94rem">Meta, chip, didascalie</span></div>
+</div>
+<h3>Spazi, forme, elevazione</h3>
+<p>Scala a 4 px: <code>4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96</code>. Raggi: <code>10</code> input · <code>16</code> opzioni · <code>28</code> card · <code>44</code> pannelli · <code>pill</code> bottoni. Ombre in 3 livelli tinte di blu (<code>rgba(19,35,79,…)</code>). Contenitore 1200 px, gutter 16/28 px, breakpoint 640 · 900 · 1200.</p>
+<h3>Componenti</h3>
+<div class="comp"><span class="btn p">Bottone primario →</span><span class="btn g">Secondario</span><span class="btn ok">Esito A</span><span class="pill">Pillola</span><span class="pill on">Pillola attiva</span></div>
+<div class="comp"><span class="st ok">✓ Hai i requisiti</span><span class="st near">↗ Ti manca qualche requisito</span><span class="st far">Requisiti diversi</span><span class="st ref">Segnala una persona</span></div>
+<div class="tbl"><table><thead><tr><th>Componente</th><th>Varianti / stati</th><th>Note di accessibilità</th></tr></thead><tbody>
+<tr><td>Button</td><td>primary · ghost · light · outline-light · ok · text; hover, active (scale .97), focus, disabled</td><td>Min. 48 px (44 sm); focus ring 3 px <code>--brand-500</code></td></tr>
+<tr><td>Option (radio card)</td><td>default · hover · checked</td><td><code>role=radio</code>, frecce per spostarsi</td></tr>
+<tr><td>Combobox titoli</td><td>vuoto · suggerimenti · nessun risultato · chip selezionati</td><td>Pattern ARIA 1.2 combobox/listbox, <code>aria-activedescendant</code></td></tr>
+<tr><td>Sector card</td><td>default · hover (lift + zoom visual) · pressed</td><td><code>aria-pressed</code>, testo d'impatto letto per intero</td></tr>
+<tr><td>Province map</td><td>provincia on/off, badge conteggio</td><td>Bottoni HTML sopra SVG; alternativa a pillole 44 px</td></tr>
+<tr><td>Service card</td><td>badge esito ok / near / far; ruoli a pallini colorati</td><td>Lo stato non dipende solo dal colore: icona + testo</td></tr>
+<tr><td>Sheet (dettaglio)</td><td>laterale ≥ 900 px · fullscreen mobile</td><td><code>role=dialog</code>, trap del focus, Esc, ritorno del focus, URL dedicato</td></tr>
+<tr><td>Role card</td><td>collassata/espansa · ok · near · far · na</td><td><code>aria-expanded/controls</code></td></tr>
+<tr><td>Match block</td><td>A ok · B near (gap list + ponte) · far · na · unknown</td><td>Titolo esplicito per ogni esito</td></tr>
+<tr><td>Modal form</td><td>candidatura · percorso · segnalazione · offerte · successo</td><td><code>&lt;dialog&gt;</code> nativo, errori accanto al campo, <code>aria-invalid</code></td></tr>
+<tr><td>Tabs crescita, Timeline, Story card video</td><td>—</td><td>Tab con frecce; video con sottotitoli obbligatori</td></tr>
+</tbody></table></div>
+<h3>Movimento</h3>
+<div class="motion">
+<div class="card"><h4>Durate e curve</h4><p><code>160 ms</code> micro (hover, stato), <code>280 ms</code> componenti, <code>650 ms</code> ingressi di sezione. <code>ease-out (.2,.7,.2,1)</code> per gli ingressi, <code>spring (.34,1.4,.64,1)</code> per check e chip. Si animano solo <code>transform</code> e <code>opacity</code>.</p></div>
+<div class="card"><h4>Coreografie</h4><p>Hero: le persone (nodi) compaiono, si collegano e i 4 tasselli si incastrano (≈ 3 s, poi solo pulsazioni). Card a cascata (50-60 ms), passi con slide a 24 px nella direzione di navigazione, numeri con count-up, timeline crescita sequenziale.</p></div>
+<div class="card"><h4>Scroll</h4><p>Reveal con IntersectionObserver (soglia 18%); parallax dei blob nella hero a ±0.12 della velocità di scroll; header che si stacca con ombra dopo 8 px.</p></div>
+<div class="card"><h4>Movimento ridotto</h4><p>Con <code>prefers-reduced-motion</code> le animazioni durano 1 ms e si mostra lo stato finale: rete già disegnata, contatori al valore, nessun parallax.</p></div>
+</div>
+</div></section>
+
+<section class="doc" id="match"><div class="wrap">
+<p class="eyebrow">8 · Matching intelligente</p>
+<h2>Titolo dichiarato ↔ titolo richiesto</h2>
+<p class="lead">Un motore a regole, deterministico e spiegabile, senza AI generativa nel percorso del candidato. Si basa sui fogli «Mansioni», «Servizio × Regione» ed «Equipollenze» della matrice, tradotti in {{N_TITOLI}} titoli normalizzati e {{N_ECC}} eccezioni regionali/di settore.</p>
+<div class="spec-grid">
+<div><h3 style="margin-top:0">Algoritmo</h3>
+<ol>
+<li><b>Chiusura dei titoli</b>: dai titoli dichiarati si aggiungono quelli implicati (es. <code>l19_infanzia → l19 → diploma → obbligo</code>).</li>
+<li><b>Requisiti effettivi</b> del ruolo nel servizio: base del ruolo e, se esiste, l'eccezione più specifica che combacia (settore, sottosettore, regioni effettive = regioni del servizio ∩ regioni scelte).</li>
+<li><b>Esito</b>:
+<ul><li><span class="st ok">A · ok</span> almeno un titolo accettato (diretto, se dichiarato esplicitamente)</li>
+<li><span class="st near">B · near</span> un titolo «vicino», con indicazione di cosa manca, percorsi formativi ed eventuale ruolo ponte nello stesso servizio</li>
+<li><span class="st far">far</span> titolo diverso: si mostra il requisito e si propone un orientamento</li>
+<li><span class="st far">na</span> ruolo non conteggiabile a standard in quella regione</li></ul></li>
+<li><b>Ordinamento</b>: servizi per punteggio (peso del miglior ruolo ok × 10 + n. ruoli ok × 3 + n. ruoli near); ruoli ok diretti → ok → near → far.</li>
+</ol>
+<p class="callout"><b>Scenario C</b> («Conosci qualcuno adatto?») è sempre presente su ogni ruolo e nella CTA finale, a prescindere dall'esito.</p></div>
+<div><h3 style="margin-top:0">Test automatici</h3>
+<p><code>build/test_matching.mjs</code> esegue 20 casi sui dati reali, tra cui:</p>
+<ul>
+<li>ASA in CRA a Vicenza → <span class="st near">B</span> riqualifica OSS ~400 h · ASA in RSA lombarda → <span class="st ok">A</span></li>
+<li>L-19 generica al nido → <span class="st near">B</span> indirizzo infanzia / CFU · L-19 infanzia → <span class="st ok">A</span></li>
+<li>L-19 nel CDD di Rovigo (Veneto) → <span class="st near">B</span> serve EP sanitario L/SNT2</li>
+<li>Diploma nel Team antitratta minori → <span class="st near">B</span> formazione 120 h (DGR 1904/2011)</li>
+<li>Licenza media nel SAD di Bologna → assistente di base <span class="st near">B</span> (in ER serve OSS)</li>
+</ul></div>
+</div>
+<h3>Regole regionali e di settore</h3>
+<div class="tbl"><table><thead><tr><th>Ruolo</th><th>Si applica a</th><th>Titoli accettati</th><th>Fonte (matrice)</th></tr></thead><tbody>{{ECCEZIONI}}</tbody></table></div>
+<h3>Tassonomia dei titoli</h3>
+<div class="tbl"><table><thead><tr><th>id</th><th>Etichetta mostrata</th><th>Gruppo</th><th>Sinonimi per la ricerca</th><th>Implica</th></tr></thead><tbody>{{TITOLI}}</tbody></table></div>
+</div></section>
+
+<section class="doc" id="tech"><div class="wrap">
+<p class="eyebrow">9 · Specifiche tecniche</p>
+<h2>Per lo sviluppo</h2>
+<div class="spec-grid">
+<div class="card"><h4>Architettura</h4><p>Modulo front-end indipendente (un «island» dentro il CMS del sito) che legge 2 JSON statici: <code>base-informativa.json</code> e <code>catalogo.json</code>. Il prototipo è JavaScript vanilla senza dipendenze (≈ 64 KB, 19 KB gzip). In produzione: Web Component o componente React/Vue, a seconda dello stack del sito, mantenendo la stessa logica di <code>valuta()</code> / <code>requisiti()</code>.</p></div>
+<div class="card"><h4>Pipeline dati</h4><p><code>build/build_data.py</code> legge la matrice Excel, normalizza settori, territori (sigle provincia + coordinate) e mansioni (→ id ruolo), rimuove le note interne dai requisiti e genera il report qualità. Da eseguire a ogni aggiornamento della matrice, idealmente in CI. Evoluzione: spostare la matrice su un CMS headless o su un foglio condiviso con validazione.</p></div>
+<div class="card"><h4>Integrazione ATS</h4><p>«Vedi le offerte aperte» apre il portale annunci con i filtri precompilati: <code>/offerte?ruolo=&lt;id&gt;&amp;provincia=BO,PR&amp;settore=…</code>. Serve una tabella di corrispondenza tra id ruolo e codici mansione dell'ATS. Se non ci sono annunci: proposta di candidatura spontanea sullo stesso ruolo e territorio. Facoltativo: <code>GET /api/offerte/conteggio?ruolo=&amp;provincia=</code> per mostrare il numero di posizioni aperte sulla card.</p></div>
+<div class="card"><h4>Form e privacy (GDPR)</h4><p>Candidatura spontanea, richiesta di orientamento e segnalazione inviano all'ATS/CRM, oltre ai dati del form, le risposte del percorso (profilo, titoli, ambiti, province). Le servono un'informativa dedicata, il consenso esplicito e la conservazione definita. Per la segnalazione il consenso della persona segnalata va dichiarato da chi segnala, e il primo contatto glielo deve ricordare. Prima dell'invio niente esce dal browser (<code>localStorage</code> solo per le risposte). Font self-hosted: nessuna chiamata a Google Fonts.</p></div>
+<div class="card"><h4>Analytics (eventi)</h4><p><code>lcn_step_1…4</code>, <code>lcn_titolo_aggiunto</code>, <code>lcn_step_risultati</code> (profilo, titoli, settori, province), <code>lcn_apri_servizio</code>, <code>lcn_invio_candida|spontanea|percorso|segnala</code>, <code>lcn_cta_inizia</code>. Inviati su <code>dataLayer</code> (GA4/Matomo via Tag Manager), con consenso cookie. Funnel: inizio → passo 4 → apertura servizio → invio. Le domande «saltate» indicano dove il percorso fa attrito.</p></div>
+<div class="card"><h4>Accessibilità (WCAG 2.2 AA)</h4><p>Struttura a landmark, skip link, gerarchia dei titoli, focus visibile e spostato sul titolo del passo, pattern ARIA (radio, combobox, tab, dialog), target ≥ 44 px (≥ 24 px per i bottoni-mappa su mobile, con alternativa a pillole), contrasti ≥ 4.5:1, stato mai affidato al solo colore, <code>prefers-reduced-motion</code>, video con sottotitoli e trascrizione.</p></div>
+<div class="card"><h4>Performance</h4><p>Budget: LCP &lt; 2.5 s su 4G, CLS &lt; 0.1, JS &lt; 60 KB gzip, JSON dati &lt; 40 KB gzip. Visual SVG generativo al posto del video nella hero; foto in AVIF/WebP con <code>srcset</code> e lazy loading; font in woff2 con subset latin e <code>font-display: swap</code>.</p></div>
+<div class="card"><h4>SEO e condivisione</h4><p>Pagina indicizzabile con contenuti statici (hero, valori, crescita, formazione) renderizzati lato server; i risultati del percorso restano lato client. Open Graph dedicato. Gli annunci (ATS) espongono <code>JobPosting</code> schema.org nelle proprie pagine, non qui. Se si vogliono indicizzare i servizi: pagine statiche <code>/lavora-con-noi/servizi/&lt;id&gt;</code> generate dallo stesso JSON.</p></div>
+<div class="card"><h4>Browser e test</h4><p>Ultime 2 versioni di Chrome, Safari (iOS ≥ 16), Firefox, Edge e Samsung Internet. <code>build/screenshots.mjs</code> (Playwright) percorre il flusso su desktop e mobile e fallisce in caso di errori JS; <code>build/test_matching.mjs</code> verifica le regole.</p></div>
+<div class="card"><h4>Governance dei contenuti</h4><p>Matrice: Ufficio Ricerca e Selezione (requisiti), coordinatori di area (descrizioni, turni), gruppo Motivazione e Performance (sintesi dei ruoli). Il catalogo editoriale (testi, percorsi, regole) è versionato su Git e va rivisto a ogni nuova DGR regionale.</p></div>
+</div>
+<h3>Struttura del repository</h3>
+<pre>lavora-con-noi/
+├─ content/catalogo.json        testi editoriali, titoli, ruoli, regole regionali
+├─ data/base-informativa.json   generato dalla matrice (servizi × territori × ruoli)
+├─ data/qualita-dati.json       report campi mancanti
+├─ src/index.html · styles.css · app.js   sorgenti del prototipo
+├─ dist/lavora-con-noi.html     prototipo autocontenuto (aprire nel browser)
+├─ docs/progetto.html           questo documento
+├─ assets/                      logo, font Barlow (woff2)
+└─ build/                       build_data.py · build_docs.py · screenshots.mjs · test_matching.mjs</pre>
+<h3>Roadmap suggerita</h3>
+<ol>
+<li><b>Contenuti</b>: completare le sintesi dei ruoli, i turni e le descrizioni mancanti; validare Lombardia e Veneto; raccogliere 6-8 video testimonianze e uno shooting fotografico nei servizi.</li>
+<li><b>MVP</b>: percorso + risultati + candidatura spontanea + collegamento ATS filtrato; analytics.</li>
+<li><b>v2</b>: conteggio delle offerte aperte per ruolo/provincia, nurturing via email per chi riceve l'esito B (percorsi formativi), pagine servizio indicizzabili, versione inglese per i profili internazionali.</li>
+</ol>
+</div></section>
+
+<section class="doc" id="dati"><div class="wrap">
+<p class="eyebrow">10 · Qualità della base informativa</p>
+<h2>Cosa manca nella matrice ({{N_RIGHE}} righe analizzate)</h2>
+<p class="lead">Generato in automatico a ogni build. Sono le attività da chiudere prima del go-live: oggi il prototipo le copre con assunzioni e bozze, segnalate in pagina.</p>
+<div class="tbl"><table><thead><tr><th>Quanto</th><th>Problema</th><th>Come è gestito / cosa fare</th></tr></thead><tbody>{{QUALITA}}</tbody></table></div>
+</div></section>
+
+<footer><div class="wrap">Documento generato da <code>build/build_docs.py</code> a partire da catalogo, base informativa e screenshot del prototipo. Testi segnaposto e assunzioni sono indicati come tali.</div></footer>
+</body>
+</html>

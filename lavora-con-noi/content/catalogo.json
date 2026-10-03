@@ -1,0 +1,297 @@
+{
+  "_nota": "Contenuti editoriali e regole di matching. I servizi, i territori e i requisiti testuali arrivano dalla matrice Excel (build/build_data.py). I testi marcati con \"provvisorio\": true sono bozze da validare con Ufficio Ricerca e Selezione / gruppo Motivazione e Performance.",
+
+  "profili": [
+    { "id": "studente", "label": "Studente / Studentessa", "hint": "Sto ancora studiando" },
+    { "id": "prima", "label": "Cerco la mia prima esperienza", "hint": "Neodiplomato/a o neolaureato/a" },
+    { "id": "esperto", "label": "Ho già esperienza nel settore", "hint": "Educativo, sociale o sanitario" },
+    { "id": "cambio", "label": "Sto cambiando settore", "hint": "Vengo da un altro lavoro" },
+    { "id": "libero", "label": "Libero/a professionista", "hint": "Collaborazioni e consulenze" }
+  ],
+
+  "titoli": [
+    { "id": "obbligo", "label": "Licenza media / obbligo scolastico", "gruppo": "Scuola", "sinonimi": ["terza media", "scuola secondaria di primo grado", "nessun titolo"] },
+    { "id": "diploma", "label": "Diploma di scuola superiore", "gruppo": "Scuola", "sinonimi": ["maturità", "diploma", "scuola secondaria di secondo grado"] },
+    { "id": "diploma_sociale", "label": "Diploma socio-psico-pedagogico / Scienze umane / Servizi socio-sanitari", "gruppo": "Scuola", "sinonimi": ["liceo scienze umane", "istituto professionale servizi sociali", "socio sanitario", "liceo psicopedagogico"] },
+    { "id": "diploma_magistrale", "label": "Diploma magistrale (conseguito entro a.s. 2001/02)", "gruppo": "Scuola", "sinonimi": ["istituto magistrale", "magistrali", "dirigente di comunità"] },
+    { "id": "patente", "label": "Patente B o D (+ CQC)", "gruppo": "Qualifiche", "sinonimi": ["autista", "patente", "cqc"] },
+    { "id": "osa", "label": "Attestato OSA – Operatore socio-assistenziale", "gruppo": "Qualifiche", "sinonimi": ["osa"] },
+    { "id": "asa", "label": "Attestato ASA – Ausiliario socio-assistenziale (Lombardia)", "gruppo": "Qualifiche", "sinonimi": ["asa", "ausiliario socio assistenziale"] },
+    { "id": "oss", "label": "Qualifica OSS – Operatore socio-sanitario", "gruppo": "Qualifiche", "sinonimi": ["oss", "operatore socio sanitario", "oss-s"] },
+    { "id": "animatore", "label": "Qualifica regionale di Animatore sociale", "gruppo": "Qualifiche", "sinonimi": ["animatore", "animazione"] },
+    { "id": "mediatore", "label": "Qualifica regionale di Mediatore interculturale", "gruppo": "Qualifiche", "sinonimi": ["mediatore", "mediazione culturale"] },
+    { "id": "arteterapia", "label": "Corso di Arteterapia / terapie espressive", "gruppo": "Qualifiche", "sinonimi": ["arteterapeuta", "musicoterapia", "danzaterapia"] },
+    { "id": "iori60", "label": "Qualifica Educatore socio-pedagogico (corso 60 CFU, L. 205/2017)", "gruppo": "Qualifiche", "sinonimi": ["legge iori", "60 cfu", "educatore socio pedagogico"] },
+    { "id": "studente_l19", "label": "Sto studiando Scienze dell'educazione (L-19)", "gruppo": "In corso di studi", "sinonimi": ["studente", "laureando", "scienze dell'educazione"] },
+    { "id": "studente_snt", "label": "Sto studiando in un corso di laurea sanitario", "gruppo": "In corso di studi", "sinonimi": ["studente infermieristica", "studente fisioterapia"] },
+    { "id": "l19", "label": "Laurea L-19 Scienze dell'educazione (educatore socio-pedagogico)", "gruppo": "Laurea", "sinonimi": ["l-19", "l19", "scienze dell'educazione", "educatore professionale socio pedagogico", "l-18"] },
+    { "id": "l19_infanzia", "label": "Laurea L-19 indirizzo Infanzia / Nido", "gruppo": "Laurea", "sinonimi": ["educatore nido", "l-19 infanzia", "educatore prima infanzia"] },
+    { "id": "lm85bis", "label": "Laurea magistrale LM-85bis Scienze della formazione primaria", "gruppo": "Laurea", "sinonimi": ["formazione primaria", "lm-85 bis", "sfp", "maestra"] },
+    { "id": "lm85bis_60", "label": "LM-85bis + 60 CFU indirizzo infanzia", "gruppo": "Laurea", "sinonimi": ["lm-85bis 60 cfu"] },
+    { "id": "snt2_ep", "label": "Laurea L/SNT2 Educatore professionale sanitario", "gruppo": "Laurea", "sinonimi": ["educatore professionale sanitario", "snt2", "tsrm"] },
+    { "id": "snt1", "label": "Laurea in Infermieristica (L/SNT1) + iscrizione OPI", "gruppo": "Laurea", "sinonimi": ["infermiere", "infermieristica", "opi", "infermiere professionale"] },
+    { "id": "fisio", "label": "Laurea in Fisioterapia", "gruppo": "Laurea", "sinonimi": ["fisioterapista", "terapista della riabilitazione"] },
+    { "id": "masso", "label": "Massofisioterapista (titolo ante 1999, elenco speciale)", "gruppo": "Laurea", "sinonimi": ["massoterapista", "massofisioterapista"] },
+    { "id": "logo", "label": "Laurea in Logopedia", "gruppo": "Laurea", "sinonimi": ["logopedista"] },
+    { "id": "psi_triennale", "label": "Laurea L-24 Scienze e tecniche psicologiche", "gruppo": "Laurea", "sinonimi": ["psicologia triennale", "l-24"] },
+    { "id": "psicologo", "label": "Psicologo/a – LM-51 + iscrizione all'Albo", "gruppo": "Laurea", "sinonimi": ["psicologo", "psicologa", "lm-51", "cnop"] },
+    { "id": "sociologia", "label": "Laurea in Sociologia", "gruppo": "Laurea", "sinonimi": ["sociologo", "l-40"] },
+    { "id": "l39", "label": "Laurea L-39 / LM-87 Servizio sociale + iscrizione all'Albo", "gruppo": "Laurea", "sinonimi": ["assistente sociale", "servizio sociale", "l-39", "lm-87", "cnoas"] },
+    { "id": "med_fisiatria", "label": "Medicina + specializzazione in Medicina fisica e riabilitativa", "gruppo": "Laurea", "sinonimi": ["fisiatra"] },
+    { "id": "med_psichiatria", "label": "Medicina + specializzazione in Psichiatria", "gruppo": "Laurea", "sinonimi": ["psichiatra"] }
+  ],
+
+  "implicazioni": {
+    "_nota": "Un titolo 'contiene' i titoli elencati (es. chi ha una laurea ha anche un diploma).",
+    "diploma": ["obbligo"],
+    "diploma_sociale": ["diploma"],
+    "diploma_magistrale": ["diploma_sociale"],
+    "patente": [],
+    "osa": ["obbligo"],
+    "asa": ["obbligo"],
+    "oss": ["obbligo"],
+    "animatore": ["obbligo"],
+    "mediatore": ["obbligo"],
+    "arteterapia": ["obbligo"],
+    "iori60": ["diploma"],
+    "studente_l19": ["diploma"],
+    "studente_snt": ["diploma"],
+    "l19": ["diploma"],
+    "l19_infanzia": ["l19"],
+    "lm85bis": ["diploma"],
+    "lm85bis_60": ["lm85bis"],
+    "snt2_ep": ["diploma"],
+    "snt1": ["diploma"],
+    "fisio": ["diploma"],
+    "masso": ["diploma"],
+    "logo": ["diploma"],
+    "psi_triennale": ["diploma"],
+    "psicologo": ["psi_triennale"],
+    "sociologia": ["diploma"],
+    "l39": ["diploma"],
+    "med_fisiatria": ["diploma"],
+    "med_psichiatria": ["diploma"]
+  },
+
+  "settori": [
+    { "id": "infanzia", "label": "Infanzia", "icona": "sprout", "persone": "Bambine e bambini 0-6 anni e le loro famiglie", "impatto": "Accompagni i primi passi di bambine e bambini, in nidi e scuole dell'infanzia dove si impara giocando e stando insieme.", "tono": "#F5A54A" },
+    { "id": "scuola", "label": "Scuola e inclusione", "icona": "backpack", "persone": "Alunne e alunni dai 3 ai 18 anni, anche con disabilità", "impatto": "Rendi la scuola un luogo dove ogni ragazzo e ragazza, anche con disabilità, partecipa davvero.", "tono": "#6CA2D2" },
+    { "id": "disabilita", "label": "Disabilità", "icona": "hands", "persone": "Persone con disabilità e persone neurodivergenti", "impatto": "Costruisci percorsi di autonomia, relazione e benessere, insieme alle persone con disabilità e alle loro famiglie.", "tono": "#006CB4" },
+    { "id": "anziani", "label": "Anziani", "icona": "heart", "persone": "Persone anziane non autosufficienti o fragili", "impatto": "Ti prendi cura di chi ha costruito la nostra storia: dignità, relazioni e qualità della vita, ogni giorno.", "tono": "#8DA6D8" },
+    { "id": "domiciliarita", "label": "Domiciliarità", "icona": "home", "persone": "Persone che vogliono restare a casa propria", "impatto": "Porti cura, assistenza e mobilità a casa delle persone, perché possano vivere nel proprio ambiente.", "tono": "#3A579E" },
+    { "id": "fragilita", "label": "Fragilità sociali", "icona": "bridge", "persone": "Persone senza dimora, migranti, minori e famiglie in difficoltà", "impatto": "Sei un ponte tra chi vive ai margini e la comunità: accoglienza, emergenze, percorsi verso l'autonomia.", "tono": "#2E7D5B" },
+    { "id": "salute_mentale", "label": "Salute mentale", "icona": "spark", "persone": "Persone seguite dai servizi di salute mentale", "impatto": "Co-costruisci progetti individuali dentro la comunità, con un rapporto uno a uno e tempi su misura.", "tono": "#7C6FB0" }
+  ],
+
+  "percorsiCrescita": {
+    "educativa": { "label": "Area educativa", "tappe": ["Studente/ssa o operatore/trice educativo/a", "Educatore / Educatrice", "Coordinatore / Coordinatrice di servizio", "Responsabile di area"], "note": "Il coordinamento richiede titolo di educatore e 3-5 anni di esperienza; per i servizi complessi una magistrale o un master." },
+    "assistenziale": { "label": "Area assistenziale", "tappe": ["Assistente di base / ASA in formazione", "OSS – Operatore socio-sanitario", "RAA – Responsabile attività assistenziali", "Coordinatore / Coordinatrice di struttura"], "note": "Chi è in formazione ASA o OSS può iniziare come assistente di base (dove l'accreditamento lo consente)." },
+    "sanitaria": { "label": "Area sanitaria e riabilitativa", "tappe": ["Neolaureato/a", "Infermiere / Fisioterapista / Logopedista", "Coordinatore / Coordinatrice infermieristico/a (master)", "Responsabile attività sanitarie"], "note": "Il coordinamento infermieristico richiede il master in coordinamento (L. 43/2006)." },
+    "sociale": { "label": "Area sociale", "tappe": ["Operatore/trice sociale", "Assistente sociale / Mediatore/trice", "Referente di servizio", "Responsabile di area"], "note": "Per l'assistente sociale l'iscrizione all'Albo (CNOAS) è obbligatoria." },
+    "servizi": { "label": "Servizi generali", "tappe": ["Ausiliario/a, autista, addetto/a servizi generali", "Formazione OSS (anche mentre lavori)", "OSS – Operatore socio-sanitario", "RAA"], "note": "Un primo ingresso che può diventare una professione di cura." }
+  },
+
+  "percorsiFormativi": {
+    "corso_oss": { "titolo": "Corso di qualifica OSS", "durata": "circa 1.000 ore (teoria + tirocinio)", "testo": "Qualifica valida su tutto il territorio nazionale. Apre l'accesso ai servizi per anziani, disabilità e domiciliarità." },
+    "riqualifica_asa_oss": { "titolo": "Riqualifica da ASA a OSS", "durata": "circa 400 ore", "testo": "L'attestato ASA è pienamente spendibile solo in Lombardia. Con la riqualifica OSS puoi lavorare anche in Emilia-Romagna e Veneto." },
+    "iori60": { "titolo": "Qualifica di Educatore socio-pedagogico – 60 CFU", "durata": "1 anno accademico (60 CFU)", "testo": "Il percorso universitario previsto dalla L. 205/2017 per chi ha un diploma e vuole lavorare come educatore/educatrice." },
+    "laurea_l19": { "titolo": "Laurea in Scienze dell'educazione (L-19)", "durata": "3 anni", "testo": "Il titolo di riferimento per l'educatore socio-pedagogico. Durante gli studi puoi già lavorare come operatore/trice educativo/a in molti servizi." },
+    "cfu_infanzia": { "titolo": "Integrazione CFU indirizzo infanzia", "durata": "fino a 60 CFU", "testo": "Per lavorare nei nidi serve la L-19 con indirizzo infanzia oppure la LM-85bis + 60 CFU. Verifichiamo insieme il tuo piano di studi." },
+    "formazione_120h": { "titolo": "Formazione specifica 120 ore – comunità per minori", "durata": "120 ore", "testo": "In Emilia-Romagna (DGR 1904/2011) una parte dell'équipe può essere composta da operatori con altri titoli che completano questa formazione." },
+    "magistrale_psicologia": { "titolo": "Laurea magistrale LM-51 + esame di Stato", "durata": "2 anni + abilitazione", "testo": "Per esercitare come psicologo/a serve la magistrale e l'iscrizione all'Albo (CNOP)." },
+    "esame_stato_as": { "titolo": "Esame di Stato e iscrizione all'Albo CNOAS", "durata": "sessioni annuali", "testo": "Con la laurea L-39 o LM-87 l'iscrizione all'Albo è il passaggio che ti abilita alla professione." },
+    "qualifica_animatore": { "titolo": "Qualifica regionale di Animatore sociale", "durata": "variabile per regione", "testo": "In Lombardia è accettato anche un diploma a indirizzo umanistico + 60 CFU." },
+    "qualifica_mediatore": { "titolo": "Qualifica regionale di Mediatore interculturale", "durata": "variabile", "testo": "In Emilia-Romagna la qualifica è regolata dalla DGR 739/2013." },
+    "laurea_sanitaria": { "titolo": "Laurea triennale delle professioni sanitarie", "durata": "3 anni + iscrizione all'Albo", "testo": "Infermieristica, Fisioterapia, Logopedia, Educazione professionale: durante gli studi puoi fare tirocinio nei nostri servizi." }
+  },
+
+  "ruoli": [
+    {
+      "id": "educatore", "nome": "Educatore / Educatrice", "area": "educativa", "peso": 10,
+      "sintesi": "Collabori con l'équipe educativa nella progettazione e realizzazione di attività rivolte alle persone, favorendo socializzazione, inclusione e benessere nei contesti educativi e socio-assistenziali.",
+      "competenze": ["Progettazione educativa individualizzata", "Lavoro in équipe multidisciplinare", "Ascolto e relazione d'aiuto", "Gestione di laboratori e attività di gruppo"],
+      "accettati": ["l19", "iori60", "snt2_ep", "lm85bis"],
+      "vicini": [
+        { "da": ["studente_l19"], "manca": "Completare la laurea L-19", "percorsi": ["laurea_l19"], "ponte": "operatore_educativo" },
+        { "da": ["diploma_sociale", "diploma"], "manca": "Un titolo da educatore (L-19 o qualifica 60 CFU)", "percorsi": ["iori60", "laurea_l19"], "ponte": "operatore_educativo" },
+        { "da": ["psi_triennale", "psicologo", "sociologia", "l39"], "manca": "In questo servizio il tuo titolo vale come 'equipollente' solo con esperienza: ne parliamo al colloquio", "percorsi": ["iori60"], "ponte": "operatore_educativo" }
+      ]
+    },
+    {
+      "id": "operatore_educativo", "nome": "Operatore / Operatrice educativo/a", "area": "educativa", "peso": 7,
+      "sintesi": "Affianchi gli educatori nelle attività quotidiane. È il ruolo di ingresso per chi studia o ha un titolo affine: impari sul campo, con un tutor, mentre completi il tuo percorso.",
+      "competenze": ["Relazione e accoglienza", "Supporto nelle attività educative", "Osservazione e lavoro di squadra"],
+      "accettati": ["diploma_sociale", "studente_l19", "psi_triennale", "sociologia", "l39", "l19"],
+      "vicini": [
+        { "da": ["diploma", "obbligo"], "manca": "Un diploma a indirizzo socio-educativo o 2-3 anni di esperienza nel settore (dipende dal capitolato del servizio)", "percorsi": ["iori60", "laurea_l19"] }
+      ]
+    },
+    {
+      "id": "educatore_nido", "nome": "Educatore / Educatrice di nido", "area": "educativa", "peso": 10,
+      "sintesi": "Accogli bambine e bambini da 0 a 3 anni e le loro famiglie: cura dei momenti di routine, gioco, esplorazione e osservazione dello sviluppo, in un'équipe con coordinamento pedagogico.",
+      "competenze": ["Pedagogia della prima infanzia", "Osservazione e documentazione", "Relazione con le famiglie", "Cura degli spazi e dei tempi"],
+      "accettati": ["l19_infanzia", "lm85bis_60"],
+      "vicini": [
+        { "da": ["l19"], "manca": "L'indirizzo infanzia nel piano di studi (o immatricolazione entro a.a. 2018/19)", "percorsi": ["cfu_infanzia"] },
+        { "da": ["lm85bis"], "manca": "I 60 CFU di indirizzo infanzia", "percorsi": ["cfu_infanzia"] },
+        { "da": ["diploma_magistrale"], "manca": "Verifica delle date-soglia dei titoli storici regionali", "percorsi": ["cfu_infanzia"] },
+        { "da": ["studente_l19"], "manca": "Completare la L-19 con indirizzo infanzia", "percorsi": ["laurea_l19", "cfu_infanzia"] }
+      ],
+      "nota": "Nei nidi non è mai ammesso il ruolo di educatore senza titolo."
+    },
+    {
+      "id": "insegnante", "nome": "Insegnante scuola dell'infanzia", "area": "educativa", "peso": 10,
+      "sintesi": "Accompagni bambine e bambini dai 3 ai 6 anni nella scuola dell'infanzia paritaria, progettando esperienze di apprendimento e crescita insieme al gruppo di lavoro.",
+      "competenze": ["Progettazione didattica 3-6", "Inclusione", "Lavoro con le famiglie"],
+      "accettati": ["lm85bis", "diploma_magistrale"],
+      "vicini": [
+        { "da": ["l19_infanzia", "l19"], "manca": "La laurea in Scienze della formazione primaria (LM-85bis)", "percorsi": ["cfu_infanzia"], "ponte": "educatore" }
+      ]
+    },
+    {
+      "id": "oss", "nome": "OSS – Operatore / Operatrice socio-sanitario/a", "area": "assistenziale", "peso": 9,
+      "sintesi": "Ti prendi cura della persona nei bisogni quotidiani (igiene, alimentazione, mobilità) e collabori con infermieri ed educatori al suo benessere, in struttura o a domicilio.",
+      "competenze": ["Assistenza alla persona", "Relazione e comunicazione", "Lavoro su turni in équipe", "Osservazione dei bisogni"],
+      "accettati": ["oss"],
+      "vicini": [
+        { "da": ["asa"], "manca": "La riqualifica OSS", "percorsi": ["riqualifica_asa_oss"] },
+        { "da": ["osa", "obbligo"], "manca": "La qualifica OSS", "percorsi": ["corso_oss"], "ponte": "adb" }
+      ]
+    },
+    {
+      "id": "asa", "nome": "ASA – Ausiliario/a socio-assistenziale", "area": "assistenziale", "peso": 8,
+      "sintesi": "Supporti la persona nelle attività quotidiane e nel comfort di vita in struttura, in collaborazione con OSS e infermieri. Ruolo previsto in Lombardia.",
+      "competenze": ["Assistenza di base", "Cura degli ambienti di vita", "Relazione"],
+      "accettati": ["asa", "oss"],
+      "vicini": [
+        { "da": ["osa", "obbligo"], "manca": "L'attestato ASA o la qualifica OSS", "percorsi": ["corso_oss"], "ponte": "adb" }
+      ]
+    },
+    {
+      "id": "adb", "nome": "Assistente di base", "area": "assistenziale", "peso": 6,
+      "sintesi": "Supporti l'équipe nell'assistenza e nel comfort delle persone. È un ruolo ponte per chi sta frequentando il corso ASA o OSS.",
+      "competenze": ["Disponibilità e cura", "Lavoro in squadra", "Voglia di formarsi"],
+      "accettati": ["obbligo"],
+      "vicini": []
+    },
+    {
+      "id": "operatore_sociale", "nome": "Operatore / Operatrice socio-assistenziale", "area": "sociale", "peso": 6,
+      "sintesi": "Garantisci accoglienza, presenza e sicurezza nei servizi per persone in difficoltà, spesso nei turni serali e notturni: sei il primo volto che le persone incontrano.",
+      "competenze": ["Accoglienza", "Gestione dei conflitti", "Affidabilità nei turni"],
+      "accettati": ["obbligo"],
+      "vicini": []
+    },
+    {
+      "id": "infermiere", "nome": "Infermiere / Infermiera", "area": "sanitaria", "peso": 10,
+      "sintesi": "Sei responsabile dell'assistenza infermieristica: terapie, monitoraggio clinico, educazione alla salute e coordinamento con l'équipe e con le famiglie.",
+      "competenze": ["Assistenza infermieristica", "Gestione della terapia", "Coordinamento con OSS", "Relazione con le famiglie"],
+      "accettati": ["snt1"],
+      "vicini": [
+        { "da": ["studente_snt"], "manca": "Completare la laurea e iscriversi all'OPI", "percorsi": ["laurea_sanitaria"] }
+      ]
+    },
+    {
+      "id": "fisioterapista", "nome": "Fisioterapista", "area": "sanitaria", "peso": 9,
+      "sintesi": "Progetti e realizzi interventi riabilitativi per mantenere e recuperare le autonomie motorie delle persone, in collaborazione con fisiatra ed équipe.",
+      "competenze": ["Riabilitazione motoria", "Valutazione funzionale", "Lavoro interprofessionale"],
+      "accettati": ["fisio", "masso"],
+      "vicini": [ { "da": ["studente_snt"], "manca": "Completare la laurea e iscriversi all'Albo", "percorsi": ["laurea_sanitaria"] } ]
+    },
+    {
+      "id": "massoterapista", "nome": "Massofisioterapista", "area": "sanitaria", "peso": 7,
+      "sintesi": "Contribuisci al benessere e al mantenimento motorio delle persone con interventi di massoterapia e mobilizzazione.",
+      "competenze": ["Massoterapia", "Mobilizzazione", "Lavoro in équipe"],
+      "accettati": ["masso", "fisio"],
+      "vicini": []
+    },
+    {
+      "id": "logopedista", "nome": "Logopedista", "area": "sanitaria", "peso": 9,
+      "sintesi": "Valuti e tratti i disturbi della comunicazione, del linguaggio e della deglutizione, spesso con un ruolo di consulenza alle équipe.",
+      "competenze": ["Valutazione logopedica", "Comunicazione aumentativa", "Disfagia"],
+      "accettati": ["logo"],
+      "vicini": [ { "da": ["studente_snt"], "manca": "Completare la laurea e iscriversi all'Albo", "percorsi": ["laurea_sanitaria"] } ]
+    },
+    {
+      "id": "psicologo", "nome": "Psicologo / Psicologa", "area": "sanitaria", "peso": 9,
+      "sintesi": "Sostieni persone, famiglie ed équipe con colloqui, valutazioni e supervisione, contribuendo ai progetti individuali.",
+      "competenze": ["Colloquio e valutazione", "Supporto alle équipe", "Lavoro con le famiglie"],
+      "accettati": ["psicologo"],
+      "vicini": [ { "da": ["psi_triennale"], "manca": "La magistrale LM-51 e l'iscrizione all'Albo", "percorsi": ["magistrale_psicologia"], "ponte": "operatore_educativo" } ]
+    },
+    {
+      "id": "assistente_sociale", "nome": "Assistente sociale", "area": "sociale", "peso": 9,
+      "sintesi": "Accogli, ascolti e orienti persone e famiglie in difficoltà, costruisci progetti di aiuto e attivi la rete dei servizi del territorio.",
+      "competenze": ["Colloquio e presa in carico", "Lavoro di rete", "Progettazione sociale", "Normativa dei servizi"],
+      "accettati": ["l39"],
+      "vicini": []
+    },
+    {
+      "id": "fisiatra", "nome": "Medico fisiatra", "area": "sanitaria", "peso": 8,
+      "sintesi": "Definisci i programmi riabilitativi e supervisioni gli interventi dell'équipe. Spesso in forma di consulenza.",
+      "competenze": ["Medicina riabilitativa", "Supervisione clinica"],
+      "accettati": ["med_fisiatria"],
+      "vicini": []
+    },
+    {
+      "id": "psichiatra", "nome": "Medico psichiatra", "area": "sanitaria", "peso": 8,
+      "sintesi": "Segui il percorso clinico delle persone e supporti l'équipe nella lettura dei bisogni. Spesso in forma di consulenza.",
+      "competenze": ["Psichiatria", "Consulenza alle équipe"],
+      "accettati": ["med_psichiatria"],
+      "vicini": []
+    },
+    {
+      "id": "animatore", "nome": "Animatore / Animatrice", "area": "educativa", "peso": 8,
+      "sintesi": "Progetti e conduci attività di animazione, socializzazione e stimolazione che danno ritmo e senso alla giornata delle persone.",
+      "competenze": ["Animazione di gruppo", "Laboratori espressivi", "Creatività"],
+      "accettati": ["animatore"],
+      "vicini": [ { "da": ["diploma_sociale", "diploma"], "manca": "La qualifica regionale di animatore (in Lombardia: diploma umanistico + 60 CFU)", "percorsi": ["qualifica_animatore", "iori60"] } ]
+    },
+    {
+      "id": "arteterapeuta", "nome": "Arteterapeuta", "area": "educativa", "peso": 7,
+      "sintesi": "Usi i linguaggi artistici come strumento di espressione e benessere nei percorsi delle persone con disabilità.",
+      "competenze": ["Terapie espressive", "Conduzione di gruppi"],
+      "accettati": ["arteterapia"],
+      "vicini": []
+    },
+    {
+      "id": "mediatore", "nome": "Mediatore / Mediatrice interculturale", "area": "sociale", "peso": 9,
+      "sintesi": "Abbatti le barriere linguistiche e culturali, costruendo fiducia tra le persone e i servizi, anche in contesti complessi come il carcere.",
+      "competenze": ["Lingue e culture", "Mediazione", "Orientamento ai servizi"],
+      "accettati": ["mediatore"],
+      "vicini": [ { "da": ["obbligo"], "manca": "La qualifica regionale di mediatore interculturale", "percorsi": ["qualifica_mediatore"] } ]
+    },
+    {
+      "id": "ausiliario", "nome": "Ausiliario / Ausiliaria – servizi generali", "area": "servizi", "peso": 4,
+      "sintesi": "Ti occupi dell'igiene, della cura degli spazi e del supporto logistico: senza di te un servizio non può accogliere bene nessuno.",
+      "competenze": ["Igiene e sanificazione", "Precisione", "Collaborazione"],
+      "accettati": ["obbligo"],
+      "vicini": []
+    },
+    {
+      "id": "autista", "nome": "Autista accompagnatore / accompagnatrice", "area": "servizi", "peso": 5,
+      "sintesi": "Accompagni persone a ridotta mobilità da casa ai centri diurni e ai luoghi di cura: un viaggio sicuro è già una forma di cura.",
+      "competenze": ["Guida sicura", "Relazione con le persone fragili", "Puntualità"],
+      "accettati": ["patente"],
+      "vicini": []
+    }
+  ],
+
+  "eccezioni": [
+    { "ruolo": "asa", "regioni": ["Emilia-Romagna", "Veneto"], "accettati": [], "vicini": [ { "da": ["asa"], "manca": "In Emilia-Romagna e Veneto l'ASA non è conteggiabile a standard: serve la riqualifica OSS", "percorsi": ["riqualifica_asa_oss"] } ], "fonte": "Dati — Anziani ER/Veneto: ASA/OSA/ADB non conteggiabili a standard" },
+    { "ruolo": "adb", "settori": ["anziani", "domiciliarita"], "regioni": ["Emilia-Romagna", "Veneto"], "accettati": [], "vicini": [ { "da": ["obbligo"], "manca": "In Emilia-Romagna e Veneto, nei servizi per anziani (strutture e domicilio), serve la qualifica OSS", "percorsi": ["corso_oss"] } ], "fonte": "Servizio x Regione sez. D" },
+    { "ruolo": "educatore", "settori": ["disabilita"], "regioni": ["Veneto"], "accettati": ["snt2_ep"], "vicini": [ { "da": ["l19", "iori60"], "manca": "In Veneto, nei servizi per la disabilità, è richiesto l'Educatore professionale sanitario (L/SNT2) iscritto all'Albo", "percorsi": ["laurea_sanitaria"] } ], "fonte": "Servizio x Regione sez. E — Veneto" },
+    { "ruolo": "educatore", "settori": ["fragilita"], "accettati": ["l19", "iori60", "snt2_ep", "psicologo", "psi_triennale", "sociologia", "l39"], "nota": "Per i titoli equipollenti (psicologia, sociologia, servizio sociale) è valutata anche l'esperienza.", "fonte": "Servizio x Regione sez. G" },
+    { "ruolo": "operatore_educativo", "settori": ["fragilita"], "accettati": ["obbligo"], "nota": "Nell'area fragilità non è richiesto un titolo specifico: possono candidarsi anche studenti e studentesse.", "fonte": "Servizio x Regione sez. G" },
+    { "ruolo": "operatore_educativo", "settori": ["infanzia"], "accettati": [], "vicini": [], "nota": "Nei servizi 0-6 l'educatore senza titolo non è mai ammesso.", "fonte": "Servizio x Regione sez. A/B" },
+    { "ruolo": "operatore_educativo", "settori": ["disabilita"], "regioni": ["Emilia-Romagna"], "accettati": ["psi_triennale", "psicologo", "sociologia", "studente_l19", "l19"], "vicini": [ { "da": ["diploma_sociale", "diploma"], "manca": "Un titolo equipollente (psicologia, sociologia) o la qualifica di educatore", "percorsi": ["iori60", "laurea_l19"] } ], "fonte": "Servizio x Regione sez. E — Emilia-Romagna" },
+    { "ruolo": "animatore", "regioni": ["Lombardia"], "accettati": ["animatore", "iori60"], "fonte": "Mansioni — Animatore: Lombardia diploma umanistico + 60 CFU" },
+    { "ruolo": "operatore_educativo", "settori": ["fragilita"], "sottosettori": ["Minori"], "accettati": ["diploma_sociale", "studente_l19", "psi_triennale", "sociologia", "l39", "l19"], "vicini": [ { "da": ["diploma", "obbligo"], "manca": "Nelle comunità per minori serve un titolo affine e la formazione specifica di 120 ore", "percorsi": ["formazione_120h"] } ], "fonte": "Servizio x Regione sez. F — DGR 1904/2011" }
+  ],
+
+  "formazione": [
+    { "titolo": "Formazione continua", "testo": "Aggiornamento obbligatorio e facoltativo durante tutto l'anno: nei nidi lombardi, per esempio, 30 ore annue per educatori e 50 per i coordinatori.", "icona": "book" },
+    { "titolo": "Affiancamento", "testo": "Nei primi mesi lavori accanto a colleghe e colleghi esperti. Nessuno entra in servizio da solo.", "icona": "users" },
+    { "titolo": "Sviluppo delle competenze", "testo": "Percorsi di qualifica (OSS, 60 CFU, riqualifiche) che puoi frequentare mentre lavori in un ruolo ponte.", "icona": "trend" },
+    { "titolo": "Mobilità interna", "testo": "Settori, servizi e territori diversi: puoi cambiare contesto senza cambiare organizzazione.", "icona": "shuffle" }
+  ]
+}
