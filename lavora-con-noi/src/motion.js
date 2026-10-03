@@ -108,13 +108,14 @@
     sec.insertAdjacentHTML("afterbegin", html + "</div>");
   }
 
-  // ------------------------------------------------------------ 5. Crescita: la linea avanza con lo scroll
+  // ------------------------------------------------------------ 5. Crescita: la barra avanza con lo scroll
   function growthUpdate(vh) {
     var tl = $("#growth-panel .timeline");
     if (!tl) return;
     var r = tl.getBoundingClientRect();
     var p = clamp((vh * 0.8 - r.top) / (r.height + vh * 0.3), 0, 1);
-    tl.style.setProperty("--p", p.toFixed(3));
+    var track = $("#growth-panel .tl-track");
+    if (track) track.style.setProperty("--p", p.toFixed(3));
     var steps = $$(".tl-step", tl);
     steps.forEach(function (s, i) { s.classList.toggle("is-on", p >= (i + 0.2) / steps.length); });
   }
@@ -132,14 +133,6 @@
       });
       c.addEventListener("pointerleave", function () { c.style.setProperty("--rx", "0deg"); c.style.setProperty("--ry", "0deg"); });
     });
-  }
-
-  // ------------------------------------------------------------ 7. Storie: ogni mano della foto è una storia
-  function storyCrops() {
-    var img = $(".hero-media img");
-    if (img) document.documentElement.style.setProperty("--hero-img", 'url("' + (img.currentSrc || img.src) + '")');
-    var crops = ["42% 18%", "78% 30%", "48% 92%", "86% 78%", "60% 50%"];
-    $$(".story-card").forEach(function (c, i) { c.style.setProperty("--crop", crops[i % crops.length]); c.classList.add("has-photo"); });
   }
 
   // ------------------------------------------------------------ 8. CTA finale: il tuo tassello si incastra
@@ -196,7 +189,6 @@
   ticker();
   ambientPieces();
   spotlight();
-  storyCrops();
   finalPuzzle();
   scrollLoop();
 })();

@@ -39,3 +39,14 @@ python3 build/build_docs.py                                                     
 - I testi indicati come provvisori (sintesi dei ruoli, alcune descrizioni dei servizi), le illustrazioni a tasselli e le video-testimonianze sono **segnaposto**. Vanno sostituiti con contenuti validati, foto e video reali.
 - I form del prototipo non inviano né salvano dati.
 - Le regole per Lombardia e Veneto sono marcate «da verificare» nella matrice e vanno validate prima del rilascio. L'elenco completo è nella sezione 10 del documento di progetto.
+
+## Video della hero (non attivo)
+
+`assets/hero-tasselli.mp4` e `.webm` sono l'animazione generata con Higgsfield. Per ora la hero usa l'immagine statica. Per riattivare il video, inserire dopo l'`<img>` della hero in `src/index.html`:
+
+```html
+<video class="hero-video" muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"
+       data-src="../assets/hero-tasselli.mp4" data-src-webm="../assets/hero-tasselli.webm"></video>
+```
+
+`build_data.py` lo incorpora nel prototipo e `motion.js` lo avvia con la foto come anteprima.

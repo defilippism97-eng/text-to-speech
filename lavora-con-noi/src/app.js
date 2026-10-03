@@ -808,7 +808,7 @@
       var p = CAT.percorsiCrescita[k];
       panel.setAttribute("aria-labelledby", "tab-" + k);
       panel.classList.remove("is-visible");
-      panel.innerHTML = '<ol class="timeline">' + p.tappe.map(function (t, i) { return '<li class="tl-step" style="--i:' + i + '"><span class="n">' + (i + 1) + "</span><h3>" + esc(t) + "</h3></li>"; }).join("") + "</ol>" +
+      panel.innerHTML = '<div class="tl-track" aria-hidden="true"><span></span></div><ol class="timeline" style="--n:' + p.tappe.length + '">' + p.tappe.map(function (t, i) { return '<li class="tl-step" style="--i:' + i + '"><span class="n">' + (i + 1) + "</span><h3>" + esc(t) + "</h3></li>"; }).join("") + "</ol>" +
         '<p class="growth-note">' + icon("info") + "<span>" + esc(p.note) + "</span></p>";
       requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.add("is-visible"); }); });
     }
@@ -823,20 +823,38 @@
     show(keys[0]);
   }
   function renderTraining() {
-    $("#training-grid").innerHTML = CAT.formazione.map(function (f) { return '<article class="train-card reveal"><span class="value-icon">' + icon(f.icona) + "</span><h3>" + esc(f.titolo) + "</h3><p>" + esc(f.testo) + "</p></article>"; }).join("");
+    $("#training-grid").innerHTML = CAT.formazione.map(function (f) { return '<article class="train-card reveal"><span class="value-icon" data-icon="' + f.icona + '"></span><h3>' + esc(f.titolo) + "</h3><p>" + esc(f.testo) + "</p></article>"; }).join("");
   }
   function renderStories() {
+    // incipit di esempio: da sostituire con le frasi reali dei video
     var st = [
-      { r: "Educatrice", s: "Servizi infanzia · Bologna", q: "Quando sono arrivata in Società Dolce…", t: "infanzia" },
-      { r: "OSS", s: "Strutture per anziani", q: "Quando sono arrivato in Società Dolce…", t: "anziani" },
-      { r: "Educatore", s: "Accoglienza adulti senza dimora", q: "Quando sono arrivato in Società Dolce…", t: "fragilita" },
-      { r: "Infermiera", s: "Residenze per la disabilità", q: "Quando sono arrivata in Società Dolce…", t: "disabilita" },
-      { r: "Mediatore interculturale", s: "Territori per il Reinserimento", q: "Quando sono arrivato in Società Dolce…", t: "fragilita" }
+      { r: "Educatrice", s: "Nidi e servizi 0-6 · Bologna", q: "Il primo giorno una bambina mi ha preso per mano e non mi ha più lasciata.", c: ["#F5A54A", "#FDEBD7", "#006CB4"] },
+      { r: "OSS", s: "Strutture per anziani", q: "Pensavo fosse solo assistenza. Poi ho imparato i nomi, le storie, le canzoni preferite.", c: ["#8DA6D8", "#E4ECF7", "#36549C"] },
+      { r: "Educatore", s: "Accoglienza adulti senza dimora", q: "La prima notte in accoglienza ho capito che ascoltare è già un intervento.", c: ["#2E7D5B", "#E2F3EA", "#F5A54A"] },
+      { r: "Infermiera", s: "Residenze per la disabilità", q: "Qui la cura non è solo una terapia: è una relazione che costruisci ogni giorno.", c: ["#006CB4", "#BACCE4", "#F5A54A"] },
+      { r: "Mediatore interculturale", s: "Territori per il Reinserimento", q: "Parlo quattro lingue, ma la più importante l'ho imparata qui: quella della fiducia.", c: ["#7C6FB0", "#ECE9F8", "#6CA2D2"] }
     ];
-    $("#stories-track").innerHTML = st.map(function (x) {
-      return '<button type="button" class="story-card" style="--tone:' + SETTORI[x.t].tono + '" aria-label="Video testimonianza: ' + esc(x.r) + ", " + esc(x.s) + ' (segnaposto)">' + pieces(hash(x.r + x.s), 0.4) +
+    $("#stories-track").innerHTML = st.map(function (x, k) {
+      return '<button type="button" class="story-card" style="--tone:' + x.c[0] + ";--tone-2:" + x.c[1] + '" aria-label="Video testimonianza: ' + esc(x.r) + ", " + esc(x.s) + ' (segnaposto)">' +
+        storyPieces(x.c, k) +
         '<span class="play">' + icon("play") + "</span><q>" + esc(x.q) + "</q><small>" + esc(x.r) + " · " + esc(x.s) + '</small><span class="ph">Video da girare</span></button>';
     }).join("");
+  }
+  function storyPieces(c, k) {
+    // 3 tasselli per card, colori e disposizione diversi per ognuna
+    var layouts = [
+      [[62, 24, 0, 1.0], [118, 70, 90, .7], [36, 92, 180, .55]],
+      [[96, 20, 270, .85], [46, 64, 0, .75], [120, 104, 90, .5]],
+      [[40, 30, 90, .9], [110, 46, 180, .65], [72, 108, 0, .6]],
+      [[100, 36, 180, .95], [40, 78, 270, .6], [118, 112, 0, .5]],
+      [[56, 18, 0, .8], [120, 60, 270, .8], [50, 100, 90, .55]]
+    ][k % 5];
+    var fills = [c[1], "#ffffff", c[2]];
+    var out = '<svg class="story-pieces" viewBox="0 0 200 200" aria-hidden="true">';
+    layouts.forEach(function (l, i) {
+      out += '<path d="' + PIECE + '" fill="' + fills[i] + '" transform="translate(' + l[0] + " " + l[1] + ") rotate(" + l[2] + " 50 50) scale(" + l[3] + ')" opacity="' + (i === 1 ? .9 : 1) + '"/>';
+    });
+    return out + "</svg>";
   }
 
   // ---------------------------------------------------------------- effetti globali

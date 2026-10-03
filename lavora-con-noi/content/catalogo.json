@@ -84,10 +84,10 @@
   ],
 
   "percorsiCrescita": {
-    "educativa": { "label": "Area educativa", "tappe": ["Studente/ssa o operatore/trice educativo/a", "Educatore / Educatrice", "Coordinatore / Coordinatrice di servizio", "Responsabile di area"], "note": "Il coordinamento richiede titolo di educatore e 3-5 anni di esperienza; per i servizi complessi una magistrale o un master." },
+    "educativa": { "label": "Area educativa", "tappe": ["Studente/ssa o operatore/trice educativo/a", "Educatore / Educatrice", "Coordinatore / Coordinatrice di servizio"], "note": "Il coordinamento richiede titolo di educatore e 3-5 anni di esperienza; per i servizi complessi una magistrale o un master." },
     "assistenziale": { "label": "Area assistenziale", "tappe": ["Assistente di base / ASA in formazione", "OSS – Operatore socio-sanitario", "RAA – Responsabile attività assistenziali", "Coordinatore / Coordinatrice di struttura"], "note": "Chi è in formazione ASA o OSS può iniziare come assistente di base (dove l'accreditamento lo consente)." },
     "sanitaria": { "label": "Area sanitaria e riabilitativa", "tappe": ["Neolaureato/a", "Infermiere / Fisioterapista / Logopedista", "Coordinatore / Coordinatrice infermieristico/a (master)", "Responsabile attività sanitarie"], "note": "Il coordinamento infermieristico richiede il master in coordinamento (L. 43/2006)." },
-    "sociale": { "label": "Area sociale", "tappe": ["Operatore/trice sociale", "Assistente sociale / Mediatore/trice", "Referente di servizio", "Responsabile di area"], "note": "Per l'assistente sociale l'iscrizione all'Albo (CNOAS) è obbligatoria." },
+    "sociale": { "label": "Area sociale", "tappe": ["Operatore/trice sociale", "Assistente sociale / Mediatore/trice", "Referente di servizio"], "note": "Per l'assistente sociale l'iscrizione all'Albo (CNOAS) è obbligatoria." },
     "servizi": { "label": "Servizi generali", "tappe": ["Ausiliario/a, autista, addetto/a servizi generali", "Formazione OSS (anche mentre lavori)", "OSS – Operatore socio-sanitario", "RAA"], "note": "Un primo ingresso che può diventare una professione di cura." }
   },
 
