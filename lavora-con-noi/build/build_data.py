@@ -375,6 +375,9 @@ def bundle(base, catalogo):
     html = html.replace('<script src="dati.js"></script>', f"<script>window.SD_DATI = {dati};</script>")
     html = html.replace('<script src="app.js"></script>', f"<script>\n{js}\n</script>")
     html = html.replace("../assets/logo-societa-dolce.png", f"data:image/png;base64,{logo}")
+    hero = ROOT / "assets/hero-tasselli.jpg"
+    if hero.exists():
+        html = html.replace("../assets/hero-tasselli.jpg", "data:image/jpeg;base64," + base64.b64encode(hero.read_bytes()).decode())
     for font in sorted((ROOT / "assets/fonts").glob("*.woff2")):
         b64 = base64.b64encode(font.read_bytes()).decode()
         html = html.replace(f"../assets/fonts/{font.name}", f"data:font/woff2;base64,{b64}")
