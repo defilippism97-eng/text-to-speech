@@ -680,3 +680,61 @@ details.req p { white-space: pre-line; font-size: var(--fs-sm); color: var(--ink
 
 /* hero: immagine statica (il video Higgsfield resta in assets/, non usato per ora) */
 .hero-media img { animation: none; transform: none; }
+
+/* mappa con i confini reali (content/mappa.json) */
+.map-wrap { aspect-ratio: 400 / 364; background: var(--brand-50); }
+.region-shape { stroke: #ffffff; stroke-width: 1.4; stroke-linejoin: round; transition: fill var(--t-med), filter var(--t-med); }
+.region-shape.is-sel { filter: saturate(1.6) brightness(.96); }
+.region-label { font: 700 12px var(--font); letter-spacing: .1em; fill: var(--brand-800); opacity: .6; text-transform: uppercase; pointer-events: none; }
+.sede-dot circle { fill: var(--brand-900); }
+.sede-dot text { font: 600 10px var(--font); fill: var(--brand-800); }
+.prov-btn.has-sede::after, .sede-key { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--brand-900); border: 2px solid #fff; }
+.prov-btn.has-sede::after { position: absolute; left: -3px; bottom: -3px; }
+.sede-legend { display: flex; gap: var(--s2); align-items: flex-start; margin: var(--s4) 0 0; font-size: var(--fs-sm); color: var(--ink-2); }
+.sede-key { display: inline-block; flex: none; margin-top: 6px; }
+@media (max-width: 639px) { .region-label { font-size: 10px; } .sede-dot text { font-size: 9px; } }
+
+/* --- Brochure: numeri, storia, certificazioni --- */
+.numbers-title { font-size: var(--fs-xl); color: #fff; margin-bottom: var(--s5); }
+.numbers-grid b { white-space: nowrap; }
+.history { list-style: none; margin: var(--s7) 0 0; padding: 0; display: grid; gap: var(--s3); grid-template-columns: 1fr; }
+@media (min-width: 700px) { .history { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1100px) { .history { grid-template-columns: repeat(6, 1fr); } }
+.history li { display: grid; gap: 4px; padding: var(--s4) 0 0; border-top: 3px solid var(--brand-200); }
+.history li:last-child { border-top-color: var(--sun-400); }
+.history b { font-size: var(--fs-xl); font-weight: 800; color: var(--brand-600); line-height: 1; }
+.history span { color: var(--ink-2); font-size: var(--fs-sm); }
+.certs { margin-top: var(--s6); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2) var(--s4); }
+.certs-title { margin: 0; font-weight: 700; color: var(--brand-800); }
+.certs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s2); }
+.certs li { padding: 6px 12px; border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--surface); font-size: var(--fs-xs); font-weight: 600; color: var(--ink-2); }
+
+/* card settore: motto e dato dalla brochure */
+.sector-body .s-motto { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--brand-600); }
+.sector-body .s-dato { font-size: var(--fs-sm); font-weight: 600; color: var(--brand-800); background: var(--brand-50); border-radius: var(--r-sm); padding: 8px 10px; }
+.story .story-dato { margin-top: var(--s2); font-weight: 600; color: var(--brand-800); }
+
+/* --- Catalogo formativo --- */
+.catalog { margin-top: var(--s7); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-xl); padding: var(--s6) var(--s5); }
+@media (min-width: 900px) { .catalog { padding: var(--s7); } }
+.catalog-head { display: grid; gap: var(--s5); align-items: end; }
+@media (min-width: 900px) { .catalog-head { grid-template-columns: 1.3fr 1fr; gap: var(--s7); } }
+.catalog-head h3 { font-size: var(--fs-2xl); margin-bottom: var(--s3); }
+.catalog-head p:not(.eyebrow) { color: var(--ink-2); margin: 0; max-width: 60ch; }
+.catalog-nums { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); }
+.catalog-nums li { display: grid; gap: 2px; }
+.catalog-nums b { font-size: clamp(2rem, 1.4rem + 2vw, 2.75rem); font-weight: 800; line-height: 1; color: var(--brand-600); font-variant-numeric: tabular-nums; }
+.catalog-nums span { color: var(--ink-2); font-size: var(--fs-sm); }
+.catalog-areas { display: grid; gap: var(--s4); margin-top: var(--s6); }
+@media (min-width: 700px) { .catalog-areas { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .catalog-areas { grid-template-columns: repeat(4, 1fr); } }
+.catalog-area { border-radius: var(--r-lg); padding: var(--s5); background: var(--bg); border-top: 5px solid var(--area); transition: transform var(--t-med) var(--ease-out), box-shadow var(--t-med); }
+.catalog-area:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
+.catalog-area header { display: flex; gap: var(--s3); align-items: center; margin-bottom: var(--s3); }
+.ca-n { flex: none; width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--area); color: #fff; font-weight: 800; font-size: var(--fs-lg); }
+.catalog-area h4 { margin: 0; font-size: var(--fs-lg); }
+.catalog-area header p { margin: 0; font-size: var(--fs-xs); color: var(--muted); }
+.catalog-area ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: var(--fs-sm); color: var(--ink-2); }
+.catalog-area li::marker { color: var(--area); }
+.catalog-format { display: flex; gap: var(--s2); align-items: flex-start; margin: var(--s5) 0 0; color: var(--ink-2); font-size: var(--fs-sm); }
+.catalog-format [data-icon] { color: var(--brand-500); margin-top: 3px; }

@@ -12,7 +12,9 @@ Progetto UX/UI e prototipo navigabile di una pagina «Lavora con noi» pensata c
 ## Struttura
 
 ```
-content/catalogo.json        contenuti editoriali + regole: titoli, ruoli, eccezioni regionali, percorsi
+content/catalogo.json        contenuti editoriali + regole: titoli, ruoli, eccezioni regionali, percorsi,
+                             numeri e storia (brochure 2025), catalogo formativo 2026/2027
+content/mappa.json           confini reali di Lombardia, Veneto ed Emilia-Romagna (openpolis, CC BY 4.0)
 data/base-informativa.json   generato dalla matrice Excel (servizi × territori × ruoli)
 data/qualita-dati.json       campi mancanti / da verificare nella matrice
 src/                         sorgenti del prototipo (index.html, styles.css, app.js, motion.js; dati.js è generato)
@@ -26,6 +28,7 @@ Quando cambia la matrice «Matrice titoli – regione – servizi»:
 
 ```bash
 pip install openpyxl
+python3 build/build_map.py <limits_IT_regions.geojson>                         # solo se cambiano i confini (openpolis)
 python3 build/build_data.py "<percorso>/Matrice_titoli-_regione-servizi.xlsx"   # dati + dist/
 NODE_PATH=$(npm root -g) node build/screenshots.mjs                               # percorso e2e + screenshot
 NODE_PATH=$(npm root -g) node build/test_matching.mjs                             # 20 casi di matching

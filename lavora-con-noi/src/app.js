@@ -237,28 +237,23 @@
 
   // ---------------------------------------------------------------- statistiche
   function stats() {
-    var st = BASE.statistiche;
-    var items = [
-      { v: 30, suf: "+", l: "anni nei servizi alla persona" },
-      { v: st.tipologieServizio, l: "tipologie di servizio" },
-      { v: st.professioni, l: "professioni diverse" },
-      { v: st.settori, l: "settori di intervento" },
-      { v: st.province, l: "province" },
-      { v: st.regioni, l: "regioni" }
-    ];
+    var N = CAT.numeri;
     var ul = $("[data-stats]");
-    ul.innerHTML = items.map(function (it) { return '<li class="reveal"><b data-count="' + it.v + '" data-suf="' + (it.suf || "") + '">0' + (it.suf || "") + "</b><span>" + esc(it.l) + "</span></li>"; }).join("");
-    $("[data-stats-inline]").innerHTML =
-      "<li><b>" + st.tipologieServizio + "</b> tipologie di servizio</li><li><b>" + st.professioni + "</b> professioni</li><li><b>" + st.regioni + "</b> regioni</li>";
+    ul.innerHTML = N.voci.map(function (it) { return '<li class="reveal"><b data-count="' + it.v + '" data-suf="' + (it.suf || "") + '">' + fmt(it.v) + (it.suf || "") + "</b><span>" + esc(it.l) + "</span></li>"; }).join("");
+    $("#numbers-note").textContent = "Fonte: " + N.fonte + ". Nella base informativa della pagina: " + BASE.statistiche.tipologieServizio + " tipologie di servizio e " + BASE.statistiche.professioni + " professioni in " + BASE.statistiche.province + " province.";
+    $("[data-stats-inline]").innerHTML = "<li><b>4.300</b> colleghe e colleghi</li><li><b>40.000</b> persone seguite ogni anno</li><li><b>3</b> regioni</li>";
+    $("#history").innerHTML = CAT.storia.map(function (h) { return '<li><b>' + esc(h.anno) + "</b><span>" + esc(h.testo) + "</span></li>"; }).join("");
+    $("#certs").innerHTML = CAT.certificazioni.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("");
   }
+  function fmt(n) { return Number(n).toLocaleString("it-IT"); }
   function countUp(el) {
     var target = +el.getAttribute("data-count"), suf = el.getAttribute("data-suf") || "";
-    if (REDUCED) { el.textContent = target + suf; return; }
+    if (REDUCED) { el.textContent = fmt(target) + suf; return; }
     var t0 = null;
     function f(t) {
       if (!t0) t0 = t;
       var p = Math.min(1, (t - t0) / 1200), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * e) + suf;
+      el.textContent = fmt(Math.round(target * e)) + suf;
       if (p < 1) requestAnimationFrame(f);
     }
     requestAnimationFrame(f);
@@ -350,7 +345,7 @@
           var n = BASE.servizi.filter(function (x) { return x.settore === s.id; }).length;
           return '<button type="button" class="sector-card" style="--i:' + i + ";--tone:" + s.tono + '" aria-pressed="' + (state.settori.indexOf(s.id) >= 0) + '" data-settore="' + s.id + '">' +
             '<span class="sector-art">' + pieces(hash(s.id)) + '<span class="s-icon">' + icon(s.icona) + '</span></span><span class="o-check">' + icon("check") + "</span>" +
-            '<span class="sector-body"><h3>' + esc(s.label) + "</h3><p>" + esc(s.impatto) + '</p><span class="s-meta">' + n + (n === 1 ? " servizio" : " servizi") + "</span></span></button>";
+            '<span class="sector-body"><span class="s-motto">' + esc(s.motto) + "</span><h3>" + esc(s.label) + "</h3><p>" + esc(s.impatto) + '</p><span class="s-dato">' + esc(s.dato) + '</span><span class="s-meta">' + n + (n === 1 ? " servizio" : " servizi") + " nella ricerca</span></span></button>";
         }).join("") + "</div>" + navHTML(3, "Continua", false);
     }
     if (n === 4) {
@@ -471,35 +466,37 @@
   function renderMap() {
     var wrap = $("#map"), side = $("#geo-side");
     var keys = Object.keys(PROV);
-    var lons = keys.map(function (k) { return PROV[k].lon * Math.cos(45 * Math.PI / 180); }), lats = keys.map(function (k) { return PROV[k].lat; });
-    var minX = Math.min.apply(null, lons), maxX = Math.max.apply(null, lons), minY = Math.min.apply(null, lats), maxY = Math.max.apply(null, lats);
-    var W = 400, H = 310, pad = 46;
-    function proj(k) {
-      var x = PROV[k].lon * Math.cos(45 * Math.PI / 180), y = PROV[k].lat;
-      return { x: pad + (x - minX) / (maxX - minX) * (W - 2 * pad), y: pad + (maxY - y) / (maxY - minY) * (H - 2 * pad) };
-    }
-    var NUDGE = { VA: [-13, 5], CO: [11, -7], RO: [7, -9], FE: [-3, 7], BO: [6, 7], MO: [-8, -2] }; // evita sovrapposizioni dei bottoni (44px)
-    var pos = {}; keys.forEach(function (k) { var p = proj(k), n = NUDGE[k] || [0, 0]; pos[k] = { x: p.x + n[0], y: p.y + n[1] }; });
+    // confini reali (content/mappa.json, generato da build/build_map.py) e province sulla stessa proiezione
+    var MAP = DATI.mappa, W = MAP.viewBox[2], H = MAP.viewBox[3];
+    var NUDGE = { VA: [-9, 4], CO: [9, -5], RO: [5, -6], FE: [-5, 5] }; // Varese e Como sono troppo vicine per due bottoni da 44px
+    var pos = {}; keys.forEach(function (k) { var p = MAP.province[k] || [W / 2, H / 2], n = NUDGE[k] || [0, 0]; pos[k] = { x: p[0] + n[0], y: p[1] + n[1] }; });
     var conta = {};
     BASE.servizi.forEach(function (s) {
       if (state.settori.length && state.settori.indexOf(s.settore) < 0) return;
       s.province.forEach(function (p) { conta[p] = (conta[p] || 0) + 1; });
     });
     var colors = { "Emilia-Romagna": "#BACCE4", "Lombardia": "#D7E3F3", "Veneto": "#C9D8EE" };
+    var labels = { "Lombardia": [72, 192], "Veneto": [326, 120], "Emilia-Romagna": [186, 306] };
     var svg = '<svg viewBox="0 0 ' + W + " " + H + '" aria-hidden="true">';
-    REGIONI.forEach(function (r) {
-      var pts = keys.filter(function (k) { return PROV[k].regione === r; }).map(function (k) { return [pos[k].x, pos[k].y]; });
-      var hull = convexHull(pts);
-      var d = hull.length > 2 ? "M" + hull.map(function (p) { return p[0].toFixed(1) + " " + p[1].toFixed(1); }).join("L") + "Z" : "M" + hull.map(function (p) { return p[0] + " " + p[1]; }).join("L");
-      svg += '<path class="region-blob" d="' + d + '" fill="' + colors[r] + '" stroke="' + colors[r] + '" stroke-width="64" stroke-linejoin="round" stroke-linecap="round"/>';
-      var c = pts.reduce(function (a, p) { return [a[0] + p[0] / pts.length, a[1] + p[1] / pts.length]; }, [0, 0]);
-      var lp = { "Lombardia": pos.MI && pos.CR ? [pos.MI.x - 6, pos.CR.y + 14] : c, "Veneto": pos.VI ? [pos.VI.x + 4, pos.VI.y - 30] : c, "Emilia-Romagna": [c[0] + 10, c[1] + 54] }[r] || c;
-      svg += '<text class="region-label" x="' + lp[0].toFixed(0) + '" y="' + lp[1].toFixed(0) + '" text-anchor="middle">' + esc(r) + "</text>";
+    MAP.regioni.forEach(function (r) {
+      var sel = keys.filter(function (k) { return PROV[k].regione === r.nome; }).some(function (k) { return state.province.indexOf(k) >= 0; });
+      svg += '<path class="region-shape' + (sel ? " is-sel" : "") + '" d="' + r.d + '" fill="' + colors[r.nome] + '"/>';
+    });
+    MAP.regioni.forEach(function (r) {
+      var lp = labels[r.nome];
+      if (lp) svg += '<text class="region-label" x="' + lp[0] + '" y="' + lp[1] + '" text-anchor="middle">' + esc(r.nome) + "</text>";
+    });
+    // sedi territoriali senza servizi nella base informativa (es. Cesena): solo un punto informativo
+    Object.keys(MAP.sedi).forEach(function (k) {
+      if (PROV[k] || !MAP.province[k]) return;
+      var p = MAP.province[k];
+      svg += '<g class="sede-dot"><circle cx="' + p[0] + '" cy="' + p[1] + '" r="4"/><text x="' + (p[0] + 7) + '" y="' + (p[1] + 4) + '">' + esc(MAP.sedi[k]) + "</text></g>";
     });
     svg += "</svg>";
     var btns = keys.map(function (k) {
       var p = pos[k], on = state.province.indexOf(k) >= 0;
-      return '<button type="button" class="prov-btn" style="left:' + (p.x / W * 100).toFixed(2) + "%;top:" + (p.y / H * 100).toFixed(2) + '%" aria-pressed="' + on + '" data-prov="' + k + '" aria-label="' + esc(PROV[k].nome) + ", " + (conta[k] || 0) + ' servizi">' + k +
+      var sede = MAP.sedi[k] ? " · sede territoriale" : "";
+      return '<button type="button" class="prov-btn' + (MAP.sedi[k] ? " has-sede" : "") + '" style="left:' + (p.x / W * 100).toFixed(2) + "%;top:" + (p.y / H * 100).toFixed(2) + '%" aria-pressed="' + on + '" data-prov="' + k + '" aria-label="' + esc(PROV[k].nome) + ", " + (conta[k] || 0) + " servizi" + sede + '">' + k +
         (conta[k] ? '<span class="cnt" aria-hidden="true">' + conta[k] + "</span>" : "") + "</button>";
     }).join("");
     wrap.innerHTML = svg + btns;
@@ -513,6 +510,7 @@
       keys.slice().sort(function (a, b) { return PROV[a].nome.localeCompare(PROV[b].nome); }).map(function (k) {
         return '<button type="button" class="pill-toggle" data-prov="' + k + '" aria-pressed="' + (state.province.indexOf(k) >= 0) + '">' + esc(PROV[k].nome) + "</button>";
       }).join("") + "</div>" +
+      '<p class="sede-legend"><span class="sede-key" aria-hidden="true"></span> Sede territoriale di Società Dolce: ' + esc(Object.keys(MAP.sedi).map(function (k) { return MAP.sedi[k]; }).join(", ")) + "</p>" +
       '<div class="geo-anywhere"><button type="button" class="option" data-ovunque aria-pressed="' + state.ovunque + '"><span><span class="o-label">Sono disponibile a spostarmi</span><span class="o-hint">Mostrami tutte le sedi</span></span><span class="o-check">' + icon("check") + "</span></button></div>";
     function sync() { renderMap(); }
     $$("[data-prov]", $("#wizard-stage")).forEach(function (b) {
@@ -540,16 +538,7 @@
       var again = $("[data-ovunque]"); if (again) again.focus();
     });
   }
-  function convexHull(points) {
-    if (points.length < 3) return points;
-    var p = points.slice().sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
-    function cross(o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); }
-    var lo = [], up = [];
-    p.forEach(function (pt) { while (lo.length >= 2 && cross(lo[lo.length - 2], lo[lo.length - 1], pt) <= 0) lo.pop(); lo.push(pt); });
-    p.slice().reverse().forEach(function (pt) { while (up.length >= 2 && cross(up[up.length - 2], up[up.length - 1], pt) <= 0) up.pop(); up.push(pt); });
-    up.pop(); lo.pop();
-    return lo.concat(up);
-  }
+
 
   // ---------------------------------------------------------------- risultati (step 5)
   function riepilogo() {
@@ -628,7 +617,7 @@
       '<div class="sheet-body">' +
       '<div class="story-grid">' +
       '<div class="story wide"><h4>' + icon("info") + "Il contesto</h4><p>" + esc(s.descrizione) + "</p>" + (s.descrizioneProvvisoria ? '<span class="prov-flag">Testo provvisorio: descrizione da completare nella base informativa</span>' : "") + "</div>" +
-      '<div class="story"><h4>' + icon("users") + "Le persone che incontri</h4><p>" + esc(set.persone) + "</p></div>" +
+      '<div class="story"><h4>' + icon("users") + "Le persone che incontri</h4><p>" + esc(set.persone) + '.</p><p class="story-dato">' + esc(set.dato) + " in tutta la cooperativa.</p></div>" +
       '<div class="story"><h4>' + icon("heart") + "L'impatto che generi</h4><p>" + esc(set.impatto) + "</p></div>" +
       '<div class="story"><h4>' + icon("home") + "L'ambiente di lavoro</h4><p>" + esc(ambiente) + ". Lavori in un'équipe multiprofessionale con coordinamento dedicato.</p></div>" +
       '<div class="story"><h4>' + icon("trend") + "Dove puoi crescere</h4><ul class=\"mini-path\">" + path.tappe.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul></div>" +
@@ -825,6 +814,18 @@
   function renderTraining() {
     $("#training-grid").innerHTML = CAT.formazione.map(function (f) { return '<article class="train-card reveal"><span class="value-icon" data-icon="' + f.icona + '"></span><h3>' + esc(f.titolo) + "</h3><p>" + esc(f.testo) + "</p></article>"; }).join("");
   }
+  function renderCatalog() {
+    var K = CAT.catalogoFormativo, host = $("#catalogo-formativo");
+    if (!K || !host) return;
+    host.innerHTML = '<div class="catalog-head reveal"><div><p class="eyebrow">' + esc(K.titolo) + "</p><h3>" + esc(K.claim) + "</h3><p>" + esc(K.intro) + "</p></div>" +
+      '<ul class="catalog-nums">' + K.numeri.map(function (n) { return '<li><b data-count="' + n.v + '">' + n.v + "</b><span>" + esc(n.l) + "</span></li>"; }).join("") + "</ul></div>" +
+      '<div class="catalog-areas">' + K.aree.map(function (a, i) {
+        return '<article class="catalog-area reveal" style="--area:' + a.colore + '">' +
+          '<header><span class="ca-n" aria-hidden="true">' + a.n + '</span><div><h4>' + esc(a.nome) + "</h4><p>" + esc(a.sub) + " · " + a.n + " percorsi</p></div></header>" +
+          "<ul>" + a.corsi.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul></article>";
+      }).join("") + "</div>" +
+      '<p class="catalog-format">' + icon("clock") + "<span>" + esc(K.formato) + "</span></p>";
+  }
   function renderStories() {
     // incipit di esempio: da sostituire con le frasi reali dei video
     var st = [
@@ -942,6 +943,7 @@
   heroNet();
   stats();
   renderTraining();
+  renderCatalog();
   renderStories();
   renderGrowth();
   hydrateIcons();
