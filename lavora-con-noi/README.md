@@ -7,6 +7,7 @@ Progetto UX/UI e prototipo navigabile di una pagina «Lavora con noi» pensata c
 | File | Cosa contiene |
 |---|---|
 | `dist/lavora-con-noi.html` | **Prototipo navigabile**, autocontenuto (si apre con doppio clic nel browser, anche offline) |
+| `docs/testi-lavora-con-noi.docx` | **Tutti i testi del sito** per la verifica: generali, settori, e per settore → territorio → servizio → mansione, con indice cliccabile. Si rigenera con `node build/estrai_testi.mjs` (con NODE_PATH di Playwright) e `node build/build_testi_docx.cjs` |
 | `docs/progetto.html` | **Documento di progetto**: concept, UX flow, information architecture, wireframe desktop e mobile, UI, design system, logica di matching, specifiche tecniche, report sulla qualità dei dati |
 
 ## Struttura
