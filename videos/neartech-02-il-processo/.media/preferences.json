@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "linkedin-feed",
+      "confirmed_in": [
+        "neartech-02-il-processo"
+      ],
+      "updated_at": "2026-10-12T20:53:06.536Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "neartech-02-il-processo"
+      ],
+      "updated_at": "2026-10-12T20:53:06.586Z"
+    },
+    "language": {
+      "value": "it",
+      "confirmed_in": [
+        "neartech-02-il-processo"
+      ],
+      "updated_at": "2026-10-12T20:53:06.633Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "neartech-02-il-processo"
+      ],
+      "updated_at": "2026-10-12T20:53:06.678Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "neartech-02-il-processo"
+      ],
+      "updated_at": "2026-10-12T20:53:06.742Z"
+    }
+  },
+  "sightings": {}
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "linkedin-feed",
+      "confirmed_in": [
+        "neartech-01-il-progetto"
+      ],
+      "updated_at": "2026-10-12T20:53:06.230Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "neartech-01-il-progetto"
+      ],
+      "updated_at": "2026-10-12T20:53:06.295Z"
+    },
+    "language": {
+      "value": "it",
+      "confirmed_in": [
+        "neartech-01-il-progetto"
+      ],
+      "updated_at": "2026-10-12T20:53:06.360Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "neartech-01-il-progetto"
+      ],
+      "updated_at": "2026-10-12T20:53:06.414Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "neartech-01-il-progetto"
+      ],
+      "updated_at": "2026-10-12T20:53:06.471Z"
+    }
+  },
+  "sightings": {}
+}

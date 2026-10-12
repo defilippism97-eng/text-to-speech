@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "linkedin-feed",
+      "confirmed_in": [
+        "neartech-03-governance-e-valore"
+      ],
+      "updated_at": "2026-10-12T20:53:06.810Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "neartech-03-governance-e-valore"
+      ],
+      "updated_at": "2026-10-12T20:53:06.854Z"
+    },
+    "language": {
+      "value": "it",
+      "confirmed_in": [
+        "neartech-03-governance-e-valore"
+      ],
+      "updated_at": "2026-10-12T20:53:06.919Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "neartech-03-governance-e-valore"
+      ],
+      "updated_at": "2026-10-12T20:53:06.987Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "neartech-03-governance-e-valore"
+      ],
+      "updated_at": "2026-10-12T20:53:07.051Z"
+    }
+  },
+  "sightings": {}
+}
