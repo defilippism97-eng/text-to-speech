@@ -10,3 +10,4 @@ videos/**/renders/
 videos/**/.hyperframes/
 videos/_build/music.mp3
 __pycache__/
+videos/consegna/
