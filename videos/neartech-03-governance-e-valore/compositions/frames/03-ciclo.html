@@ -1,0 +1,90 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n03-ciclo-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n03-ciclo-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n03-ciclo-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n03-ciclo-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n03-ciclo-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n03-ciclo-stage { position: absolute; inset: 0; }
+#n03-ciclo-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n03-ciclo-stage .brand { color: #12B3B5; }
+#n03-ciclo-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n03-ciclo-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n03-ciclo-stage .w { display: inline-block; }
+#n03-ciclo-stage .hl { color: #12B3B5; }
+#n03-ciclo-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n03-ciclo-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n03-ciclo-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n03-ciclo-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n03-ciclo-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n03-ciclo-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n03-ciclo-stage .mx { position: absolute; }
+#n03-ciclo-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n03-ciclo-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n03-ciclo-stage .quad { position: absolute; }
+#n03-ciclo-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n03-ciclo-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n03-ciclo-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n03-ciclo-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n03-ciclo-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n03-ciclo-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n03-ciclo-stage .logo { width: 640px; height: auto; display: block; }
+#n03-ciclo-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n03-ciclo-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="03-ciclo" data-width="1920" data-height="1080" data-duration="10.5">
+    <div id="n03-ciclo-bg" class="clip" data-start="0" data-duration="10.5" data-track-index="0">
+      <div id="n03-ciclo-glow1" class="glow" data-layout-allow-overflow></div><div id="n03-ciclo-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n03-ciclo-stage" class="clip" data-start="0" data-duration="10.5" data-track-index="1">
+<div id="n03-ciclo-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">03 / 03 · GOVERNANCE E VALORE</span></div><svg style="position:absolute;left:0;top:0" width="1920" height="1080"><circle id="n03-ciclo-ring" cx="1390" cy="540" r="230" fill="none" stroke="rgba(18,179,181,.55)" stroke-width="3" stroke-dasharray="1446" stroke-dashoffset="1446" transform="rotate(-90 1390 540)"/></svg><div id="n03-ciclo-orb" style="position:absolute;left:1381px;top:301px;width:18px;height:18px;border-radius:50%;background:#12B3B5;box-shadow:0 0 20px #12B3B5;transform-origin:9px 239px"></div><div id="n03-ciclo-n0" class="chip" style="left:1240px;top:277px;width:300px;justify-content:center;font-size:23px"><span class="dot"></span>Nuove evidenze</div><div id="n03-ciclo-n1" class="chip" style="left:1470px;top:507px;width:300px;justify-content:center;font-size:23px"><span class="dot"></span>Ricalcolo</div><div id="n03-ciclo-n2" class="chip" style="left:1240px;top:737px;width:300px;justify-content:center;font-size:23px;border-color:#12B3B5"><span class="dot"></span>Revisione umana</div><div id="n03-ciclo-n3" class="chip" style="left:1010px;top:507px;width:300px;justify-content:center;font-size:23px"><span class="dot"></span>Approvazione</div><div id="n03-ciclo-acc" class="accent" style="left:115px;top:300px"></div><h1 id="n03-ciclo-l1" class="line" style="left:115px;top:335px;width:900px;font-size:72px"><span class="w">Sistema</span> <span class="w"><span class="hl">auto-aggiornante,</span></span></h1><h2 id="n03-ciclo-l2" class="line" style="left:115px;top:520px;width:880px;font-size:56px;font-weight:700;color:#A9B1D6"><span class="w">sempre</span> <span class="w">sotto</span> <span class="w">rigorosa</span> <span class="w"><span class="hl">supervisione</span></span> <span class="w"><span class="hl">umana.</span></span></h2>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n03-ciclo";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.3);
+words("l1", 0.4);
+tl.to(q("ring"), {attr:{"stroke-dashoffset":0}, duration:1.4, ease:"power2.inOut"}, 1.0);
+pop("n0", 1.40, {scale:.8});
+pop("n1", 1.85, {scale:.8});
+pop("n2", 2.30, {scale:.8});
+pop("n3", 2.75, {scale:.8});
+tl.fromTo(q("orb"), {rotation:0, opacity:0}, {rotation:720, opacity:1, duration:6.5, ease:"none"}, 3.2);
+words("l2", 4.4, {s:0.08});
+tl.to(q("n2"), {backgroundColor:"rgba(18,179,181,.25)", boxShadow:"0 0 40px rgba(18,179,181,.6)", scale:1.08, duration:0.5}, 5.6);
+tl.to({}, { duration: 0.001 }, 9.999);
+window.__timelines["03-ciclo"] = tl;
+  </script>
+</template>

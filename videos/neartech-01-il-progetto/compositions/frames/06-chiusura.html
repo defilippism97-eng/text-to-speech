@@ -1,0 +1,89 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n06-chiusura-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n06-chiusura-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n06-chiusura-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n06-chiusura-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n06-chiusura-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n06-chiusura-stage { position: absolute; inset: 0; }
+#n06-chiusura-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n06-chiusura-stage .brand { color: #12B3B5; }
+#n06-chiusura-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n06-chiusura-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n06-chiusura-stage .w { display: inline-block; }
+#n06-chiusura-stage .hl { color: #12B3B5; }
+#n06-chiusura-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n06-chiusura-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n06-chiusura-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n06-chiusura-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n06-chiusura-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n06-chiusura-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n06-chiusura-stage .mx { position: absolute; }
+#n06-chiusura-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n06-chiusura-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n06-chiusura-stage .quad { position: absolute; }
+#n06-chiusura-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n06-chiusura-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n06-chiusura-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n06-chiusura-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n06-chiusura-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n06-chiusura-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n06-chiusura-stage .logo { width: 640px; height: auto; display: block; }
+#n06-chiusura-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n06-chiusura-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="06-chiusura" data-width="1920" data-height="1080" data-duration="8">
+    <div id="n06-chiusura-bg" class="clip" data-start="0" data-duration="8" data-track-index="0">
+      <div id="n06-chiusura-glow1" class="glow" data-layout-allow-overflow></div><div id="n06-chiusura-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n06-chiusura-stage" class="clip" data-start="0" data-duration="8" data-track-index="1">
+<div id="n06-chiusura-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">01 / 03 · IL PROGETTO</span></div><div id="n06-chiusura-acc" class="accent" style="left:910px;top:300px"></div><h1 id="n06-chiusura-l1" class="line" style="left:115px;right:115px;top:340px;font-size:92px;text-align:center"><span class="w">Integrare</span> <span class="w">l’AI,</span></h1><h1 id="n06-chiusura-l2" class="line" style="left:115px;right:115px;top:470px;font-size:72px;text-align:center"><span class="w">proteggendo</span> <span class="w">il</span> <span class="w"><span class="hl">valore</span></span> <span class="w">del</span> <span class="w"><span class="hl">lavoro</span></span> <span class="w"><span class="hl">umano.</span></span></h1><div id="n06-chiusura-end" class="end"><img id="n06-chiusura-logo" class="logo" src="public/neartech-logo.jpg" alt="Neartech — AI &amp; Consulting"><div id="n06-chiusura-endline" class="endline"></div><div id="n06-chiusura-tag" class="tag">Integrare l’AI, proteggendo il valore umano.</div></div>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n06-chiusura";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 8, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 8, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.2);
+words("l1", 0.3);
+words("l2", 1.6, {s:0.09});
+tl.fromTo(q("end"), {clipPath:"circle(0% at 50% 55%)"}, {clipPath:"circle(80% at 50% 55%)", duration:0.9, ease:"power3.inOut"}, 4.3);
+tl.to(q("stage") + " > :not(.end)", {opacity:0, duration:0.35}, 4.30);
+tl.fromTo(q("logo"), {opacity:0, scale:.9}, {opacity:1, scale:1, duration:0.9, ease:"power3.out"}, 4.8);
+grow("endline", 5.3);
+fadeUp("tag", 5.6);
+tl.to(q("end"), {opacity:0, duration:0.5, ease:"power1.in"}, 7.45);
+tl.to({}, { duration: 0.001 }, 7.999);
+window.__timelines["06-chiusura"] = tl;
+  </script>
+</template>

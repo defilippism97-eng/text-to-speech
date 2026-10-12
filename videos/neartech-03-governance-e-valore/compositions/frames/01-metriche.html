@@ -1,0 +1,88 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n01-metriche-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n01-metriche-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n01-metriche-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n01-metriche-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n01-metriche-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n01-metriche-stage { position: absolute; inset: 0; }
+#n01-metriche-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n01-metriche-stage .brand { color: #12B3B5; }
+#n01-metriche-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n01-metriche-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n01-metriche-stage .w { display: inline-block; }
+#n01-metriche-stage .hl { color: #12B3B5; }
+#n01-metriche-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n01-metriche-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n01-metriche-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n01-metriche-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n01-metriche-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n01-metriche-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n01-metriche-stage .mx { position: absolute; }
+#n01-metriche-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n01-metriche-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n01-metriche-stage .quad { position: absolute; }
+#n01-metriche-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n01-metriche-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n01-metriche-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n01-metriche-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n01-metriche-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n01-metriche-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n01-metriche-stage .logo { width: 640px; height: auto; display: block; }
+#n01-metriche-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n01-metriche-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="01-metriche" data-width="1920" data-height="1080" data-duration="7.5">
+    <div id="n01-metriche-bg" class="clip" data-start="0" data-duration="7.5" data-track-index="0">
+      <div id="n01-metriche-glow1" class="glow" data-layout-allow-overflow></div><div id="n01-metriche-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n01-metriche-stage" class="clip" data-start="0" data-duration="7.5" data-track-index="1">
+<div id="n01-metriche-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">03 / 03 · GOVERNANCE E VALORE</span></div><div id="n01-metriche-acc" class="accent" style="left:115px;top:250px"></div><h1 id="n01-metriche-l1" class="line" style="left:115px;top:285px;width:880px;font-size:84px"><span class="w">Metriche</span> <span class="w"><span class="hl">oggettive</span></span></h1><h2 id="n01-metriche-l2" class="line" style="left:115px;top:400px;width:900px;font-size:60px;font-weight:700"><span class="w">con</span> <span class="w">fonte,</span> <span class="w">data</span> <span class="w">e</span> <span class="w">versione</span> <span class="w"><span class="hl">tracciate.</span></span></h2><div id="n01-metriche-m" class="card" style="left:1130px;top:240px;width:640px;height:200px;background:#0E1442;padding:34px 40px"><div style="font-weight:600;font-size:20px;letter-spacing:.16em;color:#7E87B8">COMPITO · VALORE UMANO</div><div style="margin-top:26px;width:560px;height:22px;border-radius:11px;background:rgba(18,179,181,.14)"><div id="n01-metriche-fill" style="width:470px;height:22px;border-radius:11px;background:linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%);transform-origin:left center"></div></div></div><div id="n01-metriche-t0" class="chip" style="left:1130px;top:480px;height:62px;font-size:22px"><span class="dot"></span><span style="color:#12B3B5">Fonte</span><span style="font-family:Inter,sans-serif;font-weight:400;color:#A9B1D6">panel di esperti</span></div><div id="n01-metriche-t1" class="chip" style="left:1160px;top:572px;height:62px;font-size:22px"><span class="dot"></span><span style="color:#12B3B5">Data</span><span style="font-family:Inter,sans-serif;font-weight:400;color:#A9B1D6">ottobre 2026</span></div><div id="n01-metriche-t2" class="chip" style="left:1190px;top:664px;height:62px;font-size:22px"><span class="dot"></span><span style="color:#12B3B5">Versione</span><span style="font-family:Inter,sans-serif;font-weight:400;color:#A9B1D6">rubrica v1</span></div>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n01-metriche";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 7, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 7, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.2);
+words("l1", 0.3);
+pop("m", 0.6, {scale:.9, ease:"power3.out"});
+grow("fill", 1.1, "x", 1.0);
+words("l2", 2.0, {s:0.08});
+pop("t0", 2.90, {x:-50, scale:.85});
+pop("t1", 3.40, {x:-50, scale:.85});
+pop("t2", 3.90, {x:-50, scale:.85});
+tl.to({}, { duration: 0.001 }, 6.999);
+window.__timelines["01-metriche"] = tl;
+  </script>
+</template>

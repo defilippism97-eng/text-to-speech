@@ -1,0 +1,105 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n01-mansionario-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n01-mansionario-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n01-mansionario-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n01-mansionario-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n01-mansionario-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n01-mansionario-stage { position: absolute; inset: 0; }
+#n01-mansionario-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n01-mansionario-stage .brand { color: #12B3B5; }
+#n01-mansionario-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n01-mansionario-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n01-mansionario-stage .w { display: inline-block; }
+#n01-mansionario-stage .hl { color: #12B3B5; }
+#n01-mansionario-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n01-mansionario-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n01-mansionario-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n01-mansionario-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n01-mansionario-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n01-mansionario-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n01-mansionario-stage .mx { position: absolute; }
+#n01-mansionario-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n01-mansionario-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n01-mansionario-stage .quad { position: absolute; }
+#n01-mansionario-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n01-mansionario-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n01-mansionario-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n01-mansionario-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n01-mansionario-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n01-mansionario-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n01-mansionario-stage .logo { width: 640px; height: auto; display: block; }
+#n01-mansionario-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n01-mansionario-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="01-mansionario" data-width="1920" data-height="1080" data-duration="7.5">
+    <div id="n01-mansionario-bg" class="clip" data-start="0" data-duration="7.5" data-track-index="0">
+      <div id="n01-mansionario-glow1" class="glow" data-layout-allow-overflow></div><div id="n01-mansionario-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n01-mansionario-stage" class="clip" data-start="0" data-duration="7.5" data-track-index="1">
+<div id="n01-mansionario-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">02 / 03 · IL PROCESSO</span></div><div id="n01-mansionario-doc" class="card" style="left:1180px;top:170px;width:620px;height:660px;background:#0E1442"><div style="position:absolute;left:44px;top:50px;font-weight:600;font-size:18px;letter-spacing:.16em;color:#7E87B8">MANSIONARIO</div><div style="position:absolute;left:44px;top:84px;font-weight:700;font-size:28px;color:#A9B1D6">Coordinatore di servizio</div><div id="n01-mansionario-r0" style="position:absolute;left:44px;top:150px;width:460px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r1" style="position:absolute;left:44px;top:194px;width:400px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r2" style="position:absolute;left:44px;top:238px;width:520px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r3" style="position:absolute;left:44px;top:282px;width:360px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r4" style="position:absolute;left:44px;top:326px;width:480px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r5" style="position:absolute;left:44px;top:370px;width:420px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r6" style="position:absolute;left:44px;top:414px;width:300px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r7" style="position:absolute;left:44px;top:458px;width:500px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r8" style="position:absolute;left:44px;top:502px;width:440px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-r9" style="position:absolute;left:44px;top:546px;width:380px;height:14px;border-radius:7px;background:rgba(169,177,214,.22)"></div><div id="n01-mansionario-scan" style="position:absolute;left:0;top:140px;width:620px;height:4px;background:#12B3B5;box-shadow:0 0 24px #12B3B5"></div></div><div id="n01-mansionario-acc" class="accent" style="left:115px;top:290px"></div><h2 id="n01-mansionario-l1" class="line" style="left:115px;top:325px;width:950px;font-size:60px;font-weight:700;color:#A9B1D6"><span class="w">Da</span> <span class="w">un</span> <span class="w">generico</span> <span class="w">mansionario</span></h2><h1 id="n01-mansionario-l2" class="line" style="left:115px;top:430px;width:980px;font-size:84px"><span class="w">a</span> <span class="w">decisioni</span> <span class="w"><span class="hl">strategiche</span></span> <span class="w"><span class="hl">misurabili.</span></span></h1>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n01-mansionario";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 7, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 7, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+tl.fromTo(q("doc"), {opacity:0, x:80, rotation:3}, {opacity:1, x:0, rotation:0, duration:0.9, ease:"power3.out"}, 0.2);
+grow("acc", 0.5);
+words("l1", 0.6);
+grow("r0", 0.50, "x", 0.5);
+grow("r1", 0.55, "x", 0.5);
+grow("r2", 0.60, "x", 0.5);
+grow("r3", 0.65, "x", 0.5);
+grow("r4", 0.70, "x", 0.5);
+grow("r5", 0.75, "x", 0.5);
+grow("r6", 0.80, "x", 0.5);
+grow("r7", 0.85, "x", 0.5);
+grow("r8", 0.90, "x", 0.5);
+grow("r9", 0.95, "x", 0.5);
+words("l2", 2.8, {s:0.1});
+tl.fromTo(q("scan"), {y:0, opacity:0}, {y:470, opacity:1, duration:2.2, ease:"power1.inOut"}, 3.4);
+tl.to(q("r0"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 3.50);
+tl.to(q("r1"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 3.71);
+tl.to(q("r2"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 3.92);
+tl.to(q("r3"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 4.13);
+tl.to(q("r4"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 4.34);
+tl.to(q("r5"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 4.55);
+tl.to(q("r6"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 4.76);
+tl.to(q("r7"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 4.97);
+tl.to(q("r8"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 5.18);
+tl.to(q("r9"), {backgroundColor:"rgba(18,179,181,.55)", duration:0.2}, 5.39);
+tl.to({}, { duration: 0.001 }, 6.999);
+window.__timelines["01-mansionario"] = tl;
+  </script>
+</template>

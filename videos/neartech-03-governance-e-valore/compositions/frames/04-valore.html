@@ -1,0 +1,123 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n04-valore-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n04-valore-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n04-valore-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n04-valore-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n04-valore-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n04-valore-stage { position: absolute; inset: 0; }
+#n04-valore-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n04-valore-stage .brand { color: #12B3B5; }
+#n04-valore-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n04-valore-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n04-valore-stage .w { display: inline-block; }
+#n04-valore-stage .hl { color: #12B3B5; }
+#n04-valore-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n04-valore-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n04-valore-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n04-valore-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n04-valore-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n04-valore-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n04-valore-stage .mx { position: absolute; }
+#n04-valore-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n04-valore-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n04-valore-stage .quad { position: absolute; }
+#n04-valore-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n04-valore-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n04-valore-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n04-valore-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n04-valore-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n04-valore-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n04-valore-stage .logo { width: 640px; height: auto; display: block; }
+#n04-valore-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n04-valore-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="04-valore" data-width="1920" data-height="1080" data-duration="11">
+    <div id="n04-valore-bg" class="clip" data-start="0" data-duration="11" data-track-index="0">
+      <div id="n04-valore-glow1" class="glow" data-layout-allow-overflow></div><div id="n04-valore-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n04-valore-stage" class="clip" data-start="0" data-duration="11" data-track-index="1">
+<div id="n04-valore-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">03 / 03 · GOVERNANCE E VALORE</span></div><svg style="position:absolute;left:0;top:0" width="1920" height="1080"><line id="n04-valore-e0" x1="1440" y1="200" x2="1220" y2="400" stroke="rgba(169,177,214,.35)" stroke-width="2"/><line id="n04-valore-e1" x1="1440" y1="200" x2="1660" y2="400" stroke="rgba(169,177,214,.35)" stroke-width="2"/><line id="n04-valore-e2" x1="1220" y1="400" x2="1110" y2="600" stroke="rgba(169,177,214,.35)" stroke-width="2"/><line id="n04-valore-e3" x1="1220" y1="400" x2="1330" y2="600" stroke="rgba(169,177,214,.35)" stroke-width="2"/><line id="n04-valore-e4" x1="1660" y1="400" x2="1550" y2="600" stroke="rgba(169,177,214,.35)" stroke-width="2"/><line id="n04-valore-e5" x1="1660" y1="400" x2="1770" y2="600" stroke="rgba(169,177,214,.35)" stroke-width="2"/></svg><div id="n04-valore-o0" style="position:absolute;left:1406px;top:166px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o1" style="position:absolute;left:1186px;top:366px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o2" style="position:absolute;left:1626px;top:366px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o3" style="position:absolute;left:1076px;top:566px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o4" style="position:absolute;left:1296px;top:566px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o5" style="position:absolute;left:1516px;top:566px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-o6" style="position:absolute;left:1736px;top:566px;width:68px;height:68px;border-radius:50%;background:#0E1442;border:2px solid rgba(18,179,181,.5)"></div><div id="n04-valore-acc" class="accent" style="left:115px;top:290px"></div><h1 id="n04-valore-l1" class="line" style="left:115px;top:325px;width:900px;font-size:74px"><span class="w">Riprogettare</span> <span class="w">l’organizzazione</span></h1><h2 id="n04-valore-l2" class="line" style="left:115px;top:520px;width:900px;font-size:60px;font-weight:700;color:#A9B1D6"><span class="w">con</span> <span class="w"><span class="hl">consapevolezza</span></span> <span class="w">e</span> <span class="w">totale</span> <span class="w"><span class="hl">trasparenza.</span></span></h2><div id="n04-valore-note" class="small" style="left:1110px;top:740px;width:700px;text-align:center">Ogni scelta spiegabile a management, lavoratori e sindacati.</div>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n04-valore";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 11, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 11, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.3);
+words("l1", 0.4);
+pop("o0", 1.20, {scale:0});
+pop("o1", 1.32, {scale:0});
+pop("o2", 1.44, {scale:0});
+pop("o3", 1.56, {scale:0});
+pop("o4", 1.68, {scale:0});
+pop("o5", 1.80, {scale:0});
+pop("o6", 1.92, {scale:0});
+tl.fromTo(q("e0"), {opacity:0}, {opacity:1, duration:0.4}, 1.60);
+tl.fromTo(q("e1"), {opacity:0}, {opacity:1, duration:0.4}, 1.70);
+tl.fromTo(q("e2"), {opacity:0}, {opacity:1, duration:0.4}, 1.80);
+tl.fromTo(q("e3"), {opacity:0}, {opacity:1, duration:0.4}, 1.90);
+tl.fromTo(q("e4"), {opacity:0}, {opacity:1, duration:0.4}, 2.00);
+tl.fromTo(q("e5"), {opacity:0}, {opacity:1, duration:0.4}, 2.10);
+tl.to(q("o0"), {x:0, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o1"), {x:-40, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o2"), {x:-220, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o3"), {x:590, y:-200, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o4"), {x:-150, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o5"), {x:-110, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o6"), {x:-70, y:0, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e0"), {attr:{x1:1440, y1:200, x2:1180, y2:400}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e1"), {attr:{x1:1440, y1:200, x2:1440, y2:400}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e2"), {attr:{x1:1440, y1:200, x2:1700, y2:400}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e3"), {attr:{x1:1180, y1:400, x2:1180, y2:600}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e4"), {attr:{x1:1440, y1:400, x2:1440, y2:600}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("e5"), {attr:{x1:1700, y1:400, x2:1700, y2:600}, duration:1.0, ease:"power3.inOut"}, 3.6);
+tl.to(q("o0"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.00);
+tl.to(q("o1"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.10);
+tl.to(q("o2"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.20);
+tl.to(q("o3"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.30);
+tl.to(q("o4"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.40);
+tl.to(q("o5"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.50);
+tl.to(q("o6"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.25)", duration:0.4}, 5.60);
+tl.to(q("e0"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.00);
+tl.to(q("e1"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.10);
+tl.to(q("e2"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.20);
+tl.to(q("e3"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.30);
+tl.to(q("e4"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.40);
+tl.to(q("e5"), {attr:{stroke:"#12B3B5"}, duration:0.4}, 5.50);
+words("l2", 5.4, {s:0.1});
+fadeUp("note", 7.4);
+tl.to({}, { duration: 0.001 }, 10.999);
+window.__timelines["04-valore"] = tl;
+  </script>
+</template>

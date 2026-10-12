@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
     <style>
       * {
         margin: 0;
@@ -12,25 +12,23 @@
       }
       html,
       body {
-        margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #0a0a0a;
+        background: #000;
       }
       #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #070B2C;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
       }
     </style>
   </head>
@@ -39,17 +37,101 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
+      data-duration="60"
       data-width="1920"
       data-height="1080"
     >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <div
+        id="el-01-metriche"
+        class="scene"
+        data-composition-id="01-metriche"
+        data-composition-src="compositions/frames/01-metriche.html"
+        data-start="0"
+        data-duration="7.5"
+        data-track-index="0"
+      ></div>
+
+      <div
+        id="el-02-governance"
+        class="scene"
+        data-composition-id="02-governance"
+        data-composition-src="compositions/frames/02-governance.html"
+        data-start="7"
+        data-duration="10.5"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-03-ciclo"
+        class="scene"
+        data-composition-id="03-ciclo"
+        data-composition-src="compositions/frames/03-ciclo.html"
+        data-start="17"
+        data-duration="10.5"
+        data-track-index="0"
+      ></div>
+
+      <div
+        id="el-04-valore"
+        class="scene"
+        data-composition-id="04-valore"
+        data-composition-src="compositions/frames/04-valore.html"
+        data-start="27"
+        data-duration="11"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-05-limiti"
+        class="scene"
+        data-composition-id="05-limiti"
+        data-composition-src="compositions/frames/05-limiti.html"
+        data-start="38"
+        data-duration="10.6"
+        data-track-index="0"
+      ></div>
+
+      <div
+        id="el-06-invito"
+        class="scene"
+        data-composition-id="06-invito"
+        data-composition-src="compositions/frames/06-invito.html"
+        data-start="48"
+        data-duration="12"
+        data-track-index="1"
+      ></div>
+
+      <!-- BGM -->
+      <audio
+        id="el-bgm"
+        src="assets/audio/soundtrack.wav"
+        data-start="0"
+        data-duration="60"
+        data-track-index="11"
+        data-volume="1"
+      ></audio>
+
     </div>
+
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01-metriche", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 7);
+        tl.fromTo("#el-02-governance", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 7);
+        tl.addLabel("hf:transition:01-metriche:02-governance:push-slide", 7);
+        tl.to("#el-02-governance", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 17);
+        tl.fromTo("#el-03-ciclo", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 17);
+        tl.addLabel("hf:transition:02-governance:03-ciclo:push-slide", 17);
+        tl.to("#el-03-ciclo", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 27);
+        tl.fromTo("#el-04-valore", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 27);
+        tl.addLabel("hf:transition:03-ciclo:04-valore:crossfade", 27);
+        tl.to("#el-05-limiti", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 48);
+        tl.fromTo("#el-06-invito", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 48);
+        tl.addLabel("hf:transition:05-limiti:06-invito:blur-crossfade", 48);
+        tl.to({}, { duration: 60 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
     </script>
   </body>
 </html>

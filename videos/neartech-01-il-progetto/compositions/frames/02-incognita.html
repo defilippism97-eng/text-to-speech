@@ -1,0 +1,96 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n02-incognita-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n02-incognita-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n02-incognita-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n02-incognita-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n02-incognita-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n02-incognita-stage { position: absolute; inset: 0; }
+#n02-incognita-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n02-incognita-stage .brand { color: #12B3B5; }
+#n02-incognita-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n02-incognita-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n02-incognita-stage .w { display: inline-block; }
+#n02-incognita-stage .hl { color: #12B3B5; }
+#n02-incognita-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n02-incognita-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n02-incognita-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n02-incognita-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n02-incognita-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n02-incognita-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n02-incognita-stage .mx { position: absolute; }
+#n02-incognita-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n02-incognita-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n02-incognita-stage .quad { position: absolute; }
+#n02-incognita-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n02-incognita-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n02-incognita-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n02-incognita-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n02-incognita-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n02-incognita-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n02-incognita-stage .logo { width: 640px; height: auto; display: block; }
+#n02-incognita-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n02-incognita-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="02-incognita" data-width="1920" data-height="1080" data-duration="10.5">
+    <div id="n02-incognita-bg" class="clip" data-start="0" data-duration="10.5" data-track-index="0">
+      <div id="n02-incognita-glow1" class="glow" data-layout-allow-overflow></div><div id="n02-incognita-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n02-incognita-stage" class="clip" data-start="0" data-duration="10.5" data-track-index="1">
+<div id="n02-incognita-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">01 / 03 · IL PROGETTO</span></div><div id="n02-incognita-acc" class="accent" style="left:115px;top:178px"></div><h2 id="n02-incognita-l1" class="line" style="left:115px;top:210px;font-size:58px;font-weight:700;color:#A9B1D6"><span class="w">La</span> <span class="w">vera</span> <span class="w">incognita:</span></h2><h1 id="n02-incognita-l2" class="line" style="left:115px;right:115px;top:290px;font-size:104px"><span class="w">cosa</span> <span class="w">deve</span> <span class="w">restare</span> <span class="w"><span class="hl">umano?</span></span></h1><div id="n02-incognita-g0" class="chip" style="left:245px;top:560px;width:450px;justify-content:center"><span class="dot"></span>Comporre i turni</div><div id="n02-incognita-g1" class="chip" style="left:735px;top:560px;width:450px;justify-content:center"><span class="dot"></span>Registrare presenze</div><div id="n02-incognita-g2" class="chip" style="left:1225px;top:560px;width:450px;justify-content:center"><span class="dot"></span>Colloqui con le famiglie</div><div id="n02-incognita-g3" class="chip" style="left:245px;top:664px;width:450px;justify-content:center"><span class="dot"></span>Redigere verbali</div><div id="n02-incognita-g4" class="chip" style="left:735px;top:664px;width:450px;justify-content:center"><span class="dot"></span>Gestire sostituzioni</div><div id="n02-incognita-g5" class="chip" style="left:1225px;top:664px;width:450px;justify-content:center"><span class="dot"></span>Accogliere un nuovo utente</div><div id="n02-incognita-g6" class="chip" style="left:245px;top:768px;width:450px;justify-content:center"><span class="dot"></span>Analizzare report</div><div id="n02-incognita-g7" class="chip" style="left:735px;top:768px;width:450px;justify-content:center"><span class="dot"></span>Accompagnare nel fine vita</div><div id="n02-incognita-g8" class="chip" style="left:1225px;top:768px;width:450px;justify-content:center"><span class="dot"></span>Archiviare documenti</div>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n02-incognita";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.3);
+words("l1", 0.4);
+words("l2", 2.1, {s:0.09});
+pop("g0", 4.20, {scale:.85, y:20, ease:"power3.out"});
+pop("g1", 4.32, {scale:.85, y:20, ease:"power3.out"});
+pop("g2", 4.44, {scale:.85, y:20, ease:"power3.out"});
+pop("g3", 4.56, {scale:.85, y:20, ease:"power3.out"});
+pop("g4", 4.68, {scale:.85, y:20, ease:"power3.out"});
+pop("g5", 4.80, {scale:.85, y:20, ease:"power3.out"});
+pop("g6", 4.92, {scale:.85, y:20, ease:"power3.out"});
+pop("g7", 5.04, {scale:.85, y:20, ease:"power3.out"});
+pop("g8", 5.16, {scale:.85, y:20, ease:"power3.out"});
+tl.to(q("g2"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.22)", boxShadow:"0 0 34px rgba(18,179,181,.45)", duration:0.5}, 6.60);
+tl.to(q("g5"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.22)", boxShadow:"0 0 34px rgba(18,179,181,.45)", duration:0.5}, 6.95);
+tl.to(q("g7"), {borderColor:"#12B3B5", backgroundColor:"rgba(18,179,181,.22)", boxShadow:"0 0 34px rgba(18,179,181,.45)", duration:0.5}, 7.30);
+tl.to([q("g0"),q("g1"),q("g3"),q("g4"),q("g6"),q("g8")], {opacity:.35, duration:0.6}, 6.5);
+tl.to({}, { duration: 0.001 }, 9.999);
+window.__timelines["02-incognita"] = tl;
+  </script>
+</template>

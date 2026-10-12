@@ -1,0 +1,92 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Montserrat"; font-weight: 400; src: url("assets/fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; color: #F4F6FF; font-family: "Montserrat", sans-serif; }
+#n02-scomporre-bg { position: absolute; inset: 0; background: #070B2C; overflow: hidden; }
+#n02-scomporre-bg .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+#n02-scomporre-glow1 { left: -260px; top: -320px; width: 1100px; height: 900px; background: radial-gradient(circle, rgba(18,179,181,.30), rgba(18,179,181,0) 70%); }
+#n02-scomporre-glow2 { right: -300px; bottom: -380px; width: 1200px; height: 1000px; background: radial-gradient(circle, rgba(91,42,158,.34), rgba(91,42,158,0) 70%); }
+#n02-scomporre-bg .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(169,177,214,.10) 1.2px, transparent 1.4px); background-size: 48px 48px; }
+#n02-scomporre-stage { position: absolute; inset: 0; }
+#n02-scomporre-stage .hdr { position: absolute; left: 115px; right: 115px; top: 58px; height: 30px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 20px; letter-spacing: .18em; }
+#n02-scomporre-stage .brand { color: #12B3B5; }
+#n02-scomporre-stage .ep { color: #7E87B8; letter-spacing: .14em; }
+#n02-scomporre-stage .line { position: absolute; margin: 0; font-weight: 800; line-height: 1.06; letter-spacing: -.025em; color: #F4F6FF; }
+#n02-scomporre-stage .w { display: inline-block; }
+#n02-scomporre-stage .hl { color: #12B3B5; }
+#n02-scomporre-stage .accent { position: absolute; width: 96px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); transform-origin: left center; }
+#n02-scomporre-stage .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 0 30px; height: 66px; border-radius: 100px; background: #0E1442; border: 1.5px solid rgba(18,179,181,.30); font-weight: 600; font-size: 25px; color: #F4F6FF; white-space: nowrap; }
+#n02-scomporre-stage .chip .dot { width: 12px; height: 12px; border-radius: 50%; background: #12B3B5; flex: none; }
+#n02-scomporre-stage .card { position: absolute; border-radius: 14px; background: rgba(18,179,181,.06); border: 1.5px solid rgba(18,179,181,.28); }
+#n02-scomporre-stage .eyebrow { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .16em; color: #12B3B5; text-transform: uppercase; }
+#n02-scomporre-stage .small { position: absolute; font-family: "Inter", sans-serif; font-weight: 400; font-size: 22px; color: #A9B1D6; }
+#n02-scomporre-stage .mx { position: absolute; }
+#n02-scomporre-stage .axis { position: absolute; background: #A9B1D6; border-radius: 2px; }
+#n02-scomporre-stage .guide { position: absolute; background: rgba(169,177,214,.22); }
+#n02-scomporre-stage .quad { position: absolute; }
+#n02-scomporre-stage .axlab { position: absolute; font-weight: 600; font-size: 20px; letter-spacing: .14em; color: #12B3B5; }
+#n02-scomporre-stage .axlab-v { transform: rotate(-90deg); transform-origin: left top; }
+#n02-scomporre-stage .qlab { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+#n02-scomporre-stage .qlab .qn { font-family: "Inter", sans-serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #A9B1D6; margin-bottom: 10px; }
+#n02-scomporre-stage .qlab .qv { font-weight: 800; font-size: 44px; color: #F4F6FF; letter-spacing: -.02em; }
+#n02-scomporre-stage .end { position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#n02-scomporre-stage .logo { width: 640px; height: auto; display: block; }
+#n02-scomporre-stage .endline { width: 140px; height: 6px; border-radius: 3px; background: linear-gradient(120deg, #12B3B5 0%, #1F5FB0 50%, #5B2A9E 100%); margin-top: 10px; transform-origin: center; }
+#n02-scomporre-stage .tag { margin-top: 30px; font-weight: 700; font-size: 36px; color: #0B1A6E; letter-spacing: -.01em; }
+</style>
+  <div id="root" data-composition-id="02-scomporre" data-width="1920" data-height="1080" data-duration="10.5">
+    <div id="n02-scomporre-bg" class="clip" data-start="0" data-duration="10.5" data-track-index="0">
+      <div id="n02-scomporre-glow1" class="glow" data-layout-allow-overflow></div><div id="n02-scomporre-glow2" class="glow" data-layout-allow-overflow></div><div class="dots"></div>
+    </div>
+    <div id="n02-scomporre-stage" class="clip" data-start="0" data-duration="10.5" data-track-index="1">
+<div id="n02-scomporre-hdr" class="hdr"><span class="brand">NEARTECH</span><span class="ep">02 / 03 · IL PROCESSO</span></div><div id="n02-scomporre-acc" class="accent" style="left:115px;top:180px"></div><h1 id="n02-scomporre-l1" class="line" style="left:115px;top:215px;font-size:76px"><span class="w">Ogni</span> <span class="w">ruolo</span> <span class="w">viene</span> <span class="w">scomposto</span></h1><h1 id="n02-scomporre-l2" class="line" style="left:115px;top:310px;font-size:76px"><span class="w">in</span> <span class="w">compiti</span> <span class="w"><span class="hl">standardizzati.</span></span></h1><div id="n02-scomporre-src" class="card" style="left:115px;top:500px;width:1690px;height:96px;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:32px;color:#A9B1D6;font-style:normal">«Accogliere l’utente e raccogliere la documentazione»</div><div id="n02-scomporre-a" class="chip" style="left:260px;top:520px;height:70px;font-size:28px"><span class="dot"></span>Accogliere l’utente al primo accesso</div><div id="n02-scomporre-b" class="chip" style="left:1000px;top:520px;height:70px;font-size:28px"><span class="dot"></span>Raccogliere la documentazione di ingresso</div><div id="n02-scomporre-k0" class="eyebrow" style="left:260px;top:640px;padding:10px 18px;border-radius:100px;background:rgba(18,179,181,.12);font-size:18px">verbo</div><div id="n02-scomporre-k1" class="eyebrow" style="left:470px;top:640px;padding:10px 18px;border-radius:100px;background:rgba(18,179,181,.12);font-size:18px">oggetto</div><div id="n02-scomporre-k2" class="eyebrow" style="left:680px;top:640px;padding:10px 18px;border-radius:100px;background:rgba(18,179,181,.12);font-size:18px">vincolo</div><div id="n02-scomporre-k3" class="eyebrow" style="left:890px;top:640px;padding:10px 18px;border-radius:100px;background:rgba(18,179,181,.12);font-size:18px">finalità</div><div id="n02-scomporre-note" class="small" style="left:1130px;top:648px">Un formato unico, confrontabile tra aziende.</div>
+    </div>
+  </div>
+  <script>
+const tl = gsap.timeline({ paused: true });
+const P = "n02-scomporre";
+const q = (s) => "#" + P + "-" + s;
+function words(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id) + " .w", { y: o.y ?? 44, opacity: 0, filter: "blur(10px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: o.d ?? 0.7, stagger: o.s ?? 0.08, ease: "power3.out" }, t);
+}
+function pop(id, t, o) {
+  o = o || {};
+  tl.fromTo(q(id), { scale: o.scale ?? 0.6, opacity: 0, x: o.x ?? 0, y: o.y ?? 0 },
+    { scale: 1, opacity: 1, x: 0, y: 0, duration: o.d ?? 0.55, ease: o.ease ?? "back.out(1.8)" }, t);
+}
+function fadeUp(id, t, d) {
+  tl.fromTo(q(id), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: d ?? 0.6, ease: "power2.out" }, t);
+}
+function grow(id, t, axis, d) {
+  const from = axis === "y" ? { scaleY: 0 } : { scaleX: 0 };
+  const to = axis === "y" ? { scaleY: 1 } : { scaleX: 1 };
+  tl.fromTo(q(id), from, { ...to, duration: d ?? 0.8, ease: "power3.inOut" }, t);
+}
+tl.fromTo(q("glow1"), { x: -70, y: -30 }, { x: 70, y: 40, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("glow2"), { x: 60, y: 40 }, { x: -60, y: -30, duration: 10, ease: "none" }, 0);
+tl.fromTo(q("hdr"), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.05);
+
+grow("acc", 0.3);
+words("l1", 0.4);
+words("l2", 1.5, {s:0.1});
+pop("src", 2.6, {scale:.95, ease:"power3.out"});
+tl.to(q("src"), {scaleX:.2, opacity:0, duration:0.35, ease:"power2.in"}, 4.4);
+pop("a", 4.7, {x:200, scale:.8});
+pop("b", 4.85, {x:-200, scale:.8});
+pop("k0", 6.20, {y:16, scale:.8});
+pop("k1", 6.50, {y:16, scale:.8});
+pop("k2", 6.80, {y:16, scale:.8});
+pop("k3", 7.10, {y:16, scale:.8});
+fadeUp("note", 7.6);
+tl.to({}, { duration: 0.001 }, 9.999);
+window.__timelines["02-scomporre"] = tl;
+  </script>
+</template>
