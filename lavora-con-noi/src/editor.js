@@ -198,7 +198,7 @@
   function info(el) {
     var orig = origOf(el), c = ctxOf(el);
     var key = JSON.stringify([CTX.map(function (f) { return c.ctx[f] || ""; }), orig]);
-    return { el: el, orig: orig, ctx: c.ctx, servizioId: c.servizioId, key: key, id: "t" + hash(key), label: ctxLabel(c.ctx) };
+    return { el: el, orig: orig, ctx: c.ctx, servizioId: c.servizioId, key: key, id: "t" + hash(key), label: ctxLabel(c.ctx), elemento: tipoElemento(el) };
   }
   function replaceOwn(el, text) {
     var own = [];
@@ -349,16 +349,22 @@
 
   // ------------------------------------------------------------ finestra di modifica
   var current = null;
-  function openPop(el) {
-    var i = info(el), o = overrides[i.id];
+  function daProposta(id) {
+    var o = overrides[id];
+    return o ? { el: null, orig: o.originale, ctx: o.ctx || {}, servizioId: o.servizioId || "", key: o.k, id: id, label: o.contesto || "", elemento: o.elemento || "Testo" } : null;
+  }
+  function openPop(el, idProposta) {
+    var i = el ? info(el) : daProposta(idProposta);
+    if (!i) return;
+    var o = overrides[i.id];
     current = i;
     document.querySelectorAll(".ed-target").forEach(function (n) { n.classList.remove("ed-target"); });
-    el.classList.add("ed-target");
-    var formattato = !!el.querySelector(FMT.split(",").filter(function (s) { return s !== "br"; }).join(","));
+    if (el) el.classList.add("ed-target");
+    var formattato = !!(el && el.querySelector(FMT.split(",").filter(function (s) { return s !== "br"; }).join(",")));
     var chips = CTX.filter(function (f) { return i.ctx[f]; }).map(function (f) { return '<li><span>' + CTX_LABEL[f] + "</span>" + esc(i.ctx[f]) + "</li>"; }).join("");
     pop.innerHTML =
-      '<div class="ed-pop-head"><h2 id="ed-pop-title">Modifica testo</h2><button type="button" class="ed-x" data-pop="close" aria-label="Chiudi">×</button></div>' +
-      '<ul class="ed-ctx">' + chips + '<li><span>Elemento</span>' + tipoElemento(el) + "</li></ul>" +
+      '<div class="ed-pop-head"><h2 id="ed-pop-title">' + (o ? "Modifica la proposta" : "Modifica testo") + '</h2><button type="button" class="ed-x" data-pop="close" aria-label="Chiudi">×</button></div>' +
+      '<ul class="ed-ctx">' + chips + '<li><span>Elemento</span>' + esc(i.elemento) + "</li></ul>" +
       '<p class="ed-lab">Testo originale</p><blockquote class="ed-orig">' + esc(i.orig) + "</blockquote>" +
       (o ? '<p class="ed-meta">Proposta attuale di <b data-uid="' + esc(o.autore) + '">' + esc(nome(o.autore)) + "</b> · " + esc(quando(o.quando)) + ' · <span class="ed-stato ed-' + esc(o.stato || "proposta") + '">' + esc(STATI[o.stato] || "Proposta") + "</span></p>" : "") +
       '<label class="ed-lab" for="ed-text">La tua proposta</label>' +
@@ -369,12 +375,12 @@
       (local && !local.mem.autore ? '<label class="ed-lab" for="ed-autore">Il tuo nome e cognome</label><input id="ed-autore" type="text" autocomplete="name" placeholder="Compare nel file che invierai"><p class="ed-hint">Lo chiediamo solo la prima volta: serve a riconoscere le tue proposte nel file esportato.</p>' : "") +
       (canWrite ? "" : '<p class="ed-hint ed-warn">' + esc(db ? "Puoi vedere le proposte ma non salvarne: serve il ruolo Contributor o superiore sulla pagina." : "Il salvataggio condiviso non è disponibile in questa vista: apri la pagina su claude.ai con il tuo account.") + "</p>") +
       '<div class="ed-actions">' +
-        '<button type="button" class="ed-btn ed-main" data-pop="save"' + (canWrite ? "" : " disabled") + ">Salva proposta</button>" +
-        (o ? '<button type="button" class="ed-btn" data-pop="revert"' + (canWrite ? "" : " disabled") + ">Torna all'originale</button>" : "") +
+        '<button type="button" class="ed-btn ed-main" data-pop="save"' + (canWrite ? "" : " disabled") + ">" + (o ? "Salva le modifiche" : "Salva proposta") + "</button>" +
+        (o ? '<button type="button" class="ed-btn ed-danger" data-pop="revert"' + (canWrite ? "" : " disabled") + ' title="Cancella la proposta e torna al testo originale">Elimina proposta</button>' : "") +
         '<button type="button" class="ed-btn ed-ghost" data-pop="close">Annulla</button>' +
       "</div>" +
       '<div class="ed-hist"><p class="ed-lab">Storico di questo testo</p><ol class="ed-hist-list"><li class="ed-muted">' + (db ? "Caricamento…" : "Non disponibile") + "</li></ol></div>";
-    var dlg = el.closest("dialog[open]");
+    var dlg = el ? el.closest("dialog[open]") : null;
     (dlg || ui).appendChild(pop);
     pop.hidden = false;
     var ta = $("#ed-text", pop);
@@ -424,7 +430,7 @@
     }
     if (testo === i.orig) return ripristina();
     var prima = overrides[i.id] ? overrides[i.id].testo : i.orig, now = new Date().toISOString();
-    var doc = { k: i.key, ctx: i.ctx, contesto: i.label, elemento: tipoElemento(i.el), servizioId: i.servizioId || "", originale: i.orig, testo: testo, nota: nota, stato: stato, autore: myId || "", quando: now };
+    var doc = { k: i.key, ctx: i.ctx, contesto: i.label, elemento: i.elemento, servizioId: i.servizioId || "", originale: i.orig, testo: testo, nota: nota, stato: stato, autore: myId || "", quando: now };
     var btn = $('[data-pop="save"]', pop); btn.disabled = true; btn.textContent = "Salvataggio…";
     try {
       await db.collection("modifiche").doc(i.id).set(doc);
@@ -441,7 +447,7 @@
       await db.collection("modifiche").doc(i.id).delete();
       try { await db.collection("registro").add({ k: i.id, contesto: i.label, originale: i.orig, prima: o.testo, dopo: i.orig, nota: "", stato: "", autore: myId || "", quando: new Date().toISOString(), azione: "ripristino" }); } catch (e) { /* accessorio */ }
       delete overrides[i.id]; applyAll(); segnaDaEsportare(); refreshBar();
-      closePop(); showToast("Ripristinato il testo originale.");
+      closePop(); showToast("Proposta eliminata: torna il testo originale.");
     } catch (e) { erroreScrittura(e); }
   }
 
@@ -477,7 +483,10 @@
             '<p class="ed-was">' + esc(r.originale) + '</p><p class="ed-now">' + esc(r.testo) + "</p>" +
             (r.nota ? '<p class="ed-item-nota">Nota: ' + esc(r.nota) + "</p>" : "") +
             '<p class="ed-meta"><span class="ed-stato ed-' + esc(r.stato || "proposta") + '">' + esc(STATI[r.stato] || "Proposta") + "</span> " + esc(nome(r.autore)) + " · " + esc(quando(r.quando)) +
-            ' <button type="button" class="ed-link" data-go="' + esc(r.id) + '">Vai al testo</button></p></article>';
+            "</p>" +
+            '<div class="ed-item-actions"><button type="button" class="ed-link" data-go="' + esc(r.id) + '">Vai al testo</button>' +
+            (canWrite ? '<button type="button" class="ed-link" data-mod="' + esc(r.id) + '">Modifica</button><button type="button" class="ed-link ed-link-danger" data-del="' + esc(r.id) + '">Elimina</button>' : "") +
+            "</div></article>";
         }).join("") + "</section>";
       }).join("") : '<p class="ed-muted">' + (Object.keys(overrides).length ? "Nessuna proposta corrisponde ai filtri." : "Ancora nessuna proposta. Attiva «Modifica testi» e clicca un testo della pagina.") + "</p>");
     if (keepQ) { var qi = $("#ed-q", panel); qi.focus(); qi.setSelectionRange(qi.value.length, qi.value.length); }
@@ -490,6 +499,19 @@
     if (e.target.closest('[data-pl="close"]')) { panel.hidden = true; return; }
     var go = e.target.closest("[data-go]");
     if (go) vaiA(go.getAttribute("data-go"));
+    var mod = e.target.closest("[data-mod]");
+    if (mod) openPop(null, mod.getAttribute("data-mod"));
+    var del = e.target.closest("[data-del]");
+    if (del) {
+      // doppio clic di conferma, senza finestre del browser
+      if (del.dataset.armed !== "1") {
+        del.dataset.armed = "1"; del.textContent = "Conferma eliminazione"; del.classList.add("ed-armed");
+        setTimeout(function () { if (document.contains(del)) { del.dataset.armed = ""; del.textContent = "Elimina"; del.classList.remove("ed-armed"); } }, 4000);
+        return;
+      }
+      var p = daProposta(del.getAttribute("data-del"));
+      if (p) { current = p; ripristina(); }
+    }
   });
   function trova(id) { return document.querySelector('[data-ed-id="' + id + '"]'); }
   function vaiA(id) {

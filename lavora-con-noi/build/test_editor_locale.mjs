@@ -53,6 +53,36 @@ await page.fill("#ed-nota", "Frase più breve");
 await page.click('[data-pop="save"]');
 await page.waitForTimeout(200);
 
+// modifica ed eliminazione dall'elenco
+await page.locator(".hero-payoff").click();
+await page.fill("#ed-text", "Proposta da eliminare");
+await page.click('[data-pop="save"]'); await page.waitForTimeout(200);
+await page.click('[data-ed="mode"]'); // modalità navigazione: l'elenco funziona comunque
+await page.click('[data-ed="list"]'); await page.waitForTimeout(200);
+check(await page.locator(".ed-item").count() === 3, "elenco con 3 proposte");
+const voceSub = page.locator(".ed-item", { hasText: "Da oltre 35 anni nei servizi alla persona." });
+await voceSub.locator("[data-mod]").click();
+await page.waitForSelector(".ed-pop:not([hidden])");
+check((await page.locator("#ed-pop-title").innerText()) === "Modifica la proposta", "dall'elenco si apre la proposta da modificare");
+check((await page.locator("#ed-text").inputValue()) === "Da oltre 35 anni nei servizi alla persona.", "la finestra mostra la proposta attuale");
+await page.fill("#ed-text", "Da oltre 35 anni nei servizi alla persona, in tre regioni.");
+await page.click('[data-pop="save"]'); await page.waitForTimeout(200);
+check(nb(await page.locator(".hero-sub").innerText()).includes("in tre regioni"), "la proposta modificata dall'elenco si aggiorna nella pagina");
+check(await page.locator(".ed-now", { hasText: "in tre regioni" }).count() === 1, "l'elenco mostra la proposta modificata");
+const voceDel = page.locator(".ed-item", { hasText: "Proposta da eliminare" });
+await voceDel.locator("[data-del]").click();
+check(await page.locator(".ed-item").count() === 3, "il primo clic su «Elimina» chiede conferma");
+await voceDel.locator("[data-del]").click(); await page.waitForTimeout(200);
+check(await page.locator(".ed-item").count() === 2, "eliminata dall'elenco dopo la conferma");
+check(nb(await page.locator(".hero-payoff").innerText()).includes("C’è uno spazio che aspetta solo te"), "eliminando la proposta torna il testo originale");
+if (shots) await page.screenshot({ path: path.join(shots, "loc-elenco.png") });
+await page.click('[data-pl="close"]');
+// eliminazione anche dalla finestra di modifica
+await page.click('[data-ed="mode"]');
+await page.click("#hero-title");
+check(await page.locator('[data-pop="revert"]', { hasText: "Elimina proposta" }).count() === 1, "nella finestra c'è «Elimina proposta»");
+await page.click('[data-pop="close"]');
+
 // export
 await page.click('[data-ed="export"]');
 check((await page.locator(".ed-panel").innerText()).includes("marco.defilippis@societadolce.it"), "il pannello di export indica l'indirizzo");
@@ -63,7 +93,7 @@ const file = await dl.path();
 const csv = fs.readFileSync(file, "utf8");
 check(dl.suggestedFilename().startsWith("proposte-testi-lavora-con-noi-giulia-bianchi-") && dl.suggestedFilename().endsWith(".csv"), "nome del file con l'autore: " + dl.suggestedFilename());
 check(csv.charCodeAt(0) === 0xfeff && csv.includes("ID testo;Sezione") && csv.includes("Giulia Bianchi") && csv.includes("Frase più breve"), "CSV per Excel con ID, autore e nota");
-check(csv.trim().split("\r\n").length === 3, "CSV con 2 proposte");
+check(csv.trim().split("\r\n").length === 3 && csv.includes("in tre regioni") && !csv.includes("Proposta da eliminare"), "CSV con le 2 proposte aggiornate (quella eliminata non c'è)");
 await page.waitForTimeout(200);
 check((await page.locator(".ed-status").innerText()).includes("Esportate il"), "dopo l'export il promemoria cambia");
 check(await page.locator('[data-ed="export"].ed-attn').count() === 0, "pulsante Esporta non più evidenziato");

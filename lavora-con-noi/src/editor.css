@@ -86,3 +86,8 @@ a.ed-btn { text-decoration: none; justify-content: center; }
 .ed-more summary { cursor: pointer; font-weight: 600; color: var(--brand-800); min-height: 32px; }
 .ed-btn.ed-danger { border-color: #F2C3BE; color: #B42318; }
 .ed-btn.ed-danger.ed-armed { background: #B42318; border-color: #B42318; color: #fff; }
+
+/* elenco: azioni su ogni proposta */
+.ed-item-actions { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px; }
+.ed-link-danger { color: #B42318; }
+.ed-link.ed-armed { background: #B42318; color: #fff; border-radius: var(--r-pill); padding: 6px 10px; text-decoration: none; }
