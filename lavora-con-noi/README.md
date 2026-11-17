@@ -7,6 +7,7 @@ Progetto UX/UI e prototipo navigabile di una pagina «Lavora con noi» pensata c
 | File | Cosa contiene |
 |---|---|
 | `dist/lavora-con-noi.html` | **Prototipo navigabile**, autocontenuto (si apre con doppio clic nel browser, anche offline) |
+| `dist/lavora-con-noi.editor.html` | **Versione di revisione dei testi**: stessa pagina, ogni testo si corregge nel punto in cui compare; le proposte (con contesto, autore, nota, stato e storico) sono condivise tramite il database della pagina pubblicata ed esportabili in CSV/JSON. Codice in `src/editor.js` e `src/editor.css`, test in `build/test_editor.mjs` |
 | `docs/testi-lavora-con-noi.docx` | **Tutti i testi del sito** per la verifica: generali, settori, e per settore → territorio → servizio → mansione, con indice cliccabile. Si rigenera con `node build/estrai_testi.mjs` (con NODE_PATH di Playwright) e `node build/build_testi_docx.cjs` |
 | `docs/progetto.html` | **Documento di progetto**: concept, UX flow, information architecture, wireframe desktop e mobile, UI, design system, logica di matching, specifiche tecniche, report sulla qualità dei dati |
 
@@ -31,6 +32,8 @@ Quando cambia la matrice «Matrice titoli – regione – servizi»:
 pip install openpyxl
 python3 build/build_map.py <limits_IT_regions.geojson>                         # solo se cambiano i confini (openpolis)
 python3 build/build_data.py "<percorso>/Matrice_titoli-_regione-servizi.xlsx"   # dati + dist/
+python3 build/build_data.py --bundle                                              # solo dist/, dai dati già generati
+NODE_PATH=$(npm root -g) node build/test_editor.mjs                               # revisione testi (db simulato)
 NODE_PATH=$(npm root -g) node build/screenshots.mjs                               # percorso e2e + screenshot
 NODE_PATH=$(npm root -g) node build/test_matching.mjs                             # 20 casi di matching
 python3 build/build_docs.py                                                       # docs/progetto.html

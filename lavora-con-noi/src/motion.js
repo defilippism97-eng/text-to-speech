@@ -181,7 +181,7 @@
   // ------------------------------------------------------------ avvio
   heroIntro();
   heroVideo();
-  if (!REDUCED) {
+  if (!REDUCED && !window.SD_EDITOR) { // nella revisione testi le parole del titolo restano un unico testo
     splitWords($("#hero-title"), "hw");
     $("#hero-title").classList.add("is-split");
     manifestoSetup();

@@ -56,6 +56,13 @@
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  // attributi di contesto letti dall'editor dei testi (src/editor.js): sezione › settore › territorio › servizio › mansione
+  function ctx(o) {
+    return Object.keys(o).map(function (k) { return o[k] ? " data-ctx-" + k + '="' + esc(o[k]) + '"' : ""; }).join("");
+  }
+  function ctxServizio(s) {
+    return ctx({ settore: SETTORI[s.settore].label + (s.sottosettore ? " · " + s.sottosettore : ""), territorio: s.localita + " (" + s.regioni.join(", ") + ")", servizio: s.nome, "servizio-id": s.id });
+  }
   function byId(list) { var m = {}; list.forEach(function (x) { m[x.id] = x; }); return m; }
   function norm(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
   var store = {
@@ -248,7 +255,7 @@
   function fmt(n) { return Number(n).toLocaleString("it-IT"); }
   function countUp(el) {
     var target = +el.getAttribute("data-count"), suf = el.getAttribute("data-suf") || "";
-    if (REDUCED) { el.textContent = fmt(target) + suf; return; }
+    if (REDUCED || window.SD_EDITOR) { el.textContent = fmt(target) + suf; return; }
     var t0 = null;
     function f(t) {
       if (!t0) t0 = t;
@@ -295,7 +302,7 @@
     }
     $("#risultati").hidden = true;
     var stage = $("#wizard-stage");
-    stage.innerHTML = '<div class="step-panel' + (back ? " is-back" : "") + '">' + stepHTML(n) + "</div>";
+    stage.innerHTML = '<div class="step-panel' + (back ? " is-back" : "") + '"' + ctx({ passo: "Passo " + n + " · " + STEPS[n - 1].lbl }) + ">" + stepHTML(n) + "</div>";
     hydrateIcons(stage);
     bindStep(n);
     track("step_" + n);
@@ -343,7 +350,7 @@
         '<p class="step-desc">La relazione con le persone è il cuore di ciò che facciamo. Puoi sceglierne più di uno.</p>' +
         '<div class="sector-grid">' + CAT.settori.map(function (s, i) {
           var n = BASE.servizi.filter(function (x) { return x.settore === s.id; }).length;
-          return '<button type="button" class="sector-card" style="--i:' + i + ";--tone:" + s.tono + '" aria-pressed="' + (state.settori.indexOf(s.id) >= 0) + '" data-settore="' + s.id + '">' +
+          return '<button type="button" class="sector-card"' + ctx({ settore: s.label }) + ' style="--i:' + i + ";--tone:" + s.tono + '" aria-pressed="' + (state.settori.indexOf(s.id) >= 0) + '" data-settore="' + s.id + '">' +
             '<span class="sector-art">' + pieces(hash(s.id)) + '<span class="s-icon">' + icon(s.icona) + '</span></span><span class="o-check">' + icon("check") + "</span>" +
             '<span class="sector-body"><span class="s-motto">' + esc(s.motto) + "</span><h3>" + esc(s.label) + "</h3><p>" + esc(s.impatto) + '</p><span class="s-dato">' + esc(s.dato) + '</span><span class="s-meta">' + n + (n === 1 ? " servizio" : " servizi") + " nella ricerca</span></span></button>";
         }).join("") + "</div>" + navHTML(3, "Continua", false);
@@ -553,7 +560,7 @@
   function renderResults() {
     var sec = $("#risultati"), root = $("#results-root");
     var res = serviziFiltrati();
-    $("#wizard-stage").innerHTML = '<div class="step-panel"><p class="step-count">Fatto!</p><h3 class="step-title" tabindex="-1">Abbiamo trovato ' + res.lista.length + (res.lista.length === 1 ? " servizio" : " servizi") + ' per te.</h3><p class="step-desc">Scorri per scoprirli: per ognuno ti raccontiamo il contesto, le persone che incontrerai e le professioni che ci lavorano.</p>' +
+    $("#wizard-stage").innerHTML = '<div class="step-panel"' + ctx({ passo: "Passo 5 · Risultati" }) + '><p class="step-count">Fatto!</p><h3 class="step-title" tabindex="-1">Abbiamo trovato ' + res.lista.length + (res.lista.length === 1 ? " servizio" : " servizi") + ' per te.</h3><p class="step-desc">Scorri per scoprirli: per ognuno ti raccontiamo il contesto, le persone che incontrerai e le professioni che ci lavorano.</p>' +
       '<div class="step-nav"><button type="button" class="btn btn-ghost" data-prev>' + icon("arrow-left") + ' Modifica le risposte</button><span class="spacer"></span><a class="btn btn-primary" href="#risultati">Vedi i servizi ' + icon("arrow-right") + "</a></div></div>";
     $("[data-prev]", $("#wizard-stage")).addEventListener("click", function () { goTo(4); });
 
@@ -589,7 +596,7 @@
       var cls = x.esito.stato === "ok" ? "ok" : x.esito.stato === "near" ? "near" : "";
       return '<li class="role-dot ' + cls + '">' + esc(x.meta.nome.split(" – ")[0].split(" / ")[0]) + "</li>";
     }).join("") + (v.ruoli.length > 4 ? '<li class="role-dot">+' + (v.ruoli.length - 4) + "</li>" : "");
-    return '<article class="service-card" style="--i:' + Math.min(i, 8) + '">' +
+    return '<article class="service-card"' + ctxServizio(s) + ' style="--i:' + Math.min(i, 8) + '">' +
       '<div class="sector-art" style="--tone:' + set.tono + '">' + pieces(hash(s.id)) + '<span class="s-icon">' + icon(set.icona) + "</span>" + badgeFor(v) + "</div>" +
       '<div class="service-body"><p class="svc-sector">' + esc(set.label) + (s.sottosettore ? " · " + esc(s.sottosettore) : "") + "</p>" +
       "<h3>" + esc(s.nome) + "</h3>" +
@@ -627,7 +634,7 @@
       '<div class="role-list">' + v.ruoli.map(function (x, i) { return roleCard(x, s, v, i === 0); }).join("") + "</div>" +
       "</div>";
     var sheet = $("#sheet"), inner = $("#sheet-inner"), bd = $("#sheet-backdrop");
-    inner.innerHTML = html;
+    inner.innerHTML = '<div class="sheet-ctx"' + ctxServizio(s) + ">" + html + "</div>";
     hydrateIcons(inner);
     sheet.hidden = false; bd.hidden = false;
     sheet.scrollTop = 0;
@@ -656,7 +663,7 @@
       na: [icon("info") + "Non previsto in questa regione", ""]
     }[e.stato];
     var consul = x.r.consulenza ? " · spesso in consulenza" : "";
-    return '<article class="role-card ' + st[1] + '">' +
+    return '<article class="role-card ' + st[1] + '"' + ctx({ mansione: m.nome }) + ">" +
       '<button type="button" class="role-head" aria-expanded="' + !!expanded + '" aria-controls="rd-' + rid + '" data-role>' +
       '<span class="role-avatar">' + icon(AREA_ICON[m.area] || "users") + "</span>" +
       '<span><span class="role-status ' + st[1] + '">' + st[0] + "</span><h4>" + esc(m.nome) + "</h4><p>" + esc(CAT.percorsiCrescita[m.area].label) + esc(consul) + (x.r.turni.length ? " · " + esc(x.r.turni[0].split("\n")[0]) : "") + '</p><span class="role-toggle">' + (expanded ? "Nascondi" : "Scopri il ruolo") + " " + icon("chevron") + "</span></span></button>" +
@@ -755,6 +762,7 @@
         '<button type="submit" class="btn btn-primary btn-lg">Invia la segnalazione ' + icon("send") + "</button></form>";
     }
     inner.innerHTML = html;
+    inner.setAttribute("data-ctx-finestra", { offerte: "Offerte aperte", candida: "Candidatura spontanea (da ruolo)", spontanea: "Candidatura spontanea", percorso: "Richiesta di orientamento", segnala: "Segnalazione" }[tipo] || tipo);
     hydrateIcons(inner);
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); }
     $("[data-mclose]", inner).addEventListener("click", closeModal);
@@ -797,6 +805,7 @@
       var p = CAT.percorsiCrescita[k];
       panel.setAttribute("aria-labelledby", "tab-" + k);
       panel.classList.remove("is-visible");
+      panel.setAttribute("data-ctx-percorso", p.label);
       panel.innerHTML = '<div class="tl-track" aria-hidden="true"><span></span></div><ol class="timeline" style="--n:' + p.tappe.length + '">' + p.tappe.map(function (t, i) { return '<li class="tl-step" style="--i:' + i + '"><span class="n">' + (i + 1) + "</span><h3>" + esc(t) + "</h3></li>"; }).join("") + "</ol>" +
         '<p class="growth-note">' + icon("info") + "<span>" + esc(p.note) + "</span></p>";
       requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.add("is-visible"); }); });
@@ -820,7 +829,7 @@
     host.innerHTML = '<div class="catalog-head reveal"><div><p class="eyebrow">' + esc(K.titolo) + "</p><h3>" + esc(K.claim) + "</h3><p>" + esc(K.intro) + "</p></div>" +
       '<ul class="catalog-nums">' + K.numeri.map(function (n) { return '<li><b data-count="' + n.v + '">' + n.v + "</b><span>" + esc(n.l) + "</span></li>"; }).join("") + "</ul></div>" +
       '<div class="catalog-areas">' + K.aree.map(function (a, i) {
-        return '<article class="catalog-area reveal" style="--area:' + a.colore + '">' +
+        return '<article class="catalog-area reveal"' + ctx({ area: a.nome }) + ' style="--area:' + a.colore + '">' +
           '<header><span class="ca-n" aria-hidden="true">' + a.n + '</span><div><h4>' + esc(a.nome) + "</h4><p>" + esc(a.sub) + " · " + a.n + " percorsi</p></div></header>" +
           "<ul>" + a.corsi.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul></article>";
       }).join("") + "</div>" +
@@ -836,7 +845,7 @@
       { r: "Mediatore interculturale", s: "Territori per il Reinserimento", q: "Parlo quattro lingue, ma la più importante l'ho imparata qui: quella della fiducia.", c: ["#7C6FB0", "#ECE9F8", "#6CA2D2"] }
     ];
     $("#stories-track").innerHTML = st.map(function (x, k) {
-      return '<button type="button" class="story-card" style="--tone:' + x.c[0] + ";--tone-2:" + x.c[1] + '" aria-label="Video testimonianza: ' + esc(x.r) + ", " + esc(x.s) + ' (segnaposto)">' +
+      return '<button type="button" class="story-card"' + ctx({ storia: x.r + " · " + x.s }) + ' style="--tone:' + x.c[0] + ";--tone-2:" + x.c[1] + '" aria-label="Video testimonianza: ' + esc(x.r) + ", " + esc(x.s) + ' (segnaposto)">' +
         storyPieces(x.c, k) +
         '<span class="play">' + icon("play") + "</span><q>" + esc(x.q) + "</q><small>" + esc(x.r) + " · " + esc(x.s) + '</small><span class="ph">Video da girare</span></button>';
     }).join("");

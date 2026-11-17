@@ -4,6 +4,7 @@ informativa JSON usata dalla pagina "Lavora con noi" e impacchetta il prototipo.
 
 Uso:
     python3 build/build_data.py <percorso-matrice.xlsx>
+    python3 build/build_data.py --bundle      # solo impacchettamento dai dati già generati
 
 Output:
     data/base-informativa.json     servizi, territori, ruoli per servizio, statistiche
@@ -401,6 +402,18 @@ def bundle(base, catalogo):
     for pat in (r"<!doctype html>\s*", r"<html[^>]*>\s*", r"</html>\s*", r"<head>\s*", r"</head>\s*", r"<body>\s*", r"</body>\s*", r'<meta charset="utf-8">\s*', r'<meta name="viewport"[^>]*>\s*'):
         art = re.sub(pat, "", art, flags=re.I)
     (ROOT / "dist/lavora-con-noi.artifact.html").write_text(art, encoding="utf-8")
+    # Versione di revisione dei testi: stessa pagina + livello di modifica (src/editor.js, src/editor.css)
+    ed_css = (ROOT / "src/editor.css").read_text(encoding="utf-8")
+    ed_js = (ROOT / "src/editor.js").read_text(encoding="utf-8")
+    ed = html.replace("<title>Prototipo Lavora con noi</title>", "<title>Revisione testi Lavora con noi</title>", 1)
+    ed = ed.replace("</style>", ed_css + "\n</style>", 1)
+    ed = ed.replace("<script>window.SD_DATI", "<script>window.SD_EDITOR = true;</script>\n<script>window.SD_DATI", 1)
+    ed = ed.replace("</body>", f"<script>\n{ed_js}\n</script>\n</body>", 1)
+    (ROOT / "dist/lavora-con-noi.editor.html").write_text(ed, encoding="utf-8")
+    ed_art = ed
+    for pat in (r"<!doctype html>\s*", r"<html[^>]*>\s*", r"</html>\s*", r"<head>\s*", r"</head>\s*", r"<body>\s*", r"</body>\s*", r'<meta charset="utf-8">\s*', r'<meta name="viewport"[^>]*>\s*'):
+        ed_art = re.sub(pat, "", ed_art, flags=re.I)
+    (ROOT / "dist/lavora-con-noi.editor.artifact.html").write_text(ed_art, encoding="utf-8")
     # dati.js per lo sviluppo locale di src/index.html
     (ROOT / "src/dati.js").write_text(f"window.SD_DATI = {dati};\n", encoding="utf-8")
     print("Prototipo: dist/lavora-con-noi.html")
@@ -409,4 +422,9 @@ def bundle(base, catalogo):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         sys.exit(__doc__)
-    main(sys.argv[1])
+    if sys.argv[1] == "--bundle":
+        # solo impacchettamento, dai dati già generati (senza rileggere la matrice)
+        bundle(json.loads((ROOT / "data/base-informativa.json").read_text(encoding="utf-8")),
+               json.loads((ROOT / "content/catalogo.json").read_text(encoding="utf-8")))
+    else:
+        main(sys.argv[1])
