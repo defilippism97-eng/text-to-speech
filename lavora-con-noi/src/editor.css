@@ -91,3 +91,8 @@ a.ed-btn { text-decoration: none; justify-content: center; }
 .ed-item-actions { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px; }
 .ed-link-danger { color: #B42318; }
 .ed-link.ed-armed { background: #B42318; color: #fff; border-radius: var(--r-pill); padding: 6px 10px; text-decoration: none; }
+
+/* priorità (versione locale) */
+.ed-stato.ed-importante { background: #FDE7E4; color: #B42318; }
+.ed-stato.ed-opzionale { background: var(--far-100); color: var(--ink-2); }
+.ed-changed.ed-imp { background-image: linear-gradient(transparent 62%, rgba(226, 85, 62, .35) 62%); }

@@ -17,11 +17,14 @@
 
   var CTX = ["sezione", "passo", "settore", "territorio", "servizio", "mansione", "percorso", "area", "storia", "finestra"];
   var CTX_LABEL = { sezione: "Sezione", passo: "Passo", settore: "Settore", territorio: "Territorio", servizio: "Servizio", mansione: "Mansione", percorso: "Percorso di crescita", area: "Area formativa", storia: "Storia", finestra: "Finestra" };
-  var STATI = { proposta: "Proposta", rivedere: "Da rivedere", approvata: "Approvata" };
   var FMT = "strong,b,em,i,u,br,code,span.hl";
   var SKIP = "script,style,svg,noscript,textarea,input,select,option,.ed-ui,[aria-hidden='true'] svg";
 
   var LOCALE = window.SD_EDITOR_MODE === "locale";
+  // condivisa (claude.ai): flusso di approvazione · locale: priorità indicata da chi propone
+  var STATI = LOCALE ? { opzionale: "Opzionale", importante: "Importante" } : { proposta: "Proposta", rivedere: "Da rivedere", approvata: "Approvata" };
+  var STATO_BASE = LOCALE ? "opzionale" : "proposta";
+  var STATO_NOME = LOCALE ? "Priorità" : "Stato";
   var EMAIL = window.SD_EDITOR_EMAIL || "marco.defilippis@societadolce.it";
   var db = null, user = null, downloads = null;
   var canWrite = false, myId = null;
@@ -226,12 +229,13 @@
       }
       el.classList.add("ed-changed");
       el.classList.toggle("ed-ok", o.stato === "approvata");
+      el.classList.toggle("ed-imp", o.stato === "importante");
     } else {
       if (el.dataset.edOrig != null) {
         if (el.__edHTML != null) el.innerHTML = el.__edHTML; else replaceOwn(el, el.dataset.edOrig);
         delete el.dataset.edOrig; delete el.dataset.edApplied; el.__edHTML = null;
       }
-      el.classList.remove("ed-changed", "ed-ok");
+      el.classList.remove("ed-changed", "ed-ok", "ed-imp");
     }
     el.classList.toggle("ed-pending", !!(o && showOriginal));
   }
@@ -366,12 +370,12 @@
       '<div class="ed-pop-head"><h2 id="ed-pop-title">' + (o ? "Modifica la proposta" : "Modifica testo") + '</h2><button type="button" class="ed-x" data-pop="close" aria-label="Chiudi">×</button></div>' +
       '<ul class="ed-ctx">' + chips + '<li><span>Elemento</span>' + esc(i.elemento) + "</li></ul>" +
       '<p class="ed-lab">Testo originale</p><blockquote class="ed-orig">' + esc(i.orig) + "</blockquote>" +
-      (o ? '<p class="ed-meta">Proposta attuale di <b data-uid="' + esc(o.autore) + '">' + esc(nome(o.autore)) + "</b> · " + esc(quando(o.quando)) + ' · <span class="ed-stato ed-' + esc(o.stato || "proposta") + '">' + esc(STATI[o.stato] || "Proposta") + "</span></p>" : "") +
+      (o ? '<p class="ed-meta">Proposta attuale di <b data-uid="' + esc(o.autore) + '">' + esc(nome(o.autore)) + "</b> · " + esc(quando(o.quando)) + ' · <span class="ed-stato ed-' + esc(o.stato || STATO_BASE) + '">' + esc(STATI[o.stato] || STATI[STATO_BASE]) + "</span></p>" : "") +
       '<label class="ed-lab" for="ed-text">La tua proposta</label>' +
       '<textarea id="ed-text" rows="4">' + esc(o ? o.testo : i.orig) + "</textarea>" +
       (formattato ? '<p class="ed-hint">Il testo originale ha parti evidenziate: nell\'anteprima la proposta appare come testo semplice.</p>' : "") +
       '<div class="ed-row"><div><label class="ed-lab" for="ed-nota">Nota per chi rivede (facoltativa)</label><input id="ed-nota" type="text" value="' + esc(o ? o.nota || "" : "") + '" placeholder="Es. dato da verificare con il coordinatore"></div>' +
-      '<div><label class="ed-lab" for="ed-stato">Stato</label><select id="ed-stato">' + Object.keys(STATI).map(function (k) { return '<option value="' + k + '"' + ((o ? o.stato || "proposta" : "proposta") === k ? " selected" : "") + ">" + STATI[k] + "</option>"; }).join("") + "</select></div></div>" +
+      '<div><label class="ed-lab" for="ed-stato">' + STATO_NOME + '</label><select id="ed-stato">' + Object.keys(STATI).map(function (k) { return '<option value="' + k + '"' + ((o ? o.stato || STATO_BASE : STATO_BASE) === k ? " selected" : "") + ">" + STATI[k] + "</option>"; }).join("") + "</select></div></div>" +
       (local && !local.mem.autore ? '<label class="ed-lab" for="ed-autore">Il tuo nome e cognome</label><input id="ed-autore" type="text" autocomplete="name" placeholder="Compare nel file che invierai"><p class="ed-hint">Lo chiediamo solo la prima volta: serve a riconoscere le tue proposte nel file esportato.</p>' : "") +
       (canWrite ? "" : '<p class="ed-hint ed-warn">' + esc(db ? "Puoi vedere le proposte ma non salvarne: serve il ruolo Contributor o superiore sulla pagina." : "Il salvataggio condiviso non è disponibile in questa vista: apri la pagina su claude.ai con il tuo account.") + "</p>") +
       '<div class="ed-actions">' +
@@ -467,7 +471,7 @@
     if (panel.hidden) return;
     var q = filtro.q.toLowerCase();
     var rows = elenco().filter(function (r) {
-      if (filtro.stato && (r.stato || "proposta") !== filtro.stato) return false;
+      if (filtro.stato && (r.stato || STATO_BASE) !== filtro.stato) return false;
       return !q || [r.contesto, r.originale, r.testo, r.nota].join(" ").toLowerCase().indexOf(q) >= 0;
     });
     var gruppi = {};
@@ -476,13 +480,13 @@
     panel.innerHTML =
       '<div class="ed-pop-head"><h2 id="ed-panel-title">Proposte (' + Object.keys(overrides).length + ')</h2><button type="button" class="ed-x" data-pl="close" aria-label="Chiudi">×</button></div>' +
       '<div class="ed-row"><div><label class="ed-lab" for="ed-q">Cerca</label><input id="ed-q" type="search" value="' + esc(filtro.q) + '" placeholder="Servizio, mansione, testo…"></div>' +
-      '<div><label class="ed-lab" for="ed-f">Stato</label><select id="ed-f"><option value="">Tutti</option>' + Object.keys(STATI).map(function (k) { return '<option value="' + k + '"' + (filtro.stato === k ? " selected" : "") + ">" + STATI[k] + "</option>"; }).join("") + "</select></div></div>" +
+      '<div><label class="ed-lab" for="ed-f">' + STATO_NOME + '</label><select id="ed-f"><option value="">Tutti</option>' + Object.keys(STATI).map(function (k) { return '<option value="' + k + '"' + (filtro.stato === k ? " selected" : "") + ">" + STATI[k] + "</option>"; }).join("") + "</select></div></div>" +
       (rows.length ? Object.keys(gruppi).sort().map(function (g) {
         return '<section class="ed-group"><h3>' + esc(g) + "</h3>" + gruppi[g].map(function (r) {
           return '<article class="ed-item"><p class="ed-item-ctx">' + esc(r.contesto) + "</p>" +
             '<p class="ed-was">' + esc(r.originale) + '</p><p class="ed-now">' + esc(r.testo) + "</p>" +
             (r.nota ? '<p class="ed-item-nota">Nota: ' + esc(r.nota) + "</p>" : "") +
-            '<p class="ed-meta"><span class="ed-stato ed-' + esc(r.stato || "proposta") + '">' + esc(STATI[r.stato] || "Proposta") + "</span> " + esc(nome(r.autore)) + " · " + esc(quando(r.quando)) +
+            '<p class="ed-meta"><span class="ed-stato ed-' + esc(r.stato || STATO_BASE) + '">' + esc(STATI[r.stato] || STATI[STATO_BASE]) + "</span> " + esc(nome(r.autore)) + " · " + esc(quando(r.quando)) +
             "</p>" +
             '<div class="ed-item-actions"><button type="button" class="ed-link" data-go="' + esc(r.id) + '">Vai al testo</button>' +
             (canWrite ? '<button type="button" class="ed-link" data-mod="' + esc(r.id) + '">Modifica</button><button type="button" class="ed-link ed-link-danger" data-del="' + esc(r.id) + '">Elimina</button>' : "") +
@@ -543,7 +547,7 @@
       var c = r.ctx || {};
       return { "ID testo": r.id, Sezione: c.sezione || "", Passo: c.passo || "", Settore: c.settore || "", Territorio: c.territorio || "", Servizio: c.servizio || "", Mansione: c.mansione || "",
         "Altro contesto": [c.percorso, c.area, c.storia, c.finestra].filter(Boolean).join(" · "), Elemento: r.elemento || "",
-        "Testo originale": r.originale, "Testo proposto": r.testo, Nota: r.nota || "", Stato: STATI[r.stato] || "Proposta", Autore: nome(r.autore), "Ultima modifica": r.quando || "" };
+        "Testo originale": r.originale, "Testo proposto": r.testo, Nota: r.nota || "", [STATO_NOME]: STATI[r.stato] || STATI[STATO_BASE], Autore: nome(r.autore), "Ultima modifica": r.quando || "" };
     });
   }
   function toCsv(rows) {
@@ -633,7 +637,7 @@
         await risolviNomi(rs.map(function (r) { return r.autore; }));
         if (!rs.length) return showToast("Lo storico è vuoto.");
         salvaFile("storico-testi-lavora-con-noi-" + oggi() + ".csv", toCsv(rs.map(function (r) {
-          return { Quando: r.quando, Autore: nome(r.autore), Azione: r.azione === "ripristino" ? "Ripristino" : "Modifica", Contesto: r.contesto, "Testo originale": r.originale, Prima: r.prima, Dopo: r.dopo, Nota: r.nota || "", Stato: STATI[r.stato] || "" };
+          return { Quando: r.quando, Autore: nome(r.autore), Azione: r.azione === "ripristino" ? "Ripristino" : "Modifica", Contesto: r.contesto, "Testo originale": r.originale, Prima: r.prima, Dopo: r.dopo, Nota: r.nota || "", [STATO_NOME]: STATI[r.stato] || "" };
         })));
       } catch (err) { showToast("Storico non disponibile."); }
     }

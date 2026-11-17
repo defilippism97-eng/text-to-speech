@@ -50,6 +50,9 @@ await page.locator(".hero-sub").click();
 check(await page.locator("#ed-autore").count() === 0, "il nome non viene richiesto di nuovo");
 await page.fill("#ed-text", "Da oltre 35 anni nei servizi alla persona.");
 await page.fill("#ed-nota", "Frase più breve");
+check((await page.locator("#ed-stato option").allInnerTexts()).join("|") === "Opzionale|Importante", "priorità con «Opzionale» e «Importante»");
+check((await page.locator('label[for="ed-stato"]').innerText()).toLowerCase().includes("priorità"), "il campo si chiama «Priorità»");
+await page.selectOption("#ed-stato", "importante");
 await page.click('[data-pop="save"]');
 await page.waitForTimeout(200);
 
@@ -93,6 +96,7 @@ const file = await dl.path();
 const csv = fs.readFileSync(file, "utf8");
 check(dl.suggestedFilename().startsWith("proposte-testi-lavora-con-noi-giulia-bianchi-") && dl.suggestedFilename().endsWith(".csv"), "nome del file con l'autore: " + dl.suggestedFilename());
 check(csv.charCodeAt(0) === 0xfeff && csv.includes("ID testo;Sezione") && csv.includes("Giulia Bianchi") && csv.includes("Frase più breve"), "CSV per Excel con ID, autore e nota");
+check(csv.split("\r\n")[0].includes(";Priorità;") && csv.includes(";Importante;") && csv.includes(";Opzionale;"), "CSV con la colonna Priorità (Importante / Opzionale)");
 check(csv.trim().split("\r\n").length === 3 && csv.includes("in tre regioni") && !csv.includes("Proposta da eliminare"), "CSV con le 2 proposte aggiornate (quella eliminata non c'è)");
 await page.waitForTimeout(200);
 check((await page.locator(".ed-status").innerText()).includes("Esportate il"), "dopo l'export il promemoria cambia");
