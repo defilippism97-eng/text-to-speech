@@ -73,3 +73,16 @@ body.ed-on .ed-hover, .ed-hover { outline: 2px dashed var(--brand-500); outline-
 /* spazio per la barra in fondo e la striscia in alto */
 body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
 @media (prefers-reduced-motion: reduce) { .ed-flash { animation: none; outline: 3px solid var(--sun-400); } }
+
+/* versione «locale»: promemoria export e passi di invio */
+.ed-btn.ed-attn { position: relative; border-color: var(--sun-400); }
+.ed-btn.ed-attn::after { content: ""; position: absolute; top: 4px; right: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--sun-400); box-shadow: 0 0 0 2px var(--surface); }
+.ed-status { color: var(--sun-700); font-weight: 600; }
+a.ed-btn { text-decoration: none; justify-content: center; }
+.ed-actions.ed-col .ed-btn { justify-content: center; }
+.ed-steps { margin: var(--s3) 0 0; padding-left: 20px; display: grid; gap: var(--s2); font-size: var(--fs-sm); color: var(--ink-2); }
+.ed-mail { font-weight: 700; color: var(--brand-800); user-select: all; overflow-wrap: anywhere; }
+.ed-more { margin-top: var(--s5); border-top: 1px solid var(--line); padding-top: var(--s3); }
+.ed-more summary { cursor: pointer; font-weight: 600; color: var(--brand-800); min-height: 32px; }
+.ed-btn.ed-danger { border-color: #F2C3BE; color: #B42318; }
+.ed-btn.ed-danger.ed-armed { background: #B42318; border-color: #B42318; color: #fff; }

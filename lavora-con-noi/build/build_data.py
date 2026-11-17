@@ -414,6 +414,11 @@ def bundle(base, catalogo):
     for pat in (r"<!doctype html>\s*", r"<html[^>]*>\s*", r"</html>\s*", r"<head>\s*", r"</head>\s*", r"<body>\s*", r"</body>\s*", r'<meta charset="utf-8">\s*', r'<meta name="viewport"[^>]*>\s*'):
         ed_art = re.sub(pat, "", ed_art, flags=re.I)
     (ROOT / "dist/lavora-con-noi.editor.artifact.html").write_text(ed_art, encoding="utf-8")
+    # Versione per un sito qualsiasi (Netlify): proposte salvate nel browser ed esportate per email
+    loc = ed.replace("<script>window.SD_EDITOR = true;</script>", '<script>window.SD_EDITOR = true; window.SD_EDITOR_MODE = "locale"; window.SD_EDITOR_EMAIL = "marco.defilippis@societadolce.it";</script>', 1)
+    loc = loc.replace("<title>", '<meta name="robots" content="noindex, nofollow">\n<title>', 1)
+    (ROOT / "dist/netlify").mkdir(exist_ok=True)
+    (ROOT / "dist/netlify/index.html").write_text(loc, encoding="utf-8")
     # dati.js per lo sviluppo locale di src/index.html
     (ROOT / "src/dati.js").write_text(f"window.SD_DATI = {dati};\n", encoding="utf-8")
     print("Prototipo: dist/lavora-con-noi.html")

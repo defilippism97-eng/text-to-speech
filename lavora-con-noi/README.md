@@ -8,6 +8,7 @@ Progetto UX/UI e prototipo navigabile di una pagina «Lavora con noi» pensata c
 |---|---|
 | `dist/lavora-con-noi.html` | **Prototipo navigabile**, autocontenuto (si apre con doppio clic nel browser, anche offline) |
 | `dist/lavora-con-noi.editor.html` | **Versione di revisione dei testi**: stessa pagina, ogni testo si corregge nel punto in cui compare; le proposte (con contesto, autore, nota, stato e storico) sono condivise tramite il database della pagina pubblicata ed esportabili in CSV/JSON. Codice in `src/editor.js` e `src/editor.css`, test in `build/test_editor.mjs` |
+| `dist/netlify/index.html` | **Revisione dei testi senza account** (da pubblicare su Netlify o qualsiasi sito): stessa interfaccia, le proposte restano nel browser di chi le scrive e si esportano in CSV da inviare a marco.defilippis@societadolce.it; avviso se si esce senza esportare. Test in `build/test_editor_locale.mjs` |
 | `docs/testi-lavora-con-noi.docx` | **Tutti i testi del sito** per la verifica: generali, settori, e per settore → territorio → servizio → mansione, con indice cliccabile. Si rigenera con `node build/estrai_testi.mjs` (con NODE_PATH di Playwright) e `node build/build_testi_docx.cjs` |
 | `docs/progetto.html` | **Documento di progetto**: concept, UX flow, information architecture, wireframe desktop e mobile, UI, design system, logica di matching, specifiche tecniche, report sulla qualità dei dati |
 

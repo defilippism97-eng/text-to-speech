@@ -823,6 +823,19 @@ body.ed-on .ed-hover, .ed-hover { outline: 2px dashed var(--brand-500); outline-
 body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
 @media (prefers-reduced-motion: reduce) { .ed-flash { animation: none; outline: 3px solid var(--sun-400); } }
 
+/* versione «locale»: promemoria export e passi di invio */
+.ed-btn.ed-attn { position: relative; border-color: var(--sun-400); }
+.ed-btn.ed-attn::after { content: ""; position: absolute; top: 4px; right: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--sun-400); box-shadow: 0 0 0 2px var(--surface); }
+.ed-status { color: var(--sun-700); font-weight: 600; }
+a.ed-btn { text-decoration: none; justify-content: center; }
+.ed-actions.ed-col .ed-btn { justify-content: center; }
+.ed-steps { margin: var(--s3) 0 0; padding-left: 20px; display: grid; gap: var(--s2); font-size: var(--fs-sm); color: var(--ink-2); }
+.ed-mail { font-weight: 700; color: var(--brand-800); user-select: all; overflow-wrap: anywhere; }
+.ed-more { margin-top: var(--s5); border-top: 1px solid var(--line); padding-top: var(--s3); }
+.ed-more summary { cursor: pointer; font-weight: 600; color: var(--brand-800); min-height: 32px; }
+.ed-btn.ed-danger { border-color: #F2C3BE; color: #B42318; }
+.ed-btn.ed-danger.ed-armed { background: #B42318; border-color: #B42318; color: #fff; }
+
 </style>
 </head>
 <body>
@@ -2178,6 +2191,10 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
    con il suo contesto (sezione › settore › territorio › servizio › mansione) nel database condiviso
    della pagina (capability `db`), applicata in anteprima per tutti ed esportabile in CSV/JSON.
 
+   Con window.SD_EDITOR_MODE = "locale" (versione da pubblicare su un sito qualsiasi, es. Netlify)
+   le proposte restano nel browser di chi le scrive (localStorage) e si esportano in un file da inviare
+   per email: stessa interfaccia, stesso modello dati, nessun account richiesto.
+
    Collezioni:
      modifiche/<id>   la proposta in vigore per un testo (id = hash di contesto + testo originale)
      registro/<auto>  ogni salvataggio e ripristino, per lo storico                              */
@@ -2191,6 +2208,8 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   var FMT = "strong,b,em,i,u,br,code,span.hl";
   var SKIP = "script,style,svg,noscript,textarea,input,select,option,.ed-ui,[aria-hidden='true'] svg";
 
+  var LOCALE = window.SD_EDITOR_MODE === "locale";
+  var EMAIL = window.SD_EDITOR_EMAIL || "marco.defilippis@societadolce.it";
   var db = null, user = null, downloads = null;
   var canWrite = false, myId = null;
   var overrides = {};          // id -> documento in modifiche
@@ -2224,6 +2243,75 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
       mancanti.forEach(function (id) { names[id] = (ps && ps[id] && ps[id].name) || "Collega"; });
     } catch (e) { /* i nomi restano generici */ }
   }
+
+  // ------------------------------------------------------------ archivio locale (versione «locale»)
+  var LS_KEY = "sd-lcn-revisione-testi-v1";
+  var local = null;
+  function creaArchivioLocale() {
+    var mem = null, persistente = true;
+    try { mem = JSON.parse(localStorage.getItem(LS_KEY)); } catch (e) { mem = null; }
+    if (!mem || typeof mem !== "object" || !mem.docs) mem = { docs: {}, autore: "", daEsportare: false, ultimoExport: "" };
+    function salvaMem() { try { localStorage.setItem(LS_KEY, JSON.stringify(mem)); persistente = true; } catch (e) { persistente = false; } }
+    salvaMem();
+    var subs = [];
+    var clone = function (o) { return JSON.parse(JSON.stringify(o)); };
+    var snapDoc = function (id, data) { return { id: id, exists: !!data, data: function () { return data && clone(data); }, metadata: { fromCache: false, hasPendingWrites: false } }; };
+    function notifica() { salvaMem(); subs.forEach(function (f) { f(); }); }
+    function coll(path) {
+      function chiavi() { return Object.keys(mem.docs).filter(function (k) { return k.indexOf(path + "/") === 0; }); }
+      function query(filtri, ordine, lim) {
+        var q = {
+          where: function (f, op, v) { return query(filtri.concat([[f, op, v]]), ordine, lim); },
+          orderBy: function (f, d) { return query(filtri, [f, d || "asc"], lim); },
+          limit: function (n) { return query(filtri, ordine, n); },
+          get: function () {
+            var ks = chiavi().filter(function (k) { return filtri.every(function (w) { return w[1] !== "==" || mem.docs[k][w[0]] === w[2]; }); });
+            if (ordine) ks.sort(function (a, b) { var x = mem.docs[a][ordine[0]] || "", y = mem.docs[b][ordine[0]] || ""; return (x > y ? 1 : x < y ? -1 : 0) * (ordine[1] === "desc" ? -1 : 1); });
+            var docs = ks.slice(0, lim).map(function (k) { return snapDoc(k.slice(path.length + 1), mem.docs[k]); });
+            return Promise.resolve({ docs: docs, size: docs.length, empty: !docs.length, docChanges: function () { return []; }, metadata: { fromCache: false, hasPendingWrites: false } });
+          },
+          onSnapshot: function (next) { var run = function () { q.get().then(next); }; subs.push(run); run(); return function () { subs = subs.filter(function (f) { return f !== run; }); }; },
+        };
+        return q;
+      }
+      var q = query([], null, 1000);
+      q.path = path;
+      q.doc = function (id) {
+        return {
+          id: id, path: path + "/" + id,
+          get: function () { return Promise.resolve(snapDoc(id, mem.docs[path + "/" + id])); },
+          set: function (d) { mem.docs[path + "/" + id] = clone(d); notifica(); return Promise.resolve(); },
+          delete: function () { delete mem.docs[path + "/" + id]; notifica(); return Promise.resolve(); },
+        };
+      };
+      q.add = function (d) { var id = "r" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); mem.docs[path + "/" + id] = clone(d); notifica(); return Promise.resolve({ id: id }); };
+      return q;
+    }
+    return {
+      mem: mem, salvaMem: salvaMem, persistente: function () { return persistente; },
+      caps: {
+        db: { collection: coll },
+        user: { id: function () { return Promise.resolve(mem.autore || null); }, can: function () { return Promise.resolve(true); }, profiles: function (ids) { var o = {}; ids.forEach(function (i) { o[i] = { id: i, name: i }; }); return Promise.resolve(o); } },
+        downloads: {
+          save: function (r) {
+            var blob = new Blob([r.data], { type: /\.json$/.test(r.filename) ? "application/json" : "text/csv;charset=utf-8" });
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob); a.download = r.filename; a.className = "ed-ui"; a.hidden = true;
+            document.body.appendChild(a); a.click();
+            setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+            return Promise.resolve({ status: "saved" });
+          },
+        },
+      },
+    };
+  }
+  if (LOCALE) local = creaArchivioLocale();
+  function segnaDaEsportare() { if (!local) return; local.mem.daEsportare = true; local.salvaMem(); refreshBar(); }
+  function segnaEsportato() { if (!local) return; local.mem.daEsportare = false; local.mem.ultimoExport = new Date().toISOString(); local.salvaMem(); refreshBar(); }
+  // avviso se si lascia la pagina con proposte non esportate
+  window.addEventListener("beforeunload", function (e) {
+    if (local && local.mem.daEsportare) { e.preventDefault(); e.returnValue = ""; return ""; }
+  });
 
   // ------------------------------------------------------------ unità di testo
   function ownText(el) {
@@ -2362,7 +2450,9 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   ui.className = "ed-ui";
   var strip = document.createElement("div");
   strip.className = "ed-ui ed-strip"; strip.setAttribute("role", "note");
-  strip.innerHTML = "<b>Revisione dei testi.</b> Attiva «Modifica testi», clicca un testo e scrivi la tua proposta: viene salvata nel suo contesto, la vedono tutti e si esporta in Excel. Per usare la pagina disattiva la modalità (tasto E); anche senza modalità, Alt+clic su un testo lo apre in modifica.";
+  strip.innerHTML = LOCALE
+    ? "<b>Revisione dei testi.</b> Attiva «Modifica testi», clicca un testo e scrivi la tua proposta: resta salvata in questo browser. Quando hai finito premi «Esporta» e invia il file a <b>" + EMAIL + "</b>. Per usare la pagina disattiva la modalità (tasto E); anche senza modalità, Alt+clic su un testo lo apre in modifica."
+    : "<b>Revisione dei testi.</b> Attiva «Modifica testi», clicca un testo e scrivi la tua proposta: viene salvata nel suo contesto, la vedono tutti e si esporta in Excel. Per usare la pagina disattiva la modalità (tasto E); anche senza modalità, Alt+clic su un testo lo apre in modifica.";
   document.body.insertBefore(strip, document.body.firstChild);
   ui.innerHTML =
     '<div class="ed-bar" role="toolbar" aria-label="Revisione dei testi">' +
@@ -2386,7 +2476,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   }
   var obsDialog = new MutationObserver(ospita);
   document.querySelectorAll("dialog").forEach(function (d) { obsDialog.observe(d, { attributes: true, attributeFilter: ["open"] }); });
-  function setStatus(t) { statusMsg = t; $(".ed-status", ui).textContent = t; }
+  function setStatus(t) { statusMsg = t; var n = $(".ed-status", ui); if (n) n.textContent = t; }
   function showToast(t) {
     toast.textContent = t; toast.hidden = false;
     clearTimeout(showToast.t); showToast.t = setTimeout(function () { toast.hidden = true; }, 3200);
@@ -2396,6 +2486,11 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
     $('[data-ed="view"]', bar).setAttribute("aria-pressed", showOriginal);
     $('[data-ed="view"] span', bar).textContent = showOriginal ? "Vedi proposte" : "Vedi originale";
     $(".ed-count", bar).textContent = Object.keys(overrides).length;
+    if (local) {
+      var da = local.mem.daEsportare;
+      $('[data-ed="export"]', bar).classList.toggle("ed-attn", da);
+      setStatus(da ? "Proposte non ancora esportate" : (local.mem.ultimoExport ? "Esportate il " + quando(local.mem.ultimoExport) : ""));
+    }
     document.body.classList.toggle("ed-on", editMode);
   }
   function toggleMode(v) {
@@ -2458,6 +2553,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
       (formattato ? '<p class="ed-hint">Il testo originale ha parti evidenziate: nell\'anteprima la proposta appare come testo semplice.</p>' : "") +
       '<div class="ed-row"><div><label class="ed-lab" for="ed-nota">Nota per chi rivede (facoltativa)</label><input id="ed-nota" type="text" value="' + esc(o ? o.nota || "" : "") + '" placeholder="Es. dato da verificare con il coordinatore"></div>' +
       '<div><label class="ed-lab" for="ed-stato">Stato</label><select id="ed-stato">' + Object.keys(STATI).map(function (k) { return '<option value="' + k + '"' + ((o ? o.stato || "proposta" : "proposta") === k ? " selected" : "") + ">" + STATI[k] + "</option>"; }).join("") + "</select></div></div>" +
+      (local && !local.mem.autore ? '<label class="ed-lab" for="ed-autore">Il tuo nome e cognome</label><input id="ed-autore" type="text" autocomplete="name" placeholder="Compare nel file che invierai"><p class="ed-hint">Lo chiediamo solo la prima volta: serve a riconoscere le tue proposte nel file esportato.</p>' : "") +
       (canWrite ? "" : '<p class="ed-hint ed-warn">' + esc(db ? "Puoi vedere le proposte ma non salvarne: serve il ruolo Contributor o superiore sulla pagina." : "Il salvataggio condiviso non è disponibile in questa vista: apri la pagina su claude.ai con il tuo account.") + "</p>") +
       '<div class="ed-actions">' +
         '<button type="button" class="ed-btn ed-main" data-pop="save"' + (canWrite ? "" : " disabled") + ">Salva proposta</button>" +
@@ -2469,7 +2565,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
     (dlg || ui).appendChild(pop);
     pop.hidden = false;
     var ta = $("#ed-text", pop);
-    ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length);
+    if ($("#ed-autore", pop)) { $("#ed-autore", pop).focus(); } else ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length);
     if (o) risolviNomi([o.autore]).then(function () { var b = $("[data-uid]", pop); if (b) b.textContent = nome(o.autore); });
     caricaStorico(i.id);
   }
@@ -2508,6 +2604,11 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
     if (!current || !db || !canWrite) return;
     var i = current, testo = norm($("#ed-text", pop).value), nota = norm($("#ed-nota", pop).value), stato = $("#ed-stato", pop).value;
     if (!testo) { showToast("Il testo non può essere vuoto."); return; }
+    if (local && !local.mem.autore) {
+      var nomeAutore = norm(($("#ed-autore", pop) || {}).value || "");
+      if (!nomeAutore) { showToast("Scrivi il tuo nome e cognome prima di salvare."); $("#ed-autore", pop).focus(); return; }
+      local.mem.autore = nomeAutore; local.salvaMem(); myId = nomeAutore;
+    }
     if (testo === i.orig) return ripristina();
     var prima = overrides[i.id] ? overrides[i.id].testo : i.orig, now = new Date().toISOString();
     var doc = { k: i.key, ctx: i.ctx, contesto: i.label, elemento: tipoElemento(i.el), servizioId: i.servizioId || "", originale: i.orig, testo: testo, nota: nota, stato: stato, autore: myId || "", quando: now };
@@ -2515,8 +2616,8 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
     try {
       await db.collection("modifiche").doc(i.id).set(doc);
       try { await db.collection("registro").add({ k: i.id, contesto: i.label, originale: i.orig, prima: prima, dopo: testo, nota: nota, stato: stato, autore: myId || "", quando: now, azione: "modifica" }); } catch (e) { /* lo storico è accessorio */ }
-      overrides[i.id] = doc; applyAll(); refreshBar();
-      closePop(); showToast("Proposta salvata.");
+      overrides[i.id] = doc; applyAll(); segnaDaEsportare(); refreshBar();
+      closePop(); showToast(local ? "Proposta salvata in questo browser. Ricordati di esportarla." : "Proposta salvata.");
     } catch (e) { btn.disabled = false; btn.textContent = "Salva proposta"; erroreScrittura(e); }
   }
   async function ripristina() {
@@ -2526,7 +2627,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
     try {
       await db.collection("modifiche").doc(i.id).delete();
       try { await db.collection("registro").add({ k: i.id, contesto: i.label, originale: i.orig, prima: o.testo, dopo: i.orig, nota: "", stato: "", autore: myId || "", quando: new Date().toISOString(), azione: "ripristino" }); } catch (e) { /* accessorio */ }
-      delete overrides[i.id]; applyAll(); refreshBar();
+      delete overrides[i.id]; applyAll(); segnaDaEsportare(); refreshBar();
       closePop(); showToast("Ripristinato il testo originale.");
     } catch (e) { erroreScrittura(e); }
   }
@@ -2605,7 +2706,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   function righeExport() {
     return elenco().map(function (r) {
       var c = r.ctx || {};
-      return { Sezione: c.sezione || "", Passo: c.passo || "", Settore: c.settore || "", Territorio: c.territorio || "", Servizio: c.servizio || "", Mansione: c.mansione || "",
+      return { "ID testo": r.id, Sezione: c.sezione || "", Passo: c.passo || "", Settore: c.settore || "", Territorio: c.territorio || "", Servizio: c.servizio || "", Mansione: c.mansione || "",
         "Altro contesto": [c.percorso, c.area, c.storia, c.finestra].filter(Boolean).join(" · "), Elemento: r.elemento || "",
         "Testo originale": r.originale, "Testo proposto": r.testo, Nota: r.nota || "", Stato: STATI[r.stato] || "Proposta", Autore: nome(r.autore), "Ultima modifica": r.quando || "" };
     });
@@ -2618,11 +2719,12 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   function oggi() { return new Date().toISOString().slice(0, 10); }
   async function salvaFile(filename, data) {
     if (!downloads) { showToast("Il download non è disponibile in questa vista."); return; }
-    try { await downloads.save({ filename: filename, data: data }); showToast("File pronto: " + filename); }
-    catch (e) { if (e && e.code !== "declined") showToast("Download non riuscito (" + (e.code || "errore") + ")."); }
+    try { await downloads.save({ filename: filename, data: data }); showToast(local ? "File scaricato: ora invialo a " + EMAIL : "File pronto: " + filename); return true; }
+    catch (e) { if (e && e.code !== "declined") showToast("Download non riuscito (" + (e.code || "errore") + ")."); return false; }
   }
   function openExport() {
     panel.hidden = false;
+    if (local) return openExportLocale();
     panel.innerHTML =
       '<div class="ed-pop-head"><h2 id="ed-panel-title">Esporta le proposte</h2><button type="button" class="ed-x" data-pl="close" aria-label="Chiudi">×</button></div>' +
       '<p>Le proposte in vigore sono <b>' + Object.keys(overrides).length + "</b>. Il file Excel ha una riga per testo con sezione, settore, territorio, servizio, mansione, testo originale e testo proposto.</p>" +
@@ -2633,13 +2735,61 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
       "</div>" +
       '<p class="ed-hint">Le proposte restano salvate anche sulla pagina: Claude può leggerle direttamente e applicarle alla matrice e ai contenuti del sito.</p>';
   }
+  function openExportLocale() {
+    var n = Object.keys(overrides).length, m = local.mem;
+    var oggetto = "Proposte testi Lavora con noi" + (m.autore ? " – " + m.autore : "");
+    var corpo = "Ciao Marco,\n\nin allegato il file con le mie proposte di modifica ai testi della pagina Lavora con noi.\n\n" + (m.autore || "");
+    panel.innerHTML =
+      '<div class="ed-pop-head"><h2 id="ed-panel-title">Esporta e invia le proposte</h2><button type="button" class="ed-x" data-pl="close" aria-label="Chiudi">×</button></div>' +
+      (m.autore ? '<p class="ed-meta">Proposte di <b>' + esc(m.autore) + '</b> <button type="button" class="ed-link" data-ex="nome">cambia nome</button></p>' : "") +
+      '<ol class="ed-steps">' +
+        "<li><b>Scarica il file</b> con le tue " + n + (n === 1 ? " proposta" : " proposte") + ": si apre con Excel e ha una riga per testo, con il contesto, il testo originale e quello proposto.</li>" +
+        '<li><b>Invialo per email</b> a <span class="ed-mail">' + esc(EMAIL) + '</span>, come allegato.</li>' +
+      "</ol>" +
+      '<div class="ed-actions ed-col">' +
+        '<button type="button" class="ed-btn ed-main" data-ex="csv"' + (n ? "" : " disabled") + ">1. Scarica il file per Excel (CSV)</button>" +
+        '<a class="ed-btn" href="mailto:' + esc(EMAIL) + "?subject=" + encodeURIComponent(oggetto) + "&body=" + encodeURIComponent(corpo) + '">2. Scrivi la mail a Marco</a>' +
+        '<button type="button" class="ed-btn ed-ghost" data-ex="copia">Copia l\'indirizzo email</button>' +
+      "</div>" +
+      '<p class="ed-hint">Il pulsante «Scrivi la mail» apre il tuo programma di posta: ricordati di allegare il file scaricato. Se non si apre, copia l\'indirizzo e scrivi la mail come al solito.</p>' +
+      (m.ultimoExport ? '<p class="ed-hint">Ultimo file scaricato: ' + esc(quando(m.ultimoExport)) + (m.daEsportare ? " · <b>ci sono modifiche successive non ancora esportate</b>" : "") + "</p>" : "") +
+      '<details class="ed-more"><summary>Altre opzioni</summary>' +
+        '<div class="ed-actions ed-col"><button type="button" class="ed-btn" data-ex="storico">Storico delle mie modifiche (CSV)</button>' +
+        '<button type="button" class="ed-btn" data-ex="json">Proposte in formato dati (JSON)</button>' +
+        '<button type="button" class="ed-btn ed-danger" data-ex="svuota"' + (n ? "" : " disabled") + ">Svuota le mie proposte (dopo averle inviate)</button></div>" +
+        '<p class="ed-hint">Le proposte restano solo in questo browser e su questo computer: se cambi dispositivo o cancelli i dati di navigazione non le ritrovi. Esportale prima.' + (local.persistente() ? "" : " <b>Attenzione: questo browser non permette di salvarle, esportale prima di chiudere la pagina.</b>") + "</p>" +
+      "</details>";
+  }
+  var svuotaArmato = false;
   panel.addEventListener("click", async function (e) {
     var b = e.target.closest("[data-ex]");
     if (!b) return;
     var t = b.getAttribute("data-ex");
+    if (local && t === "copia") {
+      try { await navigator.clipboard.writeText(EMAIL); showToast("Indirizzo copiato: " + EMAIL); }
+      catch (err) { showToast("Copia non riuscita: l'indirizzo è " + EMAIL); }
+      return;
+    }
+    if (local && t === "nome") {
+      var nuovo = norm(window.prompt ? (window.prompt("Il tuo nome e cognome", local.mem.autore) || "") : "");
+      if (nuovo) { local.mem.autore = nuovo; local.salvaMem(); myId = nuovo; openExportLocale(); }
+      return;
+    }
+    if (local && t === "svuota") {
+      if (!svuotaArmato) { svuotaArmato = true; b.textContent = "Conferma: cancella tutte le mie proposte"; b.classList.add("ed-armed"); setTimeout(function () { svuotaArmato = false; if (document.contains(b)) { b.textContent = "Svuota le mie proposte (dopo averle inviate)"; b.classList.remove("ed-armed"); } }, 5000); return; }
+      svuotaArmato = false;
+      Object.keys(local.mem.docs).forEach(function (k) { if (k.indexOf("modifiche/") === 0) delete local.mem.docs[k]; });
+      local.mem.daEsportare = false; local.salvaMem();
+      overrides = {}; applyAll(); refreshBar(); openExportLocale(); showToast("Proposte cancellate da questo browser.");
+      return;
+    }
     await risolviNomi(elenco().map(function (r) { return r.autore; }));
-    if (t === "csv") { var rows = righeExport(); if (!rows.length) return showToast("Non ci sono ancora proposte da esportare."); salvaFile("proposte-testi-lavora-con-noi-" + oggi() + ".csv", toCsv(rows)); }
-    if (t === "json") salvaFile("proposte-testi-lavora-con-noi-" + oggi() + ".json", JSON.stringify(elenco(), null, 2));
+    var chi = local && local.mem.autore ? "-" + local.mem.autore.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : "";
+    if (t === "csv") {
+      var rows = righeExport(); if (!rows.length) return showToast("Non ci sono ancora proposte da esportare.");
+      if (await salvaFile("proposte-testi-lavora-con-noi" + chi + "-" + oggi() + ".csv", toCsv(rows))) { segnaEsportato(); if (local) openExportLocale(); }
+    }
+    if (t === "json") { if (await salvaFile("proposte-testi-lavora-con-noi" + chi + "-" + oggi() + ".json", JSON.stringify(elenco(), null, 2))) segnaEsportato(); }
     if (t === "storico") {
       if (!db) return showToast("Storico non disponibile in questa vista.");
       try {
@@ -2658,7 +2808,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
   refreshBar(); setStatus(statusMsg);
   applyAll();
   (async function () {
-    var c = window.claude && window.claude.use ? window.claude : null;
+    var c = local ? { use: function (n) { return Promise.resolve(local.caps[n] || null); } } : (window.claude && window.claude.use ? window.claude : null);
     if (!c) { setStatus("Anteprima locale: per salvare apri la pagina su claude.ai."); return; }
     var res = await Promise.all([c.use("db"), c.use("user"), c.use("downloads")]);
     db = res[0]; user = res[1]; downloads = res[2];
@@ -2674,7 +2824,7 @@ body:has(> .ed-ui) .site-footer { padding-bottom: 120px; }
       var next = {};
       snap.docs.forEach(function (d) { var v = d.data(); if (v && v.testo) next[d.id] = v; });
       overrides = next;
-      setStatus(canWrite ? "" : "Sola lettura: serve il ruolo Contributor per salvare.");
+      if (!local) setStatus(canWrite ? "" : "Sola lettura: serve il ruolo Contributor per salvare.");
       refreshBar(); applyAll(); renderPanel();
     }, function () {
       clearTimeout(timer);
